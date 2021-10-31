@@ -5,6 +5,7 @@
     <Services />
     <Achivements />
     <Study />
+    <Partners />
   </div>
 </template>
 
