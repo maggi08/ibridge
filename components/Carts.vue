@@ -1,17 +1,19 @@
 <template>
-  <v-container class="carts pb-16">
-    <div
-      v-for="(item, index) in carts"
-      :key="index"
-      class="carts-item pointer pa-6 mb-10"
-    >
-      <div v-html="item.svg"></div>
-      <h4 class="carts-item-title mt-4" v-html="$t(item.title)"></h4>
-      <p class="mt-2 cart-text grey-color">
-        {{ $t(item.subtitle) }}
-      </p>
-    </div>
-  </v-container>
+  <div class="light-white-bg">
+    <v-container class="carts pb-16">
+      <div
+        v-for="(item, index) in carts"
+        :key="index"
+        class="carts-item pointer pa-6 mb-10"
+      >
+        <div v-html="item.svg"></div>
+        <h4 class="carts-item-title mt-4" v-html="$t(item.title)"></h4>
+        <p class="mt-2 cart-text grey-color">
+          {{ $t(item.subtitle) }}
+        </p>
+      </div>
+    </v-container>
+  </div>
 </template>
 
 <i18n>

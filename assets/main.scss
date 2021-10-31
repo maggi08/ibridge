@@ -65,6 +65,32 @@ h5 {
   line-height: 120%;
 }
 
+.white-color {
+  color: white;
+}
+.orange-color {
+  color: $orange;
+}
+.grey-color {
+  color: $grey;
+}
+.blue-color {
+  color: $blue;
+}
+.dark-grey-color {
+  color: $dark-grey;
+}
+
+.black-bg {
+  background: #202124;
+}
+.blue-bg {
+  background: #171b2c;
+}
+.light-white-bg {
+  background: $light-white;
+}
+
 .fw-400 {
   font-weight: 400;
 }
@@ -271,23 +297,6 @@ ul {
   .container {
     max-width: 1120px;
   }
-}
-
-.white-color {
-  color: white;
-}
-.orange-color {
-  color: $orange;
-}
-.grey-color {
-  color: $grey;
-}
-
-.black-bg {
-  background: #202124;
-}
-.blue-bg {
-  background: #171b2c;
 }
 
 .pointer {
