@@ -3,6 +3,8 @@
     <Hero />
     <Carts />
     <Services />
+    <Achivements />
+    <Study />
   </div>
 </template>
 

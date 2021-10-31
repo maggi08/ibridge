@@ -24,7 +24,7 @@
 <i18n>
 {
   "en": {
-    "label": "services",
+    "label": "Services",
     "title": "We are here to assist you with every step of your study:",
     "title1": "Evaluation Service ",
     "subtitle1": "We provide our students test for their career guidance",
