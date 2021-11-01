@@ -17,7 +17,7 @@
           </div>
         </div>
       </div>
-      <div class="swiper-pagination my-pagination"></div>
+      <!-- <div class="swiper-pagination my-pagination"></div> -->
     </v-container>
   </div>
 </template>
@@ -25,18 +25,12 @@
 <i18n>
 {
   "en": {
-    "request": "Send request",
     "title": "We cooperate with 300 educational institutions",
-    "subtitle": "Our partners",
-    "": "",
-    "": ""
+    "subtitle": "Our partners"
   },
   "ru": {
-    "request": "Оставить заявку",
     "title": "Сотрудничаем более 300 учебными заведениями",
-    "subtitle": "Партнеры",
-    "": "",
-    "": ""
+    "subtitle": "Партнеры"
   }
 }
 </i18n>
@@ -108,44 +102,44 @@ export default {
           image: require('../assets/img/partners/12.png'),
         },
       ],
-      [
-        {
-          image: require('../assets/img/partners/1.png'),
-        },
-        {
-          image: require('../assets/img/partners/2.png'),
-        },
-        {
-          image: require('../assets/img/partners/3.png'),
-        },
-        {
-          image: require('../assets/img/partners/4.png'),
-        },
-        {
-          image: require('../assets/img/partners/5.png'),
-        },
-        {
-          image: require('../assets/img/partners/6.png'),
-        },
-        {
-          image: require('../assets/img/partners/7.png'),
-        },
-        {
-          image: require('../assets/img/partners/8.png'),
-        },
-        {
-          image: require('../assets/img/partners/9.png'),
-        },
-        {
-          image: require('../assets/img/partners/10.png'),
-        },
-        {
-          image: require('../assets/img/partners/11.png'),
-        },
-        {
-          image: require('../assets/img/partners/12.png'),
-        },
-      ],
+      // [
+      //   {
+      //     image: require('../assets/img/partners/1.png'),
+      //   },
+      //   {
+      //     image: require('../assets/img/partners/2.png'),
+      //   },
+      //   {
+      //     image: require('../assets/img/partners/3.png'),
+      //   },
+      //   {
+      //     image: require('../assets/img/partners/4.png'),
+      //   },
+      //   {
+      //     image: require('../assets/img/partners/5.png'),
+      //   },
+      //   {
+      //     image: require('../assets/img/partners/6.png'),
+      //   },
+      //   {
+      //     image: require('../assets/img/partners/7.png'),
+      //   },
+      //   {
+      //     image: require('../assets/img/partners/8.png'),
+      //   },
+      //   {
+      //     image: require('../assets/img/partners/9.png'),
+      //   },
+      //   {
+      //     image: require('../assets/img/partners/10.png'),
+      //   },
+      //   {
+      //     image: require('../assets/img/partners/11.png'),
+      //   },
+      //   {
+      //     image: require('../assets/img/partners/12.png'),
+      //   },
+      // ],
     ],
   }),
 }

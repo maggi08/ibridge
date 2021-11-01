@@ -6,6 +6,9 @@
     <Achivements />
     <Study />
     <Partners />
+    <Accreditations />
+    <Gallery />
+    <Map />
   </div>
 </template>
 

@@ -226,10 +226,11 @@ export default {
     is_transparent: true,
   }),
   mounted() {
-    window.addEventListener('scroll', this.onResize)
+    this.onScroll()
+    window.addEventListener('scroll', this.onScroll)
   },
   methods: {
-    onResize() {
+    onScroll() {
       const pos = window.scrollY
       if (pos > 0) this.is_transparent = false
       else this.is_transparent = true

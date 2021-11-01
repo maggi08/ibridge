@@ -1,5 +1,5 @@
 <template>
-  <v-container class="pt-16 pb-16">
+  <v-container id="achivements" class="pt-16 pb-16">
     <p class="label grey-color text-center text-lg-left">{{ $t('label') }}</p>
     <h2 class="mt-3 blue-color text-center text-lg-left">{{ $t('title') }}</h2>
 
@@ -20,7 +20,9 @@
             mx-auto
           "
         >
-          <div class="achivements-item__number">{{ item.number }}</div>
+          <div :id="`number${index}`" class="achivements-item__number">
+            {{ item.number }}
+          </div>
           <h5 class="mt-2">{{ $t(item.title) }}</h5>
         </div>
       </div>
@@ -52,6 +54,7 @@
 <script>
 export default {
   data: () => ({
+    isDone: false,
     achivements: [
       {
         title: 'title1',
@@ -71,6 +74,42 @@ export default {
       },
     ],
   }),
+  mounted() {
+    this.onScroll()
+    window.addEventListener('scroll', this.onScroll)
+  },
+  methods: {
+    onScroll() {
+      if (this.isDone) {
+        window.removeEventListener('scroll', this.onScroll)
+        return
+      }
+      const windowPos = window.scrollY + screen.height
+      const achivements = document.getElementById('achivements')
+      const numbers = document.querySelectorAll('.achivements-item__number')
+      const position = ('achivements', achivements.offsetTop)
+      if (windowPos >= position) {
+        for (const item of numbers) {
+          this.animateValue(item, 0, item.innerHTML, 3000)
+        }
+        this.isDone = true
+      }
+    },
+    animateValue(obj, start, end, duration) {
+      if (!process.client) return
+
+      let startTimestamp = null
+      const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1)
+        obj.innerHTML = Math.floor(progress * (end - start) + start)
+        if (progress < 1) {
+          window.requestAnimationFrame(step)
+        }
+      }
+      window.requestAnimationFrame(step)
+    },
+  },
 }
 </script>
 

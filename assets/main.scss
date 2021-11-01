@@ -90,11 +90,12 @@ h5 {
 .light-white-bg {
   background: $light-white;
 }
-
+.orange-bg {
+  background: $orange;
+}
 .m-w-480 {
   max-width: 480px;
 }
-
 .fw-400 {
   font-weight: 400;
 }
@@ -138,7 +139,6 @@ button {
     background: #aeaeae;
   }
 }
-
 .btn-orange-outline {
   text-decoration: none;
   padding: 11px 23px;
@@ -168,7 +168,6 @@ button {
     border: 1px solid #aeaeae;
   }
 }
-
 .big-btn-orange {
   text-decoration: none;
   padding: 16px 32px;
@@ -195,7 +194,6 @@ button {
     background: #aeaeae;
   }
 }
-
 .big-btn-black {
   text-decoration: none;
   padding: 16px 32px;
@@ -222,7 +220,6 @@ button {
     background: #aeaeae;
   }
 }
-
 .big-btn-outline {
   text-decoration: none;
   padding: 15px 31px;
@@ -250,7 +247,6 @@ button {
     border: 1px solid #aeaeae;
   }
 }
-
 .btn-outline-try {
   text-decoration: none;
   padding: 10px 24px;
