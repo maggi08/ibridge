@@ -1,8 +1,8 @@
 <template>
   <v-app>
-    <Header />
+    <Header @openModal="openModal" />
     <v-main>
-      <Nuxt />
+      <Nuxt @openModal="openModal" />
     </v-main>
     <Footer />
   </v-app>
@@ -11,6 +11,11 @@
 <script>
 export default {
   data: () => ({}),
+  methods: {
+    openModal() {
+      console.log(123)
+    },
+  },
 }
 </script>
 

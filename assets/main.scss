@@ -27,7 +27,8 @@ h2 {
   font-size: 30px;
   line-height: 120%;
 }
-h3 {
+h3,
+.h3 {
   font-family: 'Playfair Display', serif;
   font-size: 22px;
   line-height: 120%;
@@ -37,7 +38,8 @@ h4 {
   font-size: 20px;
   line-height: 120%;
 }
-h5 {
+h5,
+.h5 {
   font-weight: 500;
   font-size: 16px;
   line-height: 120%;
@@ -177,7 +179,7 @@ button {
   font-weight: 500;
   font-size: 16px;
   line-height: 100%;
-  color: #ffffff;
+  color: #ffffff !important;
 
   &:hover,
   &-hover {

@@ -21,7 +21,7 @@
         <p class="subtitle mt-6">{{ $t('subtitle') }}</p>
         <button
           class="mt-14 mt-sm-8 big-btn-orange"
-          @click="$router.push('#request')"
+          @click="$emit('openModal')"
         >
           {{ $t('request') }}
         </button>
