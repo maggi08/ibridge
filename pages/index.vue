@@ -3,6 +3,12 @@
     <Hero />
     <Carts />
     <Services />
+    <Achivements />
+    <Study />
+    <Partners />
+    <Accreditations />
+    <Gallery />
+    <Map />
   </div>
 </template>
 

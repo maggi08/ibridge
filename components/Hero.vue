@@ -25,7 +25,7 @@
         <p class="white-color mt-5">
           {{ $t('subtitle') }}
         </p>
-        <button class="big-btn-orange mt-9" @click="$router.push('#request')">
+        <button class="big-btn-orange mt-9" @click="$emit('openModal')">
           {{ $t('gotoapplication') }}
         </button>
       </div>

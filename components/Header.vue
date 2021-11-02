@@ -164,7 +164,7 @@
         <button
           class="ml-6 btn-orange"
           :class="{ 'd-none': is_transparent }"
-          @click="$router.push('#request')"
+          @click="openModal"
         >
           {{ $t('gotoapplication') }}
         </button>
@@ -196,6 +196,53 @@
         </svg>
       </div>
     </v-container>
+
+    <v-dialog v-model="request_modal" width="520">
+      <v-card class="pa-10 pt-12 my-modal">
+        <div class="close" @click="closeModal()">
+          <svg
+            width="24"
+            height="25"
+            viewBox="0 0 24 25"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M18 6.5L6 18.5"
+              stroke="#202124"
+              stroke-width="2"
+              stroke-linecap="square"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M6 6.5L18 18.5"
+              stroke="#202124"
+              stroke-width="2"
+              stroke-linecap="square"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+
+        <h5 class="text-center">
+          {{ $t('modal_title') }}
+        </h5>
+        <v-form refs="form" class="mt-6" @submit.prevent="submitForm">
+          <p class="label blue-color">
+            {{ $t('label1') }}
+          </p>
+
+          <p class="label blue-color mt-4">
+            {{ $t('label2') }}
+          </p>
+          <p class="label text-center mt-6" v-html="$t('policy')"></p>
+
+          <button type="submit" class="big-btn-orange mt-10 w-100">
+            {{ $t('btn') }}
+          </button>
+        </v-form>
+      </v-card>
+    </v-dialog>
   </header>
 </template>
 
@@ -207,7 +254,14 @@
       "services":"Services",
       "partners":"Our partners",
       "contacts":"Contacts",
-      "gotoapplication":"Send request"
+      "gotoapplication":"Send request",
+      "modal_title":"Please fill out the form and we will contact you shortly. ",
+      "label1":"Name*",
+      "label2":"Phone*",
+      "btn":"Send request",
+      "placeholder1":"Your name",
+      "placeholder2":"Phone number",
+      "policy":"By leaving data on the site, you agree with <span class='label orange-color'>Privacy Policy</span>"
     },
     "ru": {
       "logo_text":"Консалтинговое агенство <br> по образованию за рубежом",
@@ -215,7 +269,14 @@
       "services":"Услуги",
       "partners":"Партнеры",
       "contacts":"Контакты",
-      "gotoapplication":"Оставить заявку"
+      "gotoapplication":"Оставить заявку",
+      "modal_title":"Заполните форму и мы с вами свяжемся:",
+      "label1":"Имя*",
+      "label2":"Номер телефона*",
+      "btn":"Оставить заявку",
+      "placeholder1":"Ваше имя",
+      "placeholder2":"Ваш номер телефона",
+      "policy":"Оставляя данные на сайте, Вы соглашаетесь с <span class='label orange-color'>Политикой конфиденциальности</span>"
     }
   }
 </i18n>
@@ -223,13 +284,26 @@
 <script>
 export default {
   data: () => ({
+    request_modal: true,
     is_transparent: true,
+    form: {},
   }),
   mounted() {
-    window.addEventListener('scroll', this.onResize)
+    this.onScroll()
+    window.addEventListener('scroll', this.onScroll)
   },
   methods: {
-    onResize() {
+    submitForm() {
+      if (!this.$refs.form.validate()) return
+      console.log(this.form)
+    },
+    closeModal() {
+      this.request_modal = false
+    },
+    openModal() {
+      this.request_modal = true
+    },
+    onScroll() {
       const pos = window.scrollY
       if (pos > 0) this.is_transparent = false
       else this.is_transparent = true
@@ -261,6 +335,17 @@ export default {
   &-container {
     width: 100%;
     height: 80px;
+  }
+}
+
+.my-modal {
+  position: relative;
+
+  .close {
+    position: aboslute;
+    top: 16px;
+    right: 16px;
+    cursor: pointer;
   }
 }
 </style>
