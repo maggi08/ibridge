@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <div class="orange-bg">
+    <div class="orange-bg relative">
       <v-container class="d-md-flex align-center pa-0 pt-16 pb-0 pb-md-16">
         <div class="col-12 col-md-6 pa-0 px-3">
           <h2 class="white-color text-center text-sm-left">
@@ -18,7 +18,7 @@
         </div>
       </v-container>
     </div>
-    <div class="map">
+    <div id="contacts" class="map">
       <v-container>
         <div class="address">
           <h3>
@@ -142,19 +142,19 @@ export default {
   position: relative;
 }
 .image {
-  // position: absolute;
-  // right: 0;
-  // top: 0;
-  // height: 100%;
-  // width: 100%;
-  // max-width: 704px;
-  // width: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  @media (max-width: 960px) {
+    position: static;
+    width: 100%;
+    height: 354px;
+  }
   img {
     height: 100%;
     width: 100%;
-    // height: 356px;
-    // width: 100%;
-    // height: 100%;
     object-fit: cover;
   }
 }

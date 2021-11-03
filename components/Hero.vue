@@ -25,7 +25,7 @@
         <p class="white-color mt-5">
           {{ $t('subtitle') }}
         </p>
-        <button class="big-btn-orange mt-9" @click="$emit('openModal')">
+        <button class="big-btn-orange mt-9" @click="openRequest">
           {{ $t('gotoapplication') }}
         </button>
       </div>
@@ -51,7 +51,13 @@
 </i18n>
 
 <script>
-export default {}
+export default {
+  methods: {
+    openRequest() {
+      this.$root.$emit('openRequest')
+    },
+  },
+}
 </script>
 
 <style scoped lang="scss">

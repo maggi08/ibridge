@@ -50,7 +50,10 @@ export default {
   css: ['~/assets/main.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [{ src: '~/plugins/swiper.js', ssr: true }],
+  plugins: [
+    { src: '~/plugins/swiper.js', ssr: true },
+    { src: '~/plugins/v-mask.js', ssr: false },
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,

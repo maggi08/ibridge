@@ -201,7 +201,13 @@
             />
           </svg>
 
-          <p class="label orange-color">+7 701 111 87 67</p>
+          <a
+            href="https://wa.me/77011118767"
+            target="_blank"
+            class="label orange-color"
+          >
+            +7 701 111 87 67
+          </a>
         </div>
       </div>
     </v-container>
@@ -1213,6 +1219,11 @@ export default {
     modal_type: 'offer',
     modal: false,
   }),
+  mounted() {
+    this.$root.$on('openPolicy', () => {
+      this.openModal('policy')
+    })
+  },
   methods: {
     openModal(type) {
       this.modal_type = type
@@ -1256,5 +1267,8 @@ export default {
       background: #dbdbdb;
     }
   }
+}
+a {
+  text-decoration: none;
 }
 </style>

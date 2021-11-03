@@ -1,11 +1,11 @@
 <template>
   <div class="">
     <Hero />
-    <Carts />
-    <Services />
+    <Carts id="programs" />
+    <Services id="services" />
     <Achivements />
     <Study />
-    <Partners />
+    <Partners id="partners" />
     <Accreditations />
     <Gallery />
     <Map />

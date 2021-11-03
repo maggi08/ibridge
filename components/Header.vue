@@ -103,10 +103,26 @@
 
       <nav class="d-none d-md-block header-nav ml-auto">
         <ul class="d-flex align-center justify-space-between">
-          <li class="mx-4 ml-0">{{ $t('programs') }}</li>
-          <li class="mx-4">{{ $t('services') }}</li>
-          <li class="mx-4">{{ $t('partners') }}</li>
-          <li class="mx-4 mr-0">{{ $t('contacts') }}</li>
+          <li class="mx-4 ml-0">
+            <nuxt-link to="#programs">
+              {{ $t('programs') }}
+            </nuxt-link>
+          </li>
+          <li class="mx-4">
+            <nuxt-link to="#services">
+              {{ $t('services') }}
+            </nuxt-link>
+          </li>
+          <li class="mx-4">
+            <nuxt-link to="#partners">
+              {{ $t('partners') }}
+            </nuxt-link>
+          </li>
+          <li class="mx-4 mr-0">
+            <nuxt-link to="#contacts">
+              {{ $t('contacts') }}
+            </nuxt-link>
+          </li>
         </ul>
       </nav>
       <div class="d-none d-md-flex align-center ml-12">
@@ -177,6 +193,7 @@
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          @click="openMenu"
         >
           <path d="M5 7H19" stroke="white" stroke-linecap="square" />
           <path d="M5 12H19" stroke="white" stroke-linecap="square" />
@@ -189,6 +206,7 @@
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          @click="openMenu"
         >
           <path d="M5 7H19" stroke="#474747" stroke-linecap="square" />
           <path d="M5 12H19" stroke="#474747" stroke-linecap="square" />
@@ -197,69 +215,83 @@
       </div>
     </v-container>
 
-    <v-dialog v-model="request_modal" width="520">
-      <v-card class="pa-10 pt-12 my-modal">
-        <div class="close" @click="closeModal()">
-          <svg
-            width="24"
-            height="25"
-            viewBox="0 0 24 25"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M18 6.5L6 18.5"
-              stroke="#202124"
-              stroke-width="2"
-              stroke-linecap="square"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M6 6.5L18 18.5"
-              stroke="#202124"
-              stroke-width="2"
-              stroke-linecap="square"
-              stroke-linejoin="round"
-            />
-          </svg>
+    <v-dialog
+      v-model="request_modal"
+      width="520"
+      :fullscreen="$vuetify.breakpoint.xsOnly"
+    >
+      <v-card class="pa-10 pt-12 my-modal d-flex align-center">
+        <div class="pa-4 pa-sm-0">
+          <div class="close" @click="closeModal()">
+            <svg
+              width="24"
+              height="25"
+              viewBox="0 0 24 25"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18 6.5L6 18.5"
+                stroke="#202124"
+                stroke-width="2"
+                stroke-linecap="square"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M6 6.5L18 18.5"
+                stroke="#202124"
+                stroke-width="2"
+                stroke-linecap="square"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+
+          <h5 class="text-center">
+            {{ $t('modal_title') }}
+          </h5>
+          <v-form ref="form" class="mt-6" @submit.prevent="submitForm">
+            <p class="label blue-color">{{ $t('label1') }}*</p>
+            <v-text-field
+              v-model="form.name"
+              class="my-input"
+              outlined
+              :placeholder="$t('label1')"
+              :rules="[(v) => !!v || $t('required')]"
+            >
+            </v-text-field>
+
+            <p class="label blue-color">{{ $t('label2') }}*</p>
+            <v-text-field
+              v-model="form.phone"
+              v-mask="'+7 7## ### ## ##'"
+              class="my-input"
+              outlined
+              placeholder="+7 7## ### ## ##"
+              :rules="[(v) => !!v || $t('required')]"
+            >
+            </v-text-field>
+
+            <p class="label text-center mt-2">
+              {{ $t('policy') }}
+              <span class="label orange-color pointer" @click="openPolicy">
+                {{ $t('span') }}
+              </span>
+            </p>
+
+            <button type="submit" class="big-btn-orange mt-10 w-100">
+              {{ $t('btn') }}
+            </button>
+          </v-form>
         </div>
-
-        <h5 class="text-center">
-          {{ $t('modal_title') }}
-        </h5>
-        <v-form refs="form" class="mt-6" @submit.prevent="submitForm">
-          <p class="label blue-color">
-            {{ $t('label1') }}
-          </p>
-          <v-text-field
-            v-model="form.name"
-            class="my-input"
-            outlined
-            :rules="(v) => !!v || $t('required')"
-          >
-          </v-text-field>
-
-          <p class="label blue-color">
-            {{ $t('label2') }}
-          </p>
-          <v-text-field
-            v-model="form.phone"
-            class="my-input"
-            outlined
-            :rules="(v) => !!v || $t('required')"
-          >
-          </v-text-field>
-
-          <p class="label text-center mt-2" v-html="$t('policy')"></p>
-
-          <button type="submit" class="big-btn-orange mt-10 w-100">
-            {{ $t('btn') }}
-          </button>
-        </v-form>
       </v-card>
     </v-dialog>
 
-    <v-dialog v-model="success_modal" width="520">
+    <v-dialog
+      v-model="success_modal"
+      width="520"
+      :fullscreen="$vuetify.breakpoint.xsOnly"
+    >
       <v-card class="pa-10 pt-12 my-modal">
         <div class="close" @click="closeModal()">
           <svg
@@ -314,6 +346,155 @@
         </button>
       </v-card>
     </v-dialog>
+    <v-dialog v-model="menu_modal" fullscreen>
+      <v-card class="my-modal">
+        <div class="close" @click="closeMenu()">
+          <svg
+            width="24"
+            height="25"
+            viewBox="0 0 24 25"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M18 6.5L6 18.5"
+              stroke="#202124"
+              stroke-width="2"
+              stroke-linecap="square"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M6 6.5L18 18.5"
+              stroke="#202124"
+              stroke-width="2"
+              stroke-linecap="square"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+        <div class="py-4 mx-auto d-flex justify-center w-100">
+          <svg
+            class="mx-auto"
+            width="81"
+            height="24"
+            viewBox="0 0 81 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12.3716 6.32229C11.4148 6.32106 10.4975 5.93223 9.82087 5.24108C9.14428 4.54993 8.76364 3.61288 8.76244 2.63545V0H8.23985V2.63545C8.24837 3.12505 8.16133 3.61148 7.98381 4.06635C7.80628 4.52121 7.54183 4.9354 7.2059 5.28472C6.86996 5.63404 6.46925 5.91149 6.0272 6.10089C5.58514 6.29029 5.1106 6.38784 4.63123 6.38784C4.15187 6.38784 3.6773 6.29029 3.23524 6.10089C2.79318 5.91149 2.39247 5.63404 2.05654 5.28472C1.7206 4.9354 1.45615 4.52121 1.27863 4.06635C1.10111 3.61148 1.01409 3.12505 1.02262 2.63545H0.5V21.276L8.41898 23.972L8.49999 24L8.58103 23.972L16.5 21.276V2.63545H15.9774C15.9765 3.61237 15.5964 4.54907 14.9205 5.24018C14.2446 5.9313 13.328 6.32044 12.3716 6.32229ZM13.3986 6.7221V7.63944H11.3447V6.7221C12.0184 6.8987 12.7249 6.8987 13.3986 6.7221ZM8.23871 13.3416V23.1852L3.60141 19.6324V10.9731L8.23871 13.3416ZM8.76129 13.3416L13.3986 10.9731V19.6324L8.76129 23.1852V13.3416ZM8.49999 12.8754L6.56018 11.8823C6.77058 11.5515 7.05856 11.2797 7.39792 11.0916C7.73729 10.9034 8.11728 10.8049 8.50341 10.8049C8.88954 10.8049 9.26957 10.9034 9.60893 11.0916C9.9483 11.2797 10.2362 11.5515 10.4466 11.8823L8.49999 12.8754ZM6.11517 8.16979L7.42511 10.487C7.29073 10.5426 7.16066 10.6084 7.03602 10.684L2.77299 8.17562L6.11517 8.16979ZM8.76129 10.2854V8.17562H10.2823L9.06141 10.3343C8.9626 10.3138 8.8628 10.2987 8.76244 10.2889L8.76129 10.2854ZM8.23871 10.2854C8.138 10.2944 8.03781 10.3088 7.93859 10.3285L6.71537 8.17562H8.23642L8.23871 10.2854ZM9.57603 10.487L10.8848 8.16979H14.2293L9.96398 10.684C9.83987 10.6099 9.71059 10.5452 9.57717 10.4905L9.57603 10.487ZM10.8232 6.54376V7.63827H8.76929V4.68461C9.22802 5.52409 9.95218 6.17958 10.8232 6.54376ZM8.24325 4.67878V7.63244H6.18933V6.54376C7.05909 6.17953 7.78207 5.52446 8.23985 4.68578L8.24325 4.67878ZM5.66332 6.7151V7.63244H3.6094V6.7151C4.28313 6.8917 4.98959 6.8917 5.66332 6.7151ZM3.08336 6.53793V7.63244H1.02944V4.67878C1.4863 5.51984 2.20929 6.17742 3.07993 6.54376L3.08336 6.53793ZM1.02944 8.16979H1.73578L6.58985 11.0325C6.39809 11.2116 6.23181 11.4172 6.09578 11.6433L3.46448 10.2994C3.42508 10.2793 3.38135 10.2698 3.33737 10.2716C3.29338 10.2735 3.25057 10.2866 3.2129 10.3099C3.17522 10.3331 3.1439 10.3657 3.12186 10.4046C3.09981 10.4436 3.08775 10.4875 3.08678 10.5325V11.4184L1.03287 10.3693L1.02944 8.16979ZM1.02944 10.9673L3.08336 12.0163V19.7572C3.08336 19.7986 3.09285 19.8395 3.11108 19.8765C3.1293 19.9136 3.15578 19.9457 3.18835 19.9705L7.06112 22.9381L1.02602 20.8831L1.02944 10.9673ZM15.9865 20.8855L9.95144 22.9405L13.8242 19.9728C13.8568 19.9481 13.8832 19.9159 13.9015 19.8789C13.9197 19.8418 13.9292 19.801 13.9292 19.7595V12.0221L15.9831 10.9731L15.9865 20.8855ZM15.9865 10.3705L13.9326 11.4195V10.5337C13.9316 10.4887 13.9196 10.4447 13.8975 10.4058C13.8755 10.3669 13.8442 10.3343 13.8065 10.311C13.7688 10.2878 13.726 10.2746 13.682 10.2728C13.638 10.271 13.5943 10.2805 13.5549 10.3005L10.9305 11.6445C10.7938 11.4189 10.6275 11.2134 10.4364 11.0337L15.2734 8.17562H15.9785L15.9865 10.3705ZM15.9865 7.63361H13.9326V6.54376C14.8047 6.17841 15.5291 5.52067 15.9865 4.67878V7.63361Z"
+              fill="#D2840D"
+            />
+            <path
+              d="M20.5 9.17816L21.8977 8.51318V7.6498H20.5V9.17816Z"
+              fill="#171B2C"
+            />
+            <path
+              d="M21.8988 9.17859H20.5V16.3514H21.8988V9.17859Z"
+              fill="#171B2C"
+            />
+            <path
+              d="M31.1702 11.8254C31.7615 11.4899 32.3069 10.9302 32.3069 9.8868C32.3157 9.61476 32.2728 9.34368 32.1808 9.09072C32.0889 8.83775 31.9499 8.60841 31.7727 8.41722C31.318 7.92001 30.6013 7.64569 29.6919 7.64569H26.125V16.3481H29.8084C31.5812 16.3481 32.7526 15.5153 32.7526 13.9612C32.7504 12.7574 32.102 12.1732 31.1702 11.8254ZM27.498 9.00873H29.5139C30.4098 9.00873 30.9115 9.43124 30.9115 10.1109C30.9115 10.9314 30.309 11.3172 29.412 11.3172H27.5014L27.498 9.00873ZM29.8174 14.9997H27.498V12.6141H29.7154C30.8174 12.6141 31.3516 13.0489 31.3516 13.7824C31.3516 14.5846 30.7726 14.9948 29.8207 14.9948L29.8174 14.9997Z"
+              fill="#171B2C"
+            />
+            <path
+              d="M43.0257 10.4204C43.0257 8.7426 41.9349 7.64775 40.0702 7.64775H36.5234V16.3502H37.9222V13.3167H39.6502L41.628 16.3502H43.2765L41.1274 13.0558C42.2417 12.708 43.0257 11.8495 43.0257 10.4204ZM37.9222 11.9622V9.04018H39.9571C40.9919 9.04018 41.6056 9.55086 41.6056 10.4828C41.6056 11.3903 40.9684 11.9622 39.9683 11.9622H37.9222Z"
+              fill="#171B2C"
+            />
+            <path
+              d="M48.2953 7.6498H46.8965V16.351H48.2953V7.6498Z"
+              fill="#171B2C"
+            />
+            <path
+              d="M55.4862 7.64775H52.5195V16.3502H55.4862C57.987 16.3502 59.715 14.4483 59.715 11.9989C59.715 9.52514 57.987 7.64775 55.4862 7.64775ZM55.4862 14.9577H53.9183V9.04018H55.4862C57.1571 9.04018 58.2479 10.2967 58.2479 11.9989C58.2479 13.7269 57.1571 14.9577 55.4862 14.9577Z"
+              fill="#171B2C"
+            />
+            <path
+              d="M67.147 12.8199H69.1819V14.4487C68.6217 14.8852 67.9491 15.1159 67.2613 15.1076C65.6352 15.1076 64.5555 13.7898 64.5555 11.9994C64.5555 10.3094 65.6687 8.90469 67.1313 8.90469C68.1393 8.90469 68.7452 9.26474 69.3589 9.83665L70.2458 8.68057C69.4272 7.92251 68.5749 7.5 67.1885 7.5C64.7896 7.5 63.084 9.56355 63.084 11.9994C63.084 14.5601 64.7213 16.5 67.2109 16.5C68.4304 16.4992 69.6088 16.0179 70.5303 15.1443V11.4899H67.1426L67.147 12.8199Z"
+              fill="#171B2C"
+            />
+            <path
+              d="M75.9406 14.983V12.6464H79.9309V11.2797H75.9406V9.01651H80.4427V7.6498H74.543V16.351H80.4998V14.983H75.9406Z"
+              fill="#171B2C"
+            />
+          </svg>
+        </div>
+        <nav class="mob-nav mt-8 px-4">
+          <ul class="">
+            <li class="mb-8">
+              <nuxt-link to="#programs">
+                {{ $t('programs') }}
+              </nuxt-link>
+            </li>
+            <li class="mb-8">
+              <nuxt-link to="#services">
+                {{ $t('services') }}
+              </nuxt-link>
+            </li>
+            <li class="mb-8">
+              <nuxt-link to="#partners">
+                {{ $t('partners') }}
+              </nuxt-link>
+            </li>
+            <li class="mb-8">
+              <nuxt-link to="#contacts">
+                {{ $t('contacts') }}
+              </nuxt-link>
+            </li>
+            <div class="lang">
+              <div
+                v-if="$i18n.locale == 'ru'"
+                class="d-flex align-center pointer"
+                @click="setLocale('en')"
+              >
+                <svg
+                  class="mr-2"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M2 5H22V12H2V5Z" fill="white" />
+                  <path d="M2 12H22V19H2V12Z" fill="#D52B1E" />
+                  <path d="M2 9.66699H22V14.3337H2V9.66699Z" fill="#0039A6" />
+                </svg>
+                <h3>RU</h3>
+              </div>
+              <div
+                v-if="$i18n.locale == 'en'"
+                class="d-flex align-center pointer"
+                @click="setLocale('ru')"
+              >
+                <svg
+                  class="mr-2"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M2 5H21.9895V18.9984H2V5Z" fill="white" />
+                  <path
+                    d="M10.9952 13.3948V18.9984H12.9944V13.3948H21.9896V10.5963H12.9944V5H10.9952V10.5963H2V13.3948H10.9952Z"
+                    fill="#CF142B"
+                  />
+                  <path
+                    d="M13.6609 9.53124V5H20.1329L13.6609 9.53124ZM13.6609 14.4671V18.9984H20.1329L13.6609 14.4671ZM10.3285 14.4671V18.9984H3.85653L10.3285 14.4671ZM10.3285 9.53124V5H3.85653L10.3285 9.53124ZM2 6.30125V9.66601H6.8058L2 6.30125ZM21.9895 6.30125V9.66601H17.1837L21.9895 6.30125ZM21.9895 17.6972V14.3324H17.1837L21.9895 17.6972ZM2 17.6972V14.3324H6.8058L2 17.6972Z"
+                    fill="#00247D"
+                  />
+                  <path
+                    d="M21.9895 5H20.8793L14.2267 9.66601H15.3369L22 5H21.9895ZM9.76287 14.3321H8.6526L2 18.9981H3.11027L9.77333 14.3321H9.76287ZM7.5512 9.66965H8.6614L2 5V5.7826L7.5512 9.66965ZM16.4349 14.3303H15.3246L21.986 19V18.2174L16.4349 14.3303Z"
+                    fill="#CF142B"
+                  />
+                </svg>
+                <h3>EN</h3>
+              </div>
+            </div>
+          </ul>
+        </nav>
+      </v-card>
+    </v-dialog>
   </header>
 </template>
 
@@ -327,12 +508,13 @@
       "contacts":"Contacts",
       "gotoapplication":"Send request",
       "modal_title":"Please fill out the form and we will contact you shortly. ",
-      "label1":"Name*",
-      "label2":"Phone*",
+      "label1":"Name",
+      "label2":"Phone",
       "btn":"Send request",
       "placeholder1":"Your name",
       "placeholder2":"Phone number",
-      "policy":"By leaving data on the site, you agree with <span class='label orange-color'>Privacy Policy</span>",
+      "policy":"By leaving data on the site, you agree with ",
+      "span":"Privacy Policy",
       "required":"Required Field",
       "successBtn":"",
       "successTitle":"",
@@ -346,12 +528,13 @@
       "contacts":"Контакты",
       "gotoapplication":"Оставить заявку",
       "modal_title":"Заполните форму и мы с вами свяжемся:",
-      "label1":"Имя*",
-      "label2":"Номер телефона*",
+      "label1":"Имя",
+      "label2":"Номер телефона",
       "btn":"Оставить заявку",
       "placeholder1":"Ваше имя",
       "placeholder2":"Ваш номер телефона",
-      "policy":"Оставляя данные на сайте, Вы соглашаетесь с <span class='label orange-color'>Политикой конфиденциальности</span>",
+      "policy":"Оставляя данные на сайте, Вы соглашаетесь с ",
+      "span":"Политикой конфиденциальности",
       "required":"Обязательное поле",
       "successBtn":"На главную",
       "successTitle":"Спасибо, Ваша заявка принята!",
@@ -363,6 +546,7 @@
 <script>
 export default {
   data: () => ({
+    menu_modal: false,
     success_modal: false,
     request_modal: false,
     is_transparent: true,
@@ -371,11 +555,22 @@ export default {
   mounted() {
     this.onScroll()
     window.addEventListener('scroll', this.onScroll)
+    this.$root.$on('openRequest', () => {
+      this.openModal()
+    })
   },
   methods: {
+    closeMenu() {
+      this.menu_modal = false
+    },
+    openMenu() {
+      this.menu_modal = true
+    },
+    openPolicy() {
+      this.$root.$emit('openPolicy')
+    },
     async submitForm() {
       if (!this.$refs.form.validate()) return
-      console.log(this.form)
 
       await this.$axios
         .$post(``, this.form)
@@ -446,6 +641,22 @@ export default {
     line-height: 120%;
     text-align: center;
     color: #171b2c;
+  }
+}
+a {
+  text-decoration: none;
+}
+.mob-nav {
+  a,
+  h3 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 120%;
+    &:hover {
+      color: $orange;
+    }
   }
 }
 </style>
