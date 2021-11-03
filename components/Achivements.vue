@@ -7,7 +7,7 @@
       <div
         v-for="(item, index) in achivements"
         :key="index"
-        class="col-6 col-lg-3"
+        class="col-6 col-lg-3 pa-0 mb-8"
       >
         <div
           class="
@@ -20,10 +20,13 @@
             mx-auto
           "
         >
-          <div :id="`number${index}`" class="achivements-item__number">
+          <div
+            :id="`number${index}`"
+            class="achivements-item__number text-center"
+          >
             {{ item.number }}
           </div>
-          <h5 class="mt-2">{{ $t(item.title) }}</h5>
+          <h5 class="mt-2 text-center">{{ $t(item.title) }}</h5>
         </div>
       </div>
     </div>
@@ -152,6 +155,7 @@ export default {
 
     @media (max-width: 600px) {
       width: 164px;
+      height: 152px;
       &:after {
         border-left: 82px solid transparent;
         border-right: 82px solid transparent;

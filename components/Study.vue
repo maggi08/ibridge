@@ -19,10 +19,7 @@
       >
         <h2>{{ $t('title') }}</h2>
         <p class="subtitle mt-6">{{ $t('subtitle') }}</p>
-        <button
-          class="mt-14 mt-sm-8 big-btn-orange"
-          @click="$emit('openModal')"
-        >
+        <button class="mt-14 mt-sm-8 big-btn-orange" @click="openRequest">
           {{ $t('request') }}
         </button>
       </div>
@@ -44,22 +41,24 @@
   "en": {
     "request": "Send request",
     "title": "Ready to study abroad?",
-    "subtitle": "We will help you to find answers to questions concerning education abroad, as well as we guiding through all the stages of admission.",
-    "": "",
-    "": ""
+    "subtitle": "We will help you to find answers to questions concerning education abroad, as well as we guiding through all the stages of admission."
   },
   "ru": {
     "request": "Оставить заявку",
     "title": "Готовы учиться за рубежом ?",
-    "subtitle": "Мы поможем найти ответы на вопросы, касающиеся образования за границей, а так же проведем вас по всем этапам поступления.",
-    "": "",
-    "": ""
+    "subtitle": "Мы поможем найти ответы на вопросы, касающиеся образования за границей, а так же проведем вас по всем этапам поступления."
   }
 }
 </i18n>
 
 <script>
-export default {}
+export default {
+  methods: {
+    openRequest() {
+      this.$root.$emit('openRequest')
+    },
+  },
+}
 </script>
 
 <style scoped lang="scss">
