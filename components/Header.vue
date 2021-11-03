@@ -231,16 +231,87 @@
           <p class="label blue-color">
             {{ $t('label1') }}
           </p>
+          <v-text-field
+            v-model="form.name"
+            class="my-input"
+            outlined
+            :rules="(v) => !!v || $t('required')"
+          >
+          </v-text-field>
 
-          <p class="label blue-color mt-4">
+          <p class="label blue-color">
             {{ $t('label2') }}
           </p>
-          <p class="label text-center mt-6" v-html="$t('policy')"></p>
+          <v-text-field
+            v-model="form.phone"
+            class="my-input"
+            outlined
+            :rules="(v) => !!v || $t('required')"
+          >
+          </v-text-field>
+
+          <p class="label text-center mt-2" v-html="$t('policy')"></p>
 
           <button type="submit" class="big-btn-orange mt-10 w-100">
             {{ $t('btn') }}
           </button>
         </v-form>
+      </v-card>
+    </v-dialog>
+
+    <v-dialog v-model="success_modal" width="520">
+      <v-card class="pa-10 pt-12 my-modal">
+        <div class="close" @click="closeModal()">
+          <svg
+            width="24"
+            height="25"
+            viewBox="0 0 24 25"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M18 6.5L6 18.5"
+              stroke="#202124"
+              stroke-width="2"
+              stroke-linecap="square"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M6 6.5L18 18.5"
+              stroke="#202124"
+              stroke-width="2"
+              stroke-linecap="square"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+
+        <svg
+          class="mt-6 mx-auto w-100"
+          width="80"
+          height="81"
+          viewBox="0 0 80 81"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle opacity="0.5" cx="40" cy="40.5" r="40" fill="#F2F2F2" />
+          <path
+            d="M35.1601 45.7703L28.8892 39.7635L26.667 41.7899L35.1601 49.8957L53.3337 32.5263L51.1114 30.5L35.1601 45.7703Z"
+            fill="#27A847"
+          />
+        </svg>
+
+        <p class="title mt-8">
+          {{ $t('successTitle') }}
+        </p>
+
+        <p class="subtitle text-center mt-4">
+          {{ $t('successSubTitle') }}
+        </p>
+
+        <button class="big-btn-orange mt-16 w-100" @click="closeModal()">
+          {{ $t('successBtn') }}
+        </button>
       </v-card>
     </v-dialog>
   </header>
@@ -261,7 +332,11 @@
       "btn":"Send request",
       "placeholder1":"Your name",
       "placeholder2":"Phone number",
-      "policy":"By leaving data on the site, you agree with <span class='label orange-color'>Privacy Policy</span>"
+      "policy":"By leaving data on the site, you agree with <span class='label orange-color'>Privacy Policy</span>",
+      "required":"Required Field",
+      "successBtn":"",
+      "successTitle":"",
+      "successSubTitle":""
     },
     "ru": {
       "logo_text":"Консалтинговое агенство <br> по образованию за рубежом",
@@ -276,7 +351,11 @@
       "btn":"Оставить заявку",
       "placeholder1":"Ваше имя",
       "placeholder2":"Ваш номер телефона",
-      "policy":"Оставляя данные на сайте, Вы соглашаетесь с <span class='label orange-color'>Политикой конфиденциальности</span>"
+      "policy":"Оставляя данные на сайте, Вы соглашаетесь с <span class='label orange-color'>Политикой конфиденциальности</span>",
+      "required":"Обязательное поле",
+      "successBtn":"На главную",
+      "successTitle":"Спасибо, Ваша заявка принята!",
+      "successSubTitle":"Мы свяжемся с Вами в ближайшее время."
     }
   }
 </i18n>
@@ -284,7 +363,8 @@
 <script>
 export default {
   data: () => ({
-    request_modal: true,
+    success_modal: false,
+    request_modal: false,
     is_transparent: true,
     form: {},
   }),
@@ -293,12 +373,23 @@ export default {
     window.addEventListener('scroll', this.onScroll)
   },
   methods: {
-    submitForm() {
+    async submitForm() {
       if (!this.$refs.form.validate()) return
       console.log(this.form)
+
+      await this.$axios
+        .$post(``, this.form)
+        .then(() => {
+          this.success_modal = true
+        })
+        .catch((err) => {
+          const error = Object.values(err.response.data).join(', ')
+          alert(error)
+        })
     },
     closeModal() {
       this.request_modal = false
+      this.success_modal = false
     },
     openModal() {
       this.request_modal = true
@@ -342,10 +433,19 @@ export default {
   position: relative;
 
   .close {
-    position: aboslute;
+    position: absolute;
     top: 16px;
     right: 16px;
     cursor: pointer;
+  }
+
+  .title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 120%;
+    text-align: center;
+    color: #171b2c;
   }
 }
 </style>
