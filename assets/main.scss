@@ -138,17 +138,18 @@ button {
   line-height: 100%;
   color: #ffffff;
 
-  &:hover,
-  &-hover {
-    background: #c1790c;
-  }
   &:active,
   &-active {
     background: #bb750b;
   }
   &:disabled,
   &-disabled {
+    cursor: default;
     background: #aeaeae;
+    &:hover,
+    &-hover {
+      background: #aeaeae;
+    }
   }
 }
 .btn-orange-outline {
@@ -353,6 +354,9 @@ ul {
   .gallery-pagination {
     bottom: -64px;
     color: #fff;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
   }
   .swiper-button-prev {
     background: url('../assets/img/prev.svg') no-repeat center center;
@@ -365,6 +369,10 @@ ul {
     &:after {
       content: '';
     }
+  }
+  .swiper-pagination-current,
+  .swiper-pagination-total {
+    color: white;
   }
 }
 
@@ -383,6 +391,13 @@ ul {
   }
 }
 
-.my-input {
-  max-width: 308px;
+.my-input.v-text-field.v-text-field--solo .v-input__control {
+  min-height: 36px;
+}
+.my-input.v-text-field.v-text-field--solo:not(.v-text-field--solo-flat)
+  > .v-input__control
+  > .v-input__slot {
+  box-shadow: none;
+  filter: drop-shadow(0px 8px 12px rgba(0, 0, 0, 0.04));
+  border: 1px solid #f8f8f8;
 }
