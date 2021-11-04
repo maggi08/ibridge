@@ -367,3 +367,22 @@ ul {
     }
   }
 }
+
+.my-modal {
+  position: relative;
+
+  .close {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    width: 24px;
+    height: 24px;
+    background: url('@/assets/img/close.svg') no-repeat center center;
+    z-index: 2;
+    cursor: pointer;
+  }
+}
+
+.my-input {
+  max-width: 308px;
+}
