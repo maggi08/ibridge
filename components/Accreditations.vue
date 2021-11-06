@@ -7,22 +7,18 @@
       <h2 class="text-center text-sm-left mt-3 blue-color m-w-480">
         {{ $t('title') }}
       </h2>
-      <div class="mt-14">
+      <div class="mt-14 mb-10">
         <swiper :options="swiperOption" class="mySwiper">
           <swiper-slide v-for="(item, index) in 10" :key="index">
-            <div class="relative mt-10" @click="openModal(index)">
-              <img
-                src="../assets/img/acc/1.png"
-                width="100%"
-                height="100%"
-                alt=""
-              />
+            <div class="box" @click="openModal(index)">
+              <img src="../assets/img/acc/1.png" alt="" />
+              <div class="hover"></div>
             </div>
           </swiper-slide>
         </swiper>
       </div>
     </v-container>
-    <GallerySwiper ref="swiper" />
+    <GallerySwiper ref="swiper" :images="images" />
   </div>
 </template>
 
@@ -42,17 +38,18 @@
 <script>
 export default {
   data: () => ({
+    images: [require('../assets/img/acc/1.png')],
     swiperOption: {
       effect: 'coverflow',
       grabCursor: 'true',
       centeredSlides: 'true',
       slidesPerView: 'auto',
       coverflowEffect: {
-        rotate: 50,
+        slideShadows: false,
+        rotate: 0,
+        depth: 200,
         stretch: 0,
-        depth: 100,
-        modifier: 1,
-        slideShadows: true,
+        modifier: 2,
       },
       pagination: {
         el: '.accreditation-pagination',
@@ -99,12 +96,45 @@ export default {
 .swiper-slide {
   background-position: center;
   background-size: cover;
-  width: 300px;
-  height: 300px;
+  width: 400px;
+  height: 320px;
 }
 
 .swiper-slide img {
   display: block;
   width: 100%;
+}
+.box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: 0.5s;
+  border: 4px solid #202124;
+  z-index: 1;
+  .hover {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0.16));
+  }
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+.swiper-wrapper {
+  padding-bottom: 10px !important;
+}
+.swiper-slide-active {
+  .box {
+    .hover {
+      display: none;
+    }
+  }
 }
 </style>

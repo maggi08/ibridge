@@ -27,8 +27,8 @@
           />
         </svg>
         <swiper class="gallery-swiper" :options="gallerySwiper">
-          <swiper-slide v-for="(item, index) in gallery" :key="index" class="r">
-            <div class="img">
+          <swiper-slide v-for="(item, index) in images" :key="index" class="r">
+            <div class="img d-flex align-center justify-center">
               <img :src="item" alt="" />
             </div>
           </swiper-slide>
@@ -44,6 +44,14 @@
 
 <script>
 export default {
+  props: {
+    images: {
+      type: Array,
+      default() {
+        return []
+      },
+    },
+  },
   data: () => ({
     gallery_modal: false,
     gallerySwiper: {
@@ -73,7 +81,6 @@ export default {
   }),
   methods: {
     openModal(index) {
-      console.log(index)
       const swiper = document.querySelector('.gallery-swiper')
       if (swiper?.swiper) {
         swiper.swiper.slideTo(index)
@@ -105,6 +112,8 @@ export default {
     width: 100%;
     max-width: 728px;
     height: 480px;
+    display: flex;
+    align-items: center;
 
     .img {
       width: 100%;
