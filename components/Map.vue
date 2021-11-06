@@ -11,7 +11,10 @@
             {{ $t('subtitle') }}
           </p>
 
-          <button class="big-btn-black mt-8">{{ $t('calculate') }}</button>
+          <!-- <button @click="openModal" class="big-btn-black mt-8">
+            {{ $t('calculate') }}
+          </button> -->
+          <Calculator />
         </div>
         <div class="image mt-16 mt-md-0 pa-0">
           <img class="" src="../assets/img/map_bg.jpg" alt="" />
@@ -130,9 +133,7 @@
 
 <script>
 export default {
-  data: () => ({
-    settings: {},
-  }),
+  data: () => ({}),
 }
 </script>
 

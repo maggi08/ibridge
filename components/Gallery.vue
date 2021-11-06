@@ -22,8 +22,9 @@
         {{ $t('nothing') }}
       </h2>
     </v-container>
+    <GallerySwiper ref="swiper" :images="gallery" />
 
-    <div v-show="gallery_modal" class="my-modal" @click="gallery_modal = false">
+    <!-- <div v-show="gallery_modal" class="my-modal" @click="gallery_modal = false">
       <div class="gallery-modal" @click.stop>
         <svg
           class="close"
@@ -63,7 +64,7 @@
           class="swiper-pagination gallery-pagination photo-pagination"
         ></div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -115,11 +116,7 @@ export default {
   }),
   methods: {
     openModal(index) {
-      const swiper = document.querySelector('.gallery-swiper')
-      if (swiper?.swiper) {
-        swiper.swiper.slideTo(index)
-      }
-      this.gallery_modal = true
+      this.$refs.swiper.openModal(index)
     },
   },
 }

@@ -7,48 +7,18 @@
       <h2 class="text-center text-sm-left mt-3 blue-color m-w-480">
         {{ $t('title') }}
       </h2>
-      <div class="= relative mt-10" @click="openModal(0)">slide1</div>
-    </v-container>
-
-    <div v-show="gallery_modal" class="my-modal" @click="gallery_modal = false">
-      <div class="gallery-modal" @click.stop>
-        <svg
-          class="close"
-          width="28"
-          height="28"
-          viewBox="0 0 28 28"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          @click="gallery_modal = false"
-        >
-          <path
-            d="M21 7L7 21"
-            stroke="white"
-            stroke-width="2"
-            stroke-linecap="square"
-            stroke-linejoin="round"
-          />
-          <path
-            d="M7 7L21 21"
-            stroke="white"
-            stroke-width="2"
-            stroke-linecap="square"
-            stroke-linejoin="round"
-          />
-        </svg>
-        <swiper class="gallery-swiper" :options="gallerySwiper">
-          <swiper-slide v-for="(item, index) in gallery" :key="index" class="r">
-            <div class="img">
-              <img :src="item" alt="" />
+      <div class="mt-14 mb-10">
+        <swiper :options="swiperOption" class="mySwiper">
+          <swiper-slide v-for="(item, index) in 10" :key="index">
+            <div class="box" @click="openModal(index)">
+              <img src="../assets/img/acc/1.png" alt="" />
+              <div class="hover"></div>
             </div>
           </swiper-slide>
         </swiper>
-
-        <div class="swiper-button-prev acc-prev"></div>
-        <div class="swiper-button-next acc-next"></div>
-        <div class="swiper-pagination gallery-pagination acc-pagination"></div>
       </div>
-    </div>
+    </v-container>
+    <GallerySwiper ref="swiper" :images="images" />
   </div>
 </template>
 
@@ -68,12 +38,19 @@
 <script>
 export default {
   data: () => ({
+    images: [require('../assets/img/acc/1.png')],
     swiperOption: {
-      // slidesPerView: 5,
-      // spaceBetween: 0,
-
-      centeredSlides: true,
+      effect: 'coverflow',
+      grabCursor: 'true',
+      centeredSlides: 'true',
       slidesPerView: 'auto',
+      coverflowEffect: {
+        slideShadows: false,
+        rotate: 0,
+        depth: 200,
+        stretch: 0,
+        modifier: 2,
+      },
       pagination: {
         el: '.accreditation-pagination',
         type: 'bullets',
@@ -94,39 +71,10 @@ export default {
       //   },
       // },
     },
-    gallery_modal: false,
-    gallerySwiper: {
-      slidesPerView: 1,
-      spaceBetween: 0,
-      pagination: {
-        el: '.acc-pagination',
-        type: 'fraction',
-      },
-      navigation: {
-        nextEl: '.acc-next',
-        prevEl: '.acc-prev',
-      },
-    },
-    gallery: [
-      require('@/assets/img/gallery/1.jpg'),
-      require('@/assets/img/gallery/2.jpg'),
-      require('@/assets/img/gallery/3.jpg'),
-      require('@/assets/img/gallery/4.jpg'),
-      require('@/assets/img/gallery/5.jpg'),
-      require('@/assets/img/gallery/1.jpg'),
-      require('@/assets/img/gallery/2.jpg'),
-      require('@/assets/img/gallery/3.jpg'),
-      require('@/assets/img/gallery/4.jpg'),
-      require('@/assets/img/gallery/5.jpg'),
-    ],
   }),
   methods: {
     openModal(index) {
-      const swiper = document.querySelector('.gallery-swiper')
-      if (swiper?.swiper) {
-        swiper.swiper.slideTo(index)
-      }
-      this.gallery_modal = true
+      this.$refs.swiper.openModal(index)
     },
   },
 }
@@ -139,46 +87,54 @@ export default {
   background: #ccc;
 }
 
-.my-modal {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.8);
-  z-index: 1000;
+.swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 400px;
+  height: 320px;
+}
 
-  .gallery-modal {
-    position: relative;
-    width: 100%;
-    max-width: 728px;
-    height: 480px;
-
-    .img {
-      width: 100%;
-      height: 100%;
-      max-width: 728px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      img {
-        max-width: 100%;
-        max-height: 100%;
-        margin: auto;
-      }
-    }
-  }
-  .close {
+.swiper-slide img {
+  display: block;
+  width: 100%;
+}
+.box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: 0.5s;
+  border: 4px solid #202124;
+  z-index: 1;
+  .hover {
     position: absolute;
-    top: -28px;
-    right: -28px;
-    cursor: pointer;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0.16));
+  }
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+.swiper-wrapper {
+  padding-bottom: 10px !important;
+}
+.swiper-slide-active {
+  .box {
+    .hover {
+      display: none;
+    }
   }
 }
 </style>
