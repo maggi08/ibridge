@@ -69,12 +69,10 @@ export default {
     gallery: [
       require('@/assets/img/gallery/1.jpg'),
       require('@/assets/img/gallery/2.jpg'),
-      require('@/assets/img/gallery/3.jpg'),
       require('@/assets/img/gallery/4.jpg'),
       require('@/assets/img/gallery/5.jpg'),
       require('@/assets/img/gallery/1.jpg'),
       require('@/assets/img/gallery/2.jpg'),
-      require('@/assets/img/gallery/3.jpg'),
       require('@/assets/img/gallery/4.jpg'),
       require('@/assets/img/gallery/5.jpg'),
     ],

@@ -172,4 +172,13 @@ export default {
     }
   }
 }
+
+[data-aos='open-slide'] {
+  height: 0;
+  overflow-y: hidden;
+}
+[data-aos='open-slide'].aos-animate {
+  height: 100%;
+  overflow-y: unset;
+}
 </style>
