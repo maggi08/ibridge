@@ -9,7 +9,10 @@
 </template>
 
 <script>
+import aos from '~/mixins/aos'
+
 export default {
+  mixins: [aos],
   data: () => ({}),
   methods: {
     openModal() {

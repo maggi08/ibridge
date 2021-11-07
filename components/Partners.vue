@@ -9,7 +9,12 @@
       </h2>
       <div class="relative">
         <swiper :options="swiperOption">
-          <swiper-slide v-for="(item, index) in partners" :key="index">
+          <swiper-slide
+            v-for="(item, index) in partners"
+            :key="index"
+            data-aos="fade-in"
+            data-aos-duration="1000"
+          >
             <div class="partners d-flex justify-space-between row mt-14 mx-0">
               <div
                 v-for="(itemj, indexj) in item"

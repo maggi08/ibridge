@@ -4,13 +4,18 @@
       <div
         v-for="(item, index) in carts"
         :key="index"
-        class="carts-item pointer pa-6 mb-10"
+        class="carts-wrapper"
+        data-aos="fade-up"
+        data-aos-duration="500"
+        :data-aos-delay="100 * index"
       >
-        <div v-html="item.svg"></div>
-        <h4 class="carts-item-title mt-4" v-html="$t(item.title)"></h4>
-        <p class="mt-2 cart-text grey-color">
-          {{ $t(item.subtitle) }}
-        </p>
+        <div class="carts-item pa-6 mb-10">
+          <div v-html="item.svg"></div>
+          <h4 class="carts-item-title mt-4" v-html="$t(item.title)"></h4>
+          <p class="mt-2 cart-text grey-color">
+            {{ $t(item.subtitle) }}
+          </p>
+        </div>
       </div>
     </v-container>
   </div>
@@ -89,7 +94,9 @@ export default {
 
   margin-top: -56px;
   justify-content: center;
-
+  &-wrapper {
+    z-index: 10;
+  }
   &-item {
     margin: 0 auto;
     width: 256px;
@@ -98,7 +105,7 @@ export default {
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.04);
     border-bottom: 2px solid transparent;
     transition: 0.3s;
-    z-index: 10;
+    transition-delay: 0s;
     &-title {
       color: #171b2c;
     }

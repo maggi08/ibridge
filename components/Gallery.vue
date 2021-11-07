@@ -8,7 +8,10 @@
         <div
           v-for="(item, index) in gallery"
           :key="index"
-          class="gallery-image"
+          :data-aos="animations[index % animations.length]"
+          data-aos-duration="1000"
+          :data-aos-delay="100 * index"
+          class="gallery-image one"
           @click="openModal(index)"
         >
           <img v-if="item" class="" :src="item" alt="" />
@@ -23,48 +26,6 @@
       </h2>
     </v-container>
     <GallerySwiper ref="swiper" :images="gallery" />
-
-    <!-- <div v-show="gallery_modal" class="my-modal" @click="gallery_modal = false">
-      <div class="gallery-modal" @click.stop>
-        <svg
-          class="close"
-          width="28"
-          height="28"
-          viewBox="0 0 28 28"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          @click="gallery_modal = false"
-        >
-          <path
-            d="M21 7L7 21"
-            stroke="white"
-            stroke-width="2"
-            stroke-linecap="square"
-            stroke-linejoin="round"
-          />
-          <path
-            d="M7 7L21 21"
-            stroke="white"
-            stroke-width="2"
-            stroke-linecap="square"
-            stroke-linejoin="round"
-          />
-        </svg>
-        <swiper class="gallery-swiper" :options="swiperOption">
-          <swiper-slide v-for="(item, index) in gallery" :key="index" class="r">
-            <div class="img">
-              <img :src="item" alt="" />
-            </div>
-          </swiper-slide>
-        </swiper>
-
-        <div class="swiper-button-prev gallery-prev"></div>
-        <div class="swiper-button-next gallery-next"></div>
-        <div
-          class="swiper-pagination gallery-pagination photo-pagination"
-        ></div>
-      </div>
-    </div> -->
   </div>
 </template>
 
@@ -89,6 +50,7 @@ Swiper.use([Pagination, Navigation, Autoplay])
 export default {
   data: () => ({
     gallery_modal: false,
+    animations: ['fade-right', 'fade-down', 'fade-up', 'fade-left'],
     swiperOption: {
       slidesPerView: 1,
       spaceBetween: 0,
@@ -104,12 +66,10 @@ export default {
     gallery: [
       require('../assets/img/gallery/1.jpg'),
       require('../assets/img/gallery/2.jpg'),
-      require('../assets/img/gallery/3.jpg'),
       require('../assets/img/gallery/4.jpg'),
       require('../assets/img/gallery/5.jpg'),
       require('../assets/img/gallery/1.jpg'),
       require('../assets/img/gallery/2.jpg'),
-      require('../assets/img/gallery/3.jpg'),
       require('../assets/img/gallery/4.jpg'),
       require('../assets/img/gallery/5.jpg'),
     ],
@@ -125,23 +85,28 @@ export default {
 <style scoped lang="scss">
 .gallery {
   width: 100%;
-  height: 480px;
+  // height: 480px;
 
   overflow-x: scroll;
-  overflow-y: hidden;
+  // overflow-y: hidden;
 
-  display: flex;
+  display: grid;
   grid-gap: 24px;
-  // grid-template-columns: repeat(3, 1fr);
-  // grid-template-rows: repeat(8, 5vw);
-  // grid-template-columns: repeat(auto-fill, minmax(352px, 1fr));
-  // grid-template-rows: repeat(2, 226px);
-  // grid-auto-flow: dense;
-
+  grid-auto-flow: column;
+  // grid-template-column: repeat(2, minmax(200px, auto));
+  // grid-template-rows: repeat(2, minmax(228px, auto));
   &-image {
-    position: relative;
-    object-fit: cover;
+    width: 352px;
+    // width: 100%;
+    height: 100%;
+    max-height: 480px;
     cursor: pointer;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 
   &::-webkit-scrollbar {
@@ -151,61 +116,4 @@ export default {
     border-bottom: 2px solid #d2840d;
   }
 }
-
-.my-modal {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.8);
-  z-index: 1000;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  .gallery-modal {
-    position: relative;
-    width: 100%;
-    max-width: 728px;
-    height: 480px;
-
-    .img {
-      width: 100%;
-      height: 100%;
-      max-width: 728px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      img {
-        max-width: 100%;
-        max-height: 100%;
-        margin: auto;
-      }
-    }
-  }
-  .close {
-    position: absolute;
-    top: -28px;
-    right: -28px;
-    cursor: pointer;
-  }
-}
-
-// .gallery-pagination {
-//   bottom: -64px;
-//   color: #fff;
-// }
-// .my-modal .gallery-pagination {
-//   span {
-//     color: #fff !important;
-//   }
-//   color: #fff !important;
-//   left: 0;
-//   right: 0;
-//   margin: 0 auto;
-// }
 </style>

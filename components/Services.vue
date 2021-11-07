@@ -1,5 +1,11 @@
 <template>
-  <div class="light-white-bg">
+  <div
+    class="light-white-bg"
+    data-aos="fade"
+    data-aos-duration="1000"
+    data-aos-delay="200"
+  >
+    >
     <v-container class="pt-10 pb-16">
       <p class="label grey-color">{{ $t('label') }}</p>
       <h2 class="mt-3 blue-color">{{ $t('title') }}</h2>
@@ -159,5 +165,12 @@ export default {
       max-width: unset;
     }
   }
+}
+
+[data-aos='fade'] {
+  opacity: 0;
+}
+[data-aos='fade'].aos-animate {
+  opacity: 1;
 }
 </style>
