@@ -5,10 +5,9 @@
     data-aos-duration="1000"
     data-aos-delay="200"
   >
-    >
     <v-container class="pt-10 pb-16">
-      <p class="label grey-color">{{ $t('label') }}</p>
-      <h2 class="mt-3 blue-color">{{ $t('title') }}</h2>
+      <p class="label grey-color text-uppercase">{{ $t('label') }}</p>
+      <h2 class="mt-3 blue-color" v-html="$t('title')"></h2>
 
       <div class="mt-14 services">
         <div
@@ -18,9 +17,10 @@
         >
           <div v-html="item.svg"></div>
           <h5 class="mt-6" v-html="$t(item.title)"></h5>
-          <p class="mt-2 cart-text dark-grey-color">
-            {{ $t(item.subtitle) }}
-          </p>
+          <p
+            class="mt-2 cart-text dark-grey-color"
+            v-html="$t(item.subtitle)"
+          ></p>
         </div>
       </div>
     </v-container>
@@ -31,35 +31,35 @@
 {
   "en": {
     "label": "Services",
-    "title": "We are here to assist you with every step of your study:",
+    "title": "We are here to assist you with every <br/> step of your study:",
     "title1": "Evaluation Service ",
-    "subtitle1": "We provide our students test for their career guidance",
+    "subtitle1": "We provide our students <br/> test for their career guidance",
     "title2": "Universities Admission Consulting",
-    "subtitle2": "We help students identify academic programs and universities",
+    "subtitle2": "We help students identify academic <br/> programs and universities",
     "title3": "Enrollment and registration",
-    "subtitle3": "We provide assistance with collecting the documents for admission",
+    "subtitle3": "We provide assistance with collecting <br/> the documents for admission",
     "title4": "Visa support",
-    "subtitle4": "We provide a visa support to our students",
+    "subtitle4": "We provide a visa <br/> support to our students",
     "title5": "Housing and Travel Assistance",
-    "subtitle5": "We assist students with housing, accommodations and airport pick up.",
+    "subtitle5": "We assist students with housing, <br/> accommodations and airport pick up.",
     "title6": "Supervising students",
-    "subtitle6": "We accompany and supervise our students during their education period"
+    "subtitle6": "We accompany and supervise <br/> our students during their education period"
   },
   "ru": {
     "label": "Услуги",
-    "title": "Помогаем на всех этапах поступления",
+    "title": "Помогаем на всех этапах <br/> поступления",
     "title1": "Профориентационный тест",
-    "subtitle1": "Проводим тест на профориентацию",
+    "subtitle1": "Проводим тест <br/> на профориентацию",
     "title2": "Консультирование",
-    "subtitle2": "Подберем академические программы и университеты",
+    "subtitle2": "Подберем академические <br/> программы и университеты",
     "title3": "Зачисление и оформление",
-    "subtitle3": "Соберем пакет документов для поступления",
+    "subtitle3": "Соберем пакет <br/> документов для поступления",
     "title4": "Визовая поддержка",
-    "subtitle4": "Осуществим визовую поддержку студенту",
+    "subtitle4": "Осуществим визовую <br/> поддержку студенту",
     "title5": "Организация поездки",
-    "subtitle5": "Организуем поездку в учебное заведение",
+    "subtitle5": "Организуем поездку <br/> в учебное заведение",
     "title6": "Курирование студентов",
-    "subtitle6": "Сопровождаем и курируем студента во время обучения"
+    "subtitle6": "Сопровождаем и курируем <br/> студента во время обучения"
   }
 }
 

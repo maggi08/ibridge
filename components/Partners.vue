@@ -1,10 +1,10 @@
 <template>
   <div class="light-white-bg py-16">
     <v-container>
-      <p class="text-center text-sm-left label grey-color">
+      <p class="text-center text-sm-left label grey-color text-uppercase">
         {{ $t('subtitle') }}
       </p>
-      <h2 class="text-center text-sm-left mt-3 blue-color m-w-480">
+      <h2 class="text-center text-sm-left mt-10 blue-color m-w-480">
         {{ $t('title') }}
       </h2>
       <div class="relative">
@@ -152,6 +152,10 @@ export default {
     width: 100%;
     max-width: 168px;
     height: 76px;
+
+    @media (max-width: 350px) {
+      max-width: 120px;
+    }
 
     img {
       max-width: 100%;

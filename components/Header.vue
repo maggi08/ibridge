@@ -98,7 +98,7 @@
             </svg>
           </nuxt-link>
         </div>
-        <p class="ml-6" v-html="$t('logo_text')"></p>
+        <p class="ml-6 consulting" v-html="$t('logo_text')"></p>
       </div>
 
       <nav class="d-none d-md-block header-nav ml-auto">
@@ -593,7 +593,7 @@ export default {
     },
     onScroll() {
       const pos = window.scrollY
-      if (pos > 0) this.is_transparent = false
+      if (pos > 100) this.is_transparent = false
       else this.is_transparent = true
     },
     setLocale(lang) {
@@ -604,6 +604,12 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.consulting {
+  text-transform: uppercase;
+  font-size: 10px;
+  line-height: 120%;
+  color: #7c7c7c;
+}
 .header {
   width: 100%;
   top: 0;
@@ -614,10 +620,21 @@ export default {
   z-index: 100;
   transition: 0.3s;
 
+  a {
+    color: #202124;
+    transition: 0.3s;
+
+    &:hover {
+      color: $orange;
+    }
+  }
+
   &-transparent {
     background: transparent;
+    box-shadow: none;
+
     * {
-      color: #fff;
+      color: #f8f8f8;
     }
   }
   &-container {

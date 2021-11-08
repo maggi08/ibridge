@@ -3,13 +3,15 @@
     <div class="orange-bg relative">
       <v-container class="d-md-flex align-center pa-0 pt-16 pb-0 pb-md-16">
         <div class="col-12 col-md-6 pa-0 px-3">
-          <h2 class="white-color text-center text-sm-left">
-            {{ $t('title') }}
-          </h2>
+          <h2
+            class="white-color text-center text-sm-left"
+            v-html="$t('title')"
+          ></h2>
 
-          <p class="subtitle white-color text-center text-sm-left mt-3 mt-sm-4">
-            {{ $t('subtitle') }}
-          </p>
+          <p
+            class="subtitle white-color text-center text-sm-left mt-3 mt-sm-4"
+            v-html="$t('subtitle')"
+          ></p>
 
           <!-- <button @click="openModal" class="big-btn-black mt-8">
             {{ $t('calculate') }}
@@ -105,8 +107,8 @@
 <i18n>
 {
   "en": {
-    "title": "Have you already chosen your educational program?",
-    "subtitle": "You can calculate the cost of your education according to your chosen program.",
+    "title": "Have you already chosen <br/> your educational program?",
+    "subtitle": "You can calculate the cost of your education <br/> according to your chosen program.",
     "calculate": "Calculate the cost",
     "contacts":"Contacts",
     "phone":"Phone",
@@ -117,8 +119,8 @@
     "worktime2":"Sat: 10:00 - 15:00"
   },
   "ru": {
-    "title": "А вы уже выбрали учебное заведение?",
-    "subtitle": "Вы можете посчитать стоимость обучения по выбранной вами программе. ",
+    "title": "А вы уже выбрали учебное <br/> заведение?",
+    "subtitle": "Вы можете посчитать стоимость <br/> обучения по выбранной вами программе. ",
     "calculate": "Посчитать стоимость",
     "contacts":"Контакты",
     "phone":"Телефон",
@@ -141,6 +143,11 @@ export default {
 .orange-bg {
   transition: 0.3s;
   position: relative;
+  background: $blue;
+}
+.big-btn-black {
+  width: 100%;
+  background: $orange;
 }
 .image {
   position: absolute;

@@ -4,12 +4,12 @@
       <div
         v-for="(item, index) in carts"
         :key="index"
-        class="carts-wrapper"
+        class="carts-wrapper mb-10"
         data-aos="fade-up"
         data-aos-duration="500"
         :data-aos-delay="100 * index"
       >
-        <div class="carts-item pa-6 mb-10">
+        <div class="carts-item pa-6 pb-8">
           <div v-html="item.svg"></div>
           <h4 class="carts-item-title mt-4" v-html="$t(item.title)"></h4>
           <p class="mt-2 cart-text grey-color">
@@ -100,7 +100,8 @@ export default {
   &-item {
     margin: 0 auto;
     width: 256px;
-    height: 185px;
+    height: 100%;
+    // height: 185px;
     background: #ffffff;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.04);
     border-bottom: 2px solid transparent;

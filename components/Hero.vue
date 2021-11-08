@@ -19,12 +19,14 @@
           text-center text-sm-left
         "
       >
-        <p class="label white-color" v-html="$t('label')"></p>
+        <p class="label">
+          <span class="orange-color">{{ $t('span') }}</span>
+          <span class="text-uppercase white-color">{{ $t('label') }}</span>
+        </p>
+        <!-- <p class="label white-color bridge" v-html="$t('label')"></p> -->
         <h1 class="hero-main__title white-color mt-3" v-html="$t('title')"></h1>
 
-        <p class="white-color mt-5">
-          {{ $t('subtitle') }}
-        </p>
+        <p class="white-color mt-5" v-html="$t('subtitle')"></p>
         <button class="big-btn-orange mt-9" @click="openRequest">
           {{ $t('gotoapplication') }}
         </button>
@@ -36,15 +38,17 @@
 <i18n>
   {
     "en": {
+      "span":"iBridge",
       "title":"Choose your study program with us in the best educational institutions in the world",
-      "label":"<span class='orange-color'>iBridge</span> - for brighter future",
-      "subtitle":"We offer 370 educational institutions for admission to applicants and undergraduates.",
+      "label":" - for brighter future",
+      "subtitle":"We offer over than 300 educational institutions and programs <br/>  for applicants",
       "gotoapplication":"Send request"
     },
     "ru": {
+      "span":"iBridge",
       "title":"Выбери свою программу обучения в лучшие учебные заведения мира вместе c нами",
-      "label":"<span class='orange-color'>iBridge</span> - мост к светлому будущему",
-      "subtitle":"Предлагаем 370 учебных заведений для поступления абитуриентам и магистрантам.",
+      "label":" - мост к светлому будущему",
+      "subtitle":"Предлагаем 370 учебных заведений для поступления <br/> абитуриентам и магистрантам.",
       "gotoapplication":"Оставить заявку"
     }
   }

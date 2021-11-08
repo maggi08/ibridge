@@ -1,7 +1,12 @@
 <template>
   <v-container id="achivements" class="pt-16 pb-16">
-    <p class="label grey-color text-center text-lg-left">{{ $t('label') }}</p>
-    <h2 class="mt-3 blue-color text-center text-lg-left">{{ $t('title') }}</h2>
+    <p class="label grey-color text-center text-lg-left text-uppercase">
+      {{ $t('label') }}
+    </p>
+    <h2
+      class="mt-3 blue-color text-center text-lg-left"
+      v-html="$t('title')"
+    ></h2>
 
     <div class="mt-14 achivements d-flex align-center row mx-0">
       <div
@@ -26,7 +31,7 @@
           >
             {{ item.number }}
           </div>
-          <h5 class="mt-2 text-center">{{ $t(item.title) }}</h5>
+          <h5 class="mt-2 text-center fw-400" v-html="$t(item.title)"></h5>
         </div>
       </div>
     </div>
@@ -37,7 +42,7 @@
 {
   "en": {
     "label": "Advantages",
-    "title": "Achievements of our company",
+    "title": "Achievements <br/> of our company",
     "title1": "years of experience",
     "title2": "partner universities",
     "title3": "language centers",
@@ -45,11 +50,11 @@
   },
   "ru": {
     "label": "Преимущества",
-    "title": "Успехи и достижения компании",
+    "title": "Успехи и достижения <br/> компании",
     "title1": "лет опыта",
-    "title2": "партнеров университетов",
-    "title3": "языковых центров",
-    "title4": "стран для обучения"
+    "title2": "партнеров <br/> университетов",
+    "title3": "языковых <br/> центров",
+    "title4": "стран <br/> для обучения"
   }
 }
 </i18n>
@@ -130,6 +135,7 @@ export default {
     -ms-filter: drop-shadow(0px 10px 20px rgba(41, 41, 42, 0.07));
     -o-filter: drop-shadow(0px 10px 20px rgba(41, 41, 42, 0.07));
     filter: drop-shadow(0px 10px 20px rgba(41, 41, 42, 0.07));
+    box-shadow: 0px 10px 20px rgba(41, 41, 42, 0.07);
 
     &:after {
       content: '';
