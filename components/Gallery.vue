@@ -1,7 +1,7 @@
 <template>
   <div class="light-white-bg py-16">
     <v-container>
-      <p class="label grey-color">{{ $t('subtitle') }}</p>
+      <p class="label grey-color text-uppercase">{{ $t('subtitle') }}</p>
       <h2 class="mt-3 blue-color m-w-480">{{ $t('title') }}</h2>
 
       <div class="gallery mt-14">

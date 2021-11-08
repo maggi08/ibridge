@@ -204,7 +204,7 @@
           <a
             href="https://wa.me/77011118767"
             target="_blank"
-            class="label orange-color"
+            class="label orange-color ml-1"
           >
             +7 701 111 87 67
           </a>

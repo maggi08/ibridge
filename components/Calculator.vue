@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <button class="big-btn-black mt-8" @click="openModal">
+    <button class="big-btn-orange mt-8" @click="openModal">
       {{ $t('calculate') }}
     </button>
 
@@ -596,7 +596,7 @@ export default {
   max-width: 308px;
 }
 @media (max-width: 600px) {
-  .big-btn-black {
+  .big-btn-orange {
     width: 100%;
     background: $orange;
     &:hover,

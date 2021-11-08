@@ -1,13 +1,13 @@
 <template>
   <div class="light-white-bg py-16">
     <v-container>
-      <p class="text-center text-sm-left label grey-color">
+      <p class="text-center text-sm-left label grey-color text-uppercase">
         {{ $t('subtitle') }}
       </p>
       <h2 class="text-center text-sm-left mt-3 blue-color m-w-480">
         {{ $t('title') }}
       </h2>
-      <div class="mt-14 mb-10">
+      <div class="mt-14 mb-10 relative w-90">
         <swiper :options="swiperOption" class="mySwiper">
           <swiper-slide v-for="(item, index) in 10" :key="index">
             <div class="box" @click="openModal(index)">
@@ -16,6 +16,8 @@
             </div>
           </swiper-slide>
         </swiper>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
       </div>
     </v-container>
     <GallerySwiper ref="swiper" :images="images" />
@@ -44,12 +46,17 @@ export default {
       grabCursor: 'true',
       centeredSlides: 'true',
       slidesPerView: 'auto',
+      loop: true,
       coverflowEffect: {
         slideShadows: false,
         rotate: 0,
         depth: 200,
         stretch: 0,
         modifier: 2,
+      },
+      navigation: {
+        nextEl: 'swiper-button-next',
+        prevEl: 'swiper-button-prev',
       },
       pagination: {
         el: '.accreditation-pagination',
@@ -98,6 +105,11 @@ export default {
   background-size: cover;
   width: 400px;
   height: 320px;
+
+  @media (max-width: 600px) {
+    width: 271px;
+    height: 216px;
+  }
 }
 
 .swiper-slide img {
@@ -135,6 +147,29 @@ export default {
     .hover {
       display: none;
     }
+  }
+}
+.w-90 {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.swiper-button-prev {
+  left: -6%;
+  &:after {
+    width: 24px;
+    height: 24px;
+    content: ' ';
+    background: url('@/assets/img/prev-black.svg') no-repeat center center;
+  }
+}
+.swiper-button-next {
+  right: -6%;
+  &:after {
+    width: 24px;
+    height: 24px;
+    content: ' ';
+    background: url('@/assets/img/next-black.svg') no-repeat center center;
   }
 }
 </style>
