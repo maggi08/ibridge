@@ -8,7 +8,7 @@
       <v-card class="my-modal">
         <div class="close" @click="closeModal"></div>
 
-        <div class="header px-10 py-5">
+        <div class="header label grey-color fw-400 px-10 py-5">
           {{ $t('calculatorTitle') }}
           <div class="header-border" :style="{ width: 25 * step + '%' }"></div>
         </div>
@@ -45,7 +45,7 @@
                   />
                 </svg>
               </div>
-              <p class="label fw-400 mt-4 mx-2">
+              <p class="label grey-color fw-400 mt-4 mx-2">
                 {{ $t('type1') }}
               </p>
             </div>
@@ -74,7 +74,7 @@
                   />
                 </svg>
               </div>
-              <p class="label fw-400 mt-4 mx-2">
+              <p class="label grey-color fw-400 mt-4 mx-2">
                 {{ $t('type2') }}
               </p>
             </div>
@@ -99,7 +99,7 @@
                   <path d="M20 11V31" stroke="#171B2C" stroke-width="1.5" />
                 </svg>
               </div>
-              <p class="label fw-400 mt-4 mx-2">
+              <p class="label grey-color fw-400 mt-4 mx-2">
                 {{ $t('type3') }}
               </p>
             </div>
@@ -124,7 +124,7 @@
                   />
                 </svg>
               </div>
-              <p class="label fw-400 mt-4 mx-2">
+              <p class="label grey-color fw-400 mt-4 mx-2">
                 {{ $t('type4') }}
               </p>
             </div>
@@ -134,15 +134,23 @@
         <div v-if="step == 2" class="pa-10 pb-0">
           <h5>{{ $t('whichDegree') }}</h5>
           <v-radio-group v-model="form.degree" class="mt-6">
-            <v-radio :label="$t('bachelor')" :value="'bachelor'"></v-radio>
-            <v-radio :label="$t('master')" :value="'master'"></v-radio>
+            <v-radio
+              class="black-color"
+              :label="$t('bachelor')"
+              :value="'bachelor'"
+            ></v-radio>
+            <v-radio
+              class="black-color"
+              :label="$t('master')"
+              :value="'master'"
+            ></v-radio>
           </v-radio-group>
 
           <h5 class="mt-12">{{ $t('whichCountry') }}</h5>
           <div class="max-308">
             <v-select
               v-model="form.country"
-              class="my-input mt-6"
+              class="my-input country-input mt-6"
               :items="$i18n.locale == 'ru' ? countriesRU : countriesEN"
               item-text="text"
               item-value="value"
@@ -173,22 +181,32 @@
         <div v-if="step == 3" class="pa-10 pb-0">
           <h5>{{ $t('whichUniversity') }}</h5>
 
-          <v-select
-            v-model="form.university"
-            class="my-input mt-6"
-            :items="universities"
-            item-text="text"
-            item-value="value"
-            :placeholder="$t('universityPlaceholder')"
-            solo
-          >
-          </v-select>
+          <div class="max-308">
+            <v-select
+              v-model="form.university"
+              class="my-input country-input mt-6"
+              :items="universities"
+              item-text="text"
+              item-value="value"
+              :placeholder="$t('universityPlaceholder')"
+              solo
+            >
+            </v-select>
+          </div>
 
           <h5 class="mt-12">{{ $t('whereLive') }}</h5>
 
           <v-radio-group v-model="form.campus" class="mt-6">
-            <v-radio :label="$t('onCampus')" :value="'onCampus'"></v-radio>
-            <v-radio :label="$t('notCampus')" :value="'notCampus'"></v-radio>
+            <v-radio
+              class="black-color"
+              :label="$t('onCampus')"
+              :value="'onCampus'"
+            ></v-radio>
+            <v-radio
+              class="black-color"
+              :label="$t('notCampus')"
+              :value="'notCampus'"
+            ></v-radio>
           </v-radio-group>
         </div>
 

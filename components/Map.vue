@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <div class="orange-bg relative">
+    <div class="blue-bg relative">
       <v-container class="d-md-flex align-center pa-0 pt-16 pb-0 pb-md-16">
         <div class="col-12 col-md-6 pa-0 px-3">
           <h2
