@@ -4,7 +4,7 @@
       <p class="text-center text-sm-left label grey-color text-uppercase">
         {{ $t('subtitle') }}
       </p>
-      <h2 class="text-center text-sm-left mt-10 blue-color m-w-480">
+      <h2 class="text-center text-sm-left mt-10 black-color m-w-480">
         {{ $t('title') }}
       </h2>
       <div class="relative">

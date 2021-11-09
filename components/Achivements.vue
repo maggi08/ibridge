@@ -6,7 +6,7 @@
         {{ $t('label') }}
       </p>
       <h2
-        class="mt-3 blue-color text-center text-lg-left"
+        class="mt-3 black-color text-center text-lg-left"
         v-html="$t('title')"
       ></h2>
 

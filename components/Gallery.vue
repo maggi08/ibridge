@@ -2,7 +2,7 @@
   <div class="light-white-bg py-16">
     <v-container>
       <p class="label grey-color text-uppercase">{{ $t('subtitle') }}</p>
-      <h2 class="mt-3 blue-color m-w-480">{{ $t('title') }}</h2>
+      <h2 class="mt-3 black-color m-w-480">{{ $t('title') }}</h2>
 
       <div class="gallery mt-14">
         <div
@@ -17,13 +17,6 @@
           <img v-if="item" class="" :src="item" alt="" />
         </div>
       </div>
-
-      <h2
-        v-if="gallery && gallery.length < 1"
-        class="blue-color m-w-480 text-center my-16 mx-auto"
-      >
-        {{ $t('nothing') }}
-      </h2>
     </v-container>
     <GallerySwiper ref="swiper" :images="gallery" />
   </div>

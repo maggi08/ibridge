@@ -251,7 +251,7 @@
             {{ $t('modal_title') }}
           </h5>
           <v-form ref="form" class="mt-6" @submit.prevent="submitForm">
-            <p class="label blue-color">{{ $t('label1') }}*</p>
+            <p class="label dark-grey-color">{{ $t('label1') }}*</p>
             <v-text-field
               v-model="form.name"
               class="my-input"
@@ -261,19 +261,22 @@
             >
             </v-text-field>
 
-            <p class="label blue-color">{{ $t('label2') }}*</p>
+            <p class="label dark-grey-color">{{ $t('label2') }}*</p>
             <v-text-field
               v-model="form.phone"
               v-mask="'+7 7## ### ## ##'"
               class="my-input"
               outlined
-              placeholder="+7 7## ### ## ##"
+              placeholder="+7 7xx xxx xx xx"
               :rules="[(v) => !!v || $t('required')]"
             >
             </v-text-field>
 
             <p class="label text-center mt-2">
-              {{ $t('policy') }}
+              <span class="label grey-color">
+                {{ $t('policy') }}
+              </span>
+
               <span class="label orange-color pointer" @click="openPolicy">
                 {{ $t('span') }}
               </span>
