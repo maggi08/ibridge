@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <div class="orange-bg relative">
+    <div class="blue-bg relative">
       <v-container class="d-md-flex align-center pa-0 pt-16 pb-0 pb-md-16">
         <div class="col-12 col-md-6 pa-0 px-3">
           <h2
@@ -13,9 +13,6 @@
             v-html="$t('subtitle')"
           ></p>
 
-          <!-- <button @click="openModal" class="big-btn-black mt-8">
-            {{ $t('calculate') }}
-          </button> -->
           <Calculator />
         </div>
         <div class="image mt-16 mt-md-0 pa-0">
@@ -23,8 +20,8 @@
         </div>
       </v-container>
     </div>
-    <div id="contacts" class="map">
-      <v-container>
+    <div id="contacts" class="map-container">
+      <v-container class="py-0">
         <div class="address">
           <h3>
             {{ $t('contacts') }}
@@ -92,14 +89,15 @@
             </div>
           </div>
         </div>
-        <img
-          class="d-sm-none"
-          src="../assets/img/map-mobile.jpg"
-          width="100%"
-          height="400px"
-          alt=""
-        />
       </v-container>
+      <div class="my-map">
+        <div
+          ref="mymap"
+          id="map"
+          style="width: 100%; height: 100%"
+          class=""
+        ></div>
+      </div>
     </div>
   </div>
 </template>
@@ -134,8 +132,77 @@
 </i18n>
 
 <script>
+import { loadYmap } from 'vue-yandex-maps'
+const settings = {
+  apiKey: 'b48b352f-3f63-4823-bc62-990cfb330913',
+  lang: 'ru_RU',
+  version: '2.1',
+  coordorder: 'latlong',
+}
 export default {
-  data: () => ({}),
+  data: () => ({
+    coords: [43.22044, 76.928717],
+    myMap: null,
+    myPlacemark: null,
+    zoom: 16,
+  }),
+  watch: {
+    '$i18n.locale'() {
+      this.getPlacemark()
+    },
+  },
+  async mounted() {
+    await loadYmap({ ...settings, debug: true }).catch((e) => {
+      console.log(e)
+    })
+
+    try {
+      // eslint-disable-next-line no-undef
+      this.myMap = new ymaps.Map(
+        'map',
+        {
+          center: this.coords,
+          zoom: this.zoom,
+          controls: [],
+        },
+        {
+          searchControlProvider: 'yandex#search',
+        }
+      )
+      this.getPlacemark()
+    } catch (e) {
+      console.log(e)
+    }
+  },
+  methods: {
+    getPlacemark() {
+      this.myPlacemark = this.createPlacemark(this.coords)
+      this.myMap.geoObjects.add(this.myPlacemark)
+    },
+    createPlacemark(coords) {
+      // eslint-disable-next-line no-undef
+      return new ymaps.Placemark(
+        coords,
+        {
+          // iconLayout: 'default#image',
+          // iconImageHref: '/location.png',
+          iconCaption:
+            this.$i18n.locale === 'ru'
+              ? 'г. Алматы пр. Аль-Фараби 77/2, Esentai Apartments, офис 7F, эт. 7'
+              : 'office 7F, floor 7, Esentai Apt., 77/2 Al-Farabi ave., Almaty',
+        },
+        {
+          iconLayout: 'default#image',
+          iconImageHref: '/location.svg',
+          hintContent:
+            this.$i18n.locale === 'ru'
+              ? 'г. Алматы пр. Аль-Фараби 77/2, Esentai Apartments, офис 7F, эт. 7'
+              : 'office 7F, floor 7, Esentai Apt., 77/2 Al-Farabi ave., Almaty',
+          draggable: false,
+        }
+      )
+    },
+  },
 }
 </script>
 
@@ -149,29 +216,33 @@ export default {
   width: 100%;
   background: $orange;
 }
-.image {
-  position: absolute;
-  right: 0;
+// .image {
+//   position: absolute;
+//   right: 0;
+//   top: 0;
+//   height: 100%;
+//   width: 50%;
+//   @media (max-width: 960px) {
+//     position: static;
+//     width: 100%;
+//     height: 354px;
+//   }
+//   img {
+//     height: 100%;
+//     width: 100%;
+//     object-fit: cover;
+//   }
+// }
+.map-container {
+  position: relative;
   top: 0;
-  height: 100%;
-  width: 50%;
-  @media (max-width: 960px) {
-    position: static;
-    width: 100%;
-    height: 354px;
-  }
-  img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
-}
-.map {
+  left: 0;
   width: 100%;
-  background: url('../assets/img/map.jpg') no-repeat center center;
-  background-size: cover;
-
+  height: 588px;
   .address {
+    position: absolute;
+    z-index: 10;
+
     max-width: 448px;
     margin: 80px 0 92px;
     padding: 40px;
@@ -180,13 +251,13 @@ export default {
   }
   @media (max-width: 900px) {
     height: 700px;
-    background-image: url('../assets/img/map-tablet.jpg');
   }
   @media (max-width: 600px) {
     background: none;
     height: unset;
 
     .address {
+      position: static;
       max-width: unset;
       margin: 0;
     }
@@ -196,7 +267,25 @@ export default {
     }
   }
 }
+.my-map {
+  width: 100%;
+  height: 100%;
+}
+ymaps,
+ymaps input,
+ymaps canvas,
+ymaps svg {
+  width: 100%;
+  height: 100%;
+}
+.ymaps-map {
+  -ms-touch-action: auto !important;
+  touch-action: auto !important;
+}
 @media (max-width: 600px) {
+  .my-map {
+    height: 400px;
+  }
   .image {
     height: 354px;
   }

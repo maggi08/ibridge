@@ -6,9 +6,7 @@
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: normal;
-  font-size: 16px;
-  line-height: 140%;
-  color: #202124;
+
   outline: none;
   &:focus {
     outline: none;
@@ -24,86 +22,102 @@
 .v-application p {
   margin-bottom: 0 !important;
 }
-
+p {
+  font-size: 16px;
+  line-height: 140%;
+  color: #202124;
+}
 h1 {
   font-family: 'Playfair Display', serif;
   font-weight: bold;
   font-size: 42px;
   line-height: 120%;
   font-feature-settings: 'pnum' on, 'lnum' on;
+  color: #202124;
 }
 h2 {
   font-family: 'Playfair Display', serif;
   font-size: 30px;
   line-height: 120%;
+  color: #202124;
 }
 h3,
 .h3 {
   font-family: 'Playfair Display', serif;
   font-size: 22px;
   line-height: 120%;
+  color: #202124;
 }
 h4 {
   font-family: 'Playfair Display', serif;
   font-size: 20px;
   line-height: 120%;
+  color: #202124;
 }
 h5,
 .h5 {
   font-weight: 500;
   font-size: 16px;
   line-height: 120%;
+  color: #202124;
 }
 
 .subtitle {
   font-size: 18px;
   line-height: 140%;
+  color: #202124;
 }
 
 .btn-text {
   font-weight: 500;
   font-size: 16px;
   line-height: 100%;
+  color: #202124;
 }
 
 .cart-text {
   font-size: 14px;
   line-height: 140%;
+  color: #202124;
 }
 
 .label {
   font-weight: 500;
   font-size: 12px;
   line-height: 120%;
+  color: #202124;
 }
 
 .white-color {
-  color: white;
+  color: white !important;
 }
 .orange-color {
-  color: $orange;
+  color: $orange !important;
 }
 .grey-color {
-  color: $grey;
+  color: $grey !important;
 }
 .blue-color {
-  color: $blue;
+  color: $blue !important;
 }
 .dark-grey-color {
-  color: $dark-grey;
+  color: $dark-grey !important;
+}
+.black-color {
+  color: $black;
 }
 
 .black-bg {
-  background: #202124;
+  background: #202124 !important;
 }
 .blue-bg {
-  background: #171b2c;
+  background: #171b2c !important;
 }
 .light-white-bg {
-  background: $light-white;
+  background: $light-white !important;
 }
 .orange-bg {
-  background: $orange;
+  background: $orange !important;
 }
 .m-w-480 {
   max-width: 480px;
@@ -131,6 +145,8 @@ button {
   text-decoration: none;
   padding: 12px 24px;
   background: #d2840d;
+  border: 1px solid transparent;
+
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.06);
 
   font-weight: 500;
@@ -154,7 +170,7 @@ button {
 }
 .btn-orange-outline {
   text-decoration: none;
-  padding: 11px 23px;
+  padding: 10px 22px;
   background: transparent;
   border: 1px solid #d2840d;
 
@@ -398,12 +414,53 @@ ul {
   > .v-input__control
   > .v-input__slot {
   box-shadow: none;
+  border: 1px solid #f8f8f8;
   filter: drop-shadow(0px 8px 12px rgba(0, 0, 0, 0.04));
   border: 1px solid #f8f8f8;
-}
 
+  &::placeholder {
+    color: #b7b4b4;
+  }
+}
+.my-input.v-text-field--filled > .v-input__control > .v-input__slot,
+.v-text-field--full-width > .v-input__control > .v-input__slot,
+.v-text-field--outlined > .v-input__control > .v-input__slot {
+  min-height: 48px !important;
+}
+.v-application .error--text {
+  font-size: 12px;
+  color: #dd2c00 !important;
+  caret-color: #dd2c00 !important;
+}
 .mySwiper {
   .swiper-wrapper {
     padding-bottom: 10px !important;
   }
+}
+
+.v-sheet.v-card,
+.v-dialog {
+  border-radius: 0px !important;
+}
+
+.black-color {
+  .theme--light.v-label {
+    color: $black !important;
+  }
+  .v-input--selection-controls__input:hover
+    .v-input--selection-controls__ripple:before {
+    background: transparent !important;
+  }
+}
+
+.country-input.v-text-field.v-text-field--enclosed:not(.v-text-field--rounded)
+  > .v-input__control
+  > .v-input__slot,
+.v-text-field.v-text-field--enclosed .v-text-field__details {
+  padding: 8px 16px !important;
+}
+.country-input.my-input.v-text-field.v-text-field--solo:not(.v-text-field--solo-flat)
+  > .v-input__control
+  > .v-input__slot {
+  filter: none !important;
 }

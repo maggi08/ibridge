@@ -1,5 +1,8 @@
 <template>
-  <header class="header" :class="{ 'header-transparent': is_transparent }">
+  <header
+    class="header"
+    :class="{ 'header-transparent': is_transparent && !isError }"
+  >
     <v-container
       class="header-container d-flex align-center justify-space-between"
     >
@@ -7,7 +10,7 @@
         <div class="logo">
           <nuxt-link to="/">
             <svg
-              v-if="is_transparent"
+              v-if="is_transparent && !isError"
               width="111"
               height="32"
               viewBox="0 0 111 32"
@@ -179,7 +182,7 @@
 
         <button
           class="ml-6 btn-orange"
-          :class="{ 'd-none': is_transparent }"
+          :class="{ 'd-none': is_transparent && !isError }"
           @click="openModal"
         >
           {{ $t('gotoapplication') }}
@@ -187,7 +190,7 @@
       </div>
       <div class="d-md-none ml-auto pointer">
         <svg
-          v-if="is_transparent"
+          v-if="is_transparent && !isError"
           width="24"
           height="24"
           viewBox="0 0 24 24"
@@ -251,29 +254,32 @@
             {{ $t('modal_title') }}
           </h5>
           <v-form ref="form" class="mt-6" @submit.prevent="submitForm">
-            <p class="label blue-color">{{ $t('label1') }}*</p>
+            <p class="label dark-grey-color">{{ $t('label1') }}*</p>
             <v-text-field
               v-model="form.name"
-              class="my-input"
+              class="my-input mt-1"
               outlined
               :placeholder="$t('label1')"
               :rules="[(v) => !!v || $t('required')]"
             >
             </v-text-field>
 
-            <p class="label blue-color">{{ $t('label2') }}*</p>
+            <p class="label dark-grey-color">{{ $t('label2') }}*</p>
             <v-text-field
               v-model="form.phone"
               v-mask="'+7 7## ### ## ##'"
-              class="my-input"
+              class="my-input mt-1"
               outlined
-              placeholder="+7 7## ### ## ##"
+              placeholder="+7 7xx xxx xx xx"
               :rules="[(v) => !!v || $t('required')]"
             >
             </v-text-field>
 
             <p class="label text-center mt-2">
-              {{ $t('policy') }}
+              <span class="label grey-color">
+                {{ $t('policy') }}
+              </span>
+
               <span class="label orange-color pointer" @click="openPolicy">
                 {{ $t('span') }}
               </span>
@@ -547,6 +553,12 @@
 
 <script>
 export default {
+  props: {
+    isError: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data: () => ({
     menu_modal: false,
     success_modal: false,
@@ -634,6 +646,9 @@ export default {
     box-shadow: none;
 
     * {
+      color: #f8f8f8;
+    }
+    a {
       color: #f8f8f8;
     }
   }

@@ -2,7 +2,7 @@
   <div class="light-white-bg py-16">
     <v-container>
       <p class="label grey-color text-uppercase">{{ $t('subtitle') }}</p>
-      <h2 class="mt-3 blue-color m-w-480">{{ $t('title') }}</h2>
+      <h2 class="mt-3 black-color m-w-480">{{ $t('title') }}</h2>
 
       <div class="gallery mt-14">
         <div
@@ -17,13 +17,6 @@
           <img v-if="item" class="" :src="item" alt="" />
         </div>
       </div>
-
-      <h2
-        v-if="gallery && gallery.length < 1"
-        class="blue-color m-w-480 text-center my-16 mx-auto"
-      >
-        {{ $t('nothing') }}
-      </h2>
     </v-container>
     <GallerySwiper ref="swiper" :images="gallery" />
   </div>
@@ -64,14 +57,25 @@ export default {
       },
     },
     gallery: [
-      require('../assets/img/gallery/1.jpg'),
-      require('../assets/img/gallery/2.jpg'),
-      require('../assets/img/gallery/4.jpg'),
-      require('../assets/img/gallery/5.jpg'),
-      require('../assets/img/gallery/1.jpg'),
-      require('../assets/img/gallery/2.jpg'),
-      require('../assets/img/gallery/4.jpg'),
-      require('../assets/img/gallery/5.jpg'),
+      require('@/assets/img/gallery/image0.jpeg'),
+      require('@/assets/img/gallery/image1.jpeg'),
+      require('@/assets/img/gallery/image3.jpeg'),
+      require('@/assets/img/gallery/image4.jpeg'),
+      require('@/assets/img/gallery/image5.jpeg'),
+      require('@/assets/img/gallery/image6.jpeg'),
+      require('@/assets/img/gallery/image7.jpeg'),
+      require('@/assets/img/gallery/image8.jpg'),
+      require('@/assets/img/gallery/image9.jpg'),
+      require('@/assets/img/gallery/image10.jpg'),
+      require('@/assets/img/gallery/image11.jpg'),
+      require('@/assets/img/gallery/image12.jpg'),
+      require('@/assets/img/gallery/image13.jpg'),
+      require('@/assets/img/gallery/image14.jpg'),
+      require('@/assets/img/gallery/image15.jpg'),
+      require('@/assets/img/gallery/image16.jpg'),
+      require('@/assets/img/gallery/image17.jpg'),
+      require('@/assets/img/gallery/image18.jpg'),
+      require('@/assets/img/gallery/image19.jpg'),
     ],
   }),
   methods: {

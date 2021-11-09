@@ -18,7 +18,7 @@
         "
       >
         <h2>{{ $t('title') }}</h2>
-        <p class="subtitle mt-6">{{ $t('subtitle') }}</p>
+        <p class="subtitle dark-grey-color mt-6">{{ $t('subtitle') }}</p>
         <button class="mt-14 mt-sm-8 big-btn-orange" @click="openRequest">
           {{ $t('request') }}
         </button>

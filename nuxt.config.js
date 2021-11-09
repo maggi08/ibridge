@@ -52,6 +52,7 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: '~/plugins/swiper.js', ssr: true },
+    { src: '~/plugins/yandex-maps', ssr: false },
     { src: '~/plugins/v-mask.js', ssr: false },
   ],
 
@@ -70,7 +71,7 @@ export default {
   modules: ['@nuxtjs/axios', '@nuxtjs/i18n'],
 
   axios: {
-    baseUrl: 'http://____/api',
+    baseUrl: 'http://ibridge.kz/api/',
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify

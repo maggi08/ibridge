@@ -1,41 +1,44 @@
 <template>
-  <v-container id="achivements" class="pt-16 pb-16">
-    <p class="label grey-color text-center text-lg-left text-uppercase">
-      {{ $t('label') }}
-    </p>
-    <h2
-      class="mt-3 blue-color text-center text-lg-left"
-      v-html="$t('title')"
-    ></h2>
+  <div class="relative">
+    <img class="bg" src="@/assets/img/pattern_bg.png" alt="" />
+    <v-container id="achivements" class="pt-16 pb-16">
+      <p class="label grey-color text-center text-lg-left text-uppercase">
+        {{ $t('label') }}
+      </p>
+      <h2
+        class="mt-3 black-color text-center text-lg-left"
+        v-html="$t('title')"
+      ></h2>
 
-    <div class="mt-14 achivements d-flex align-center row mx-0">
-      <div
-        v-for="(item, index) in achivements"
-        :key="index"
-        class="col-6 col-lg-3 pa-0 mb-8"
-      >
+      <div class="mt-14 achivements d-flex align-center row mx-0">
         <div
-          class="
-            achivements-item
-            d-flex
-            flex-column
-            justify-center
-            align-center
-            mb-10
-            mx-auto
-          "
+          v-for="(item, index) in achivements"
+          :key="index"
+          class="col-6 col-lg-3 pa-0 mb-8"
         >
           <div
-            :id="`number${index}`"
-            class="achivements-item__number text-center"
+            class="
+              achivements-item
+              d-flex
+              flex-column
+              justify-center
+              align-center
+              mb-10
+              mx-auto
+            "
           >
-            {{ item.number }}
+            <div
+              :id="`number${index}`"
+              class="achivements-item__number text-center"
+            >
+              {{ item.number }}
+            </div>
+            <h5 class="mt-2 text-center fw-400" v-html="$t(item.title)"></h5>
           </div>
-          <h5 class="mt-2 text-center fw-400" v-html="$t(item.title)"></h5>
         </div>
       </div>
-    </div>
-  </v-container>
+    </v-container>
+  </div>
 </template>
 
 <i18n>
@@ -122,6 +125,16 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.realtive {
+  position: relative;
+}
+.bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 280px;
+}
 .achivements {
   &-item {
     width: 256px;
