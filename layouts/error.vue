@@ -13,7 +13,7 @@
         cannot find page
       </p>
 
-      <button class="big-btn-black mt-8" @click="$router.push('/')">
+      <button class="big-btn-black mt-8" @click="reloadPage">
         {{ $i18n.locale == 'ru' ? 'На главную' : 'To Home' }}
       </button>
     </v-container>
@@ -55,6 +55,12 @@ export default {
     return {
       title,
     }
+  },
+  methods: {
+    reloadPage() {
+      if (this.$route.path === '/') location.reload()
+      else this.$router.push('/')
+    },
   },
 }
 </script>
