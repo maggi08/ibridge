@@ -636,6 +636,9 @@ export default {
     * {
       color: #f8f8f8;
     }
+    a {
+      color: #f8f8f8;
+    }
   }
   &-container {
     width: 100%;

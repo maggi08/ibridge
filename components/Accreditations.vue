@@ -9,9 +9,9 @@
       </h2>
       <div class="mt-14 mb-10 relative w-90">
         <swiper :options="swiperOption" class="mySwiper">
-          <swiper-slide v-for="(item, index) in 10" :key="index">
+          <swiper-slide v-for="(item, index) in images" :key="index">
             <div class="box" @click="openModal(index)">
-              <img src="../assets/img/acc/1.png" alt="" />
+              <img :src="item" alt="" />
               <div class="hover"></div>
             </div>
           </swiper-slide>
@@ -40,7 +40,27 @@
 <script>
 export default {
   data: () => ({
-    images: [require('../assets/img/acc/1.png')],
+    images: [
+      require('@/assets/img/acc/SL_Authorized_Rep_Certificate_All_page-0001.jpg'),
+      require('@/assets/img/acc/SL_Authorized_Rep_Certificate_All_page-0002.jpg'),
+      require('@/assets/img/acc/SL_Authorized_Rep_Certificate_All_page-0003.jpg'),
+      require('@/assets/img/acc/SL_Authorized_Rep_Certificate_All_page-0004.jpg'),
+      require('@/assets/img/acc/SL_Authorized_Rep_Certificate_All_page-0005.jpg'),
+      require('@/assets/img/acc/SL_Authorized_Rep_Certificate_All_page-0006.jpg'),
+      require('@/assets/img/acc/SL_Authorized_Rep_Certificate_All_page-0007.jpg'),
+      require('@/assets/img/acc/SL_Authorized_Rep_Certificate_All_page-0008.jpg'),
+      require('@/assets/img/acc/SL_Authorized_Rep_Certificate_All_page-0009.jpg'),
+      require('@/assets/img/acc/SL_Authorized_Rep_Certificate_All_page-0010.jpg'),
+      require('@/assets/img/acc/SL_Authorized_Rep_Certificate_All_page-0011.jpg'),
+      require('@/assets/img/acc/SL_Authorized_Rep_Certificate_All_page-0012.jpg'),
+      require('@/assets/img/acc/SL_Authorized_Rep_Certificate_All_page-0013.jpg'),
+      require('@/assets/img/acc/SL_Authorized_Rep_Certificate_All_page-0014.jpg'),
+      require('@/assets/img/acc/SL_Authorized_Rep_Certificate_All_page-0015.jpg'),
+      require('@/assets/img/acc/SL_Authorized_Rep_Certificate_All_page-0016.jpg'),
+      require('@/assets/img/acc/SL_Authorized_Rep_Certificate_All_page-0017.jpg'),
+      require('@/assets/img/acc/SL_Authorized_Rep_Certificate_All_page-0018.jpg'),
+      require('@/assets/img/acc/SL_Authorized_Rep_Certificate_All_page-0019.jpg'),
+    ],
     swiperOption: {
       effect: 'coverflow',
       grabCursor: 'true',
@@ -63,20 +83,6 @@ export default {
         type: 'bullets',
         clickable: true,
       },
-      // breakpoints: {
-      //   576: {
-      //     slidesPerView: 2,
-      //     spaceBetween: 16,
-      //   },
-      //   900: {
-      //     slidesPerView: 3,
-      //     spaceBetween: 16,
-      //   },
-      //   1200: {
-      //     slidesPerView: 4,
-      //     spaceBetween: 16,
-      //   },
-      // },
     },
   }),
   methods: {

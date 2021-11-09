@@ -47,6 +47,14 @@
 
 <script>
 export default {
+  props: {
+    partners: {
+      type: Array,
+      default() {
+        return []
+      },
+    },
+  },
   data: () => ({
     swiperOption: {
       slidesPerView: 1,
@@ -57,85 +65,88 @@ export default {
         clickable: true,
       },
     },
-    partners: [
-      [
-        {
-          image: require('../assets/img/partners/1.png'),
-        },
-        {
-          image: require('../assets/img/partners/2.png'),
-        },
-        {
-          image: require('../assets/img/partners/3.png'),
-        },
-        {
-          image: require('../assets/img/partners/4.png'),
-        },
-        {
-          image: require('../assets/img/partners/5.png'),
-        },
-        {
-          image: require('../assets/img/partners/6.png'),
-        },
-        {
-          image: require('../assets/img/partners/7.png'),
-        },
-        {
-          image: require('../assets/img/partners/8.png'),
-        },
-        {
-          image: require('../assets/img/partners/9.png'),
-        },
-        {
-          image: require('../assets/img/partners/10.png'),
-        },
-        {
-          image: require('../assets/img/partners/11.png'),
-        },
-        {
-          image: require('../assets/img/partners/12.png'),
-        },
-      ],
-      [
-        {
-          image: require('../assets/img/partners/1.png'),
-        },
-        {
-          image: require('../assets/img/partners/2.png'),
-        },
-        {
-          image: require('../assets/img/partners/3.png'),
-        },
-        {
-          image: require('../assets/img/partners/4.png'),
-        },
-        {
-          image: require('../assets/img/partners/5.png'),
-        },
-        {
-          image: require('../assets/img/partners/6.png'),
-        },
-        {
-          image: require('../assets/img/partners/7.png'),
-        },
-        {
-          image: require('../assets/img/partners/8.png'),
-        },
-        {
-          image: require('../assets/img/partners/9.png'),
-        },
-        {
-          image: require('../assets/img/partners/10.png'),
-        },
-        {
-          image: require('../assets/img/partners/11.png'),
-        },
-        {
-          image: require('../assets/img/partners/12.png'),
-        },
-      ],
-    ],
+    // partners: [
+    //   [
+    //     {
+    //       image: require('../assets/img/partners/1.png'),
+    //     },
+    //     {
+    //       image: require('../assets/img/partners/2.png'),
+    //     },
+    //     {
+    //       image: require('../assets/img/partners/3.png'),
+    //     },
+    //     {
+    //       image: require('../assets/img/partners/4.png'),
+    //     },
+    //     {
+    //       image: require('../assets/img/partners/5.png'),
+    //     },
+    //     {
+    //       image: require('../assets/img/partners/6.png'),
+    //     },
+    //     {
+    //       image: require('../assets/img/partners/7.png'),
+    //     },
+    //     {
+    //       image: require('../assets/img/partners/8.png'),
+    //     },
+    //     {
+    //       image: require('../assets/img/partners/9.png'),
+    //     },
+    //     {
+    //       image: require('../assets/img/partners/10.png'),
+    //     },
+    //     {
+    //       image: require('../assets/img/partners/11.png'),
+    //     },
+    //     {
+    //       image: require('../assets/img/partners/12.png'),
+    //     },
+    //   ],
+    //   [
+    //     {
+    //       image: require('../assets/img/partners/1.png'),
+    //     },
+    //     {
+    //       image: require('../assets/img/partners/2.png'),
+    //     },
+    //     {
+    //       image: require('../assets/img/partners/3.png'),
+    //     },
+    //     {
+    //       image: require('../assets/img/partners/4.png'),
+    //     },
+    //     {
+    //       image: require('../assets/img/partners/5.png'),
+    //     },
+    //     {
+    //       image: require('../assets/img/partners/6.png'),
+    //     },
+    //     {
+    //       image: require('../assets/img/partners/7.png'),
+    //     },
+    //     {
+    //       image: require('../assets/img/partners/8.png'),
+    //     },
+    //     {
+    //       image: require('../assets/img/partners/9.png'),
+    //     },
+    //     {
+    //       image: require('../assets/img/partners/10.png'),
+    //     },
+    //     {
+    //       image: require('../assets/img/partners/11.png'),
+    //     },
+    //     {
+    //       image: require('../assets/img/partners/12.png'),
+    //     },
+    //   ],
+    // ],
   }),
+  created() {
+    console.log(this.partners)
+  },
 }
 </script>
 

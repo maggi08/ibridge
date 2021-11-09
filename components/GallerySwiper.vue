@@ -66,21 +66,12 @@ export default {
         prevEl: '.acc-prev',
       },
     },
-    gallery: [
-      require('@/assets/img/gallery/1.jpg'),
-      require('@/assets/img/gallery/2.jpg'),
-      require('@/assets/img/gallery/4.jpg'),
-      require('@/assets/img/gallery/5.jpg'),
-      require('@/assets/img/gallery/1.jpg'),
-      require('@/assets/img/gallery/2.jpg'),
-      require('@/assets/img/gallery/4.jpg'),
-      require('@/assets/img/gallery/5.jpg'),
-    ],
   }),
   methods: {
     openModal(index) {
       const swiper = document.querySelector('.gallery-swiper')
       if (swiper?.swiper) {
+        console.log(swiper.swiper)
         swiper.swiper.slideTo(index)
       }
       this.gallery_modal = true

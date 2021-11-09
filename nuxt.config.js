@@ -70,7 +70,7 @@ export default {
   modules: ['@nuxtjs/axios', '@nuxtjs/i18n'],
 
   axios: {
-    baseUrl: 'http://____/api',
+    baseUrl: 'http://ibridge.kz/',
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
