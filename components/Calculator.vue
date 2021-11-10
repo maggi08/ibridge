@@ -19,8 +19,10 @@
           <div class="carts d-flex row mx-0 justify-space-between mt-4">
             <div
               class="carts-item ma-auto mt-4"
-              :class="{ 'carts-item-active': form.type == 'lang' }"
-              @click="form.type = 'lang'"
+              :class="{
+                'carts-item-active': form.type == 'Языковые программы',
+              }"
+              @click="form.type = 'Языковые программы'"
             >
               <div class="">
                 <svg
@@ -51,8 +53,10 @@
             </div>
             <div
               class="carts-item ma-auto mt-4"
-              :class="{ 'carts-item-active': form.type == 'avg' }"
-              @click="form.type = 'avg'"
+              :class="{
+                'carts-item-active': form.type == 'Среднее образование',
+              }"
+              @click="form.type = 'Среднее образование'"
             >
               <div class="">
                 <svg
@@ -80,8 +84,10 @@
             </div>
             <div
               class="carts-item ma-auto mt-4"
-              :class="{ 'carts-item-active': form.type == 'prep' }"
-              @click="form.type = 'prep'"
+              :class="{
+                'carts-item-active': form.type == 'Подготовительные программы',
+              }"
+              @click="form.type = 'Подготовительные программы'"
             >
               <div class="">
                 <svg
@@ -105,8 +111,10 @@
             </div>
             <div
               class="carts-item ma-auto mt-4"
-              :class="{ 'carts-item-active': form.type == 'high' }"
-              @click="form.type = 'high'"
+              :class="{
+                'carts-item-active': form.type == 'Высшее образование',
+              }"
+              @click="form.type = 'Высшее образование'"
             >
               <div class="">
                 <svg
@@ -137,12 +145,12 @@
             <v-radio
               class="black-color"
               :label="$t('bachelor')"
-              :value="'bachelor'"
+              :value="'Бакалавриат'"
             ></v-radio>
             <v-radio
               class="black-color"
               :label="$t('master')"
-              :value="'master'"
+              :value="'Магистратура'"
             ></v-radio>
           </v-radio-group>
 
@@ -186,10 +194,9 @@
               v-model="form.university"
               class="my-input country-input mt-6"
               :items="universities"
-              item-text="text"
-              item-value="value"
               :placeholder="$t('universityPlaceholder')"
               solo
+              @input="handleUniversityChange"
             >
             </v-select>
           </div>
@@ -200,12 +207,12 @@
             <v-radio
               class="black-color"
               :label="$t('onCampus')"
-              :value="'onCampus'"
+              :value="'В кампусе'"
             ></v-radio>
             <v-radio
               class="black-color"
               :label="$t('notCampus')"
-              :value="'notCampus'"
+              :value="'Не в кампусе'"
             ></v-radio>
           </v-radio-group>
         </div>
@@ -217,7 +224,7 @@
             <div class="mt-4 w-100 text-right">
               <p class="box-cost">
                 <span class="box-text mr-4">{{ $t('from') }}</span>
-                49 000$
+                {{ price }}$
               </p>
             </div>
           </div>
@@ -362,7 +369,7 @@
     "type1": "Language programs",
     "type2": "Secondary education",
     "type3": "Preparatory programs",
-    "type4": "Higher education",
+    "type4": "er education",
     "whichDegree": "What type of academic program do you prefer? ",
     "bachelor": "Bachelor degree",
     "master": "Master's degree",
@@ -409,23 +416,22 @@
 </i18n>
 
 <script>
+import costJson from '~/cost.json'
 export default {
   data: () => ({
+    table: [],
+    price: 49000,
     hover: false,
     showModal: false,
     step: 1,
     form: {
       type: null,
     },
-    universities: [
-      'Adelphi University',
-      'American University',
-      'University of Dayton',
-    ],
+    universities: [],
     countriesRU: [
       {
         text: 'Великобритания',
-        value: 'UK',
+        value: 'Великобритания',
         icon: `<svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1.99951 5.08398H21.989V19.0824H1.99951V5.08398Z" fill="white"/>
                 <path d="M10.9947 13.4788V19.0824H12.9939V13.4788H21.9891V10.6803H12.9939V5.08398H10.9947V10.6803H1.99951V13.4788H10.9947Z" fill="#CF142B"/>
@@ -436,7 +442,7 @@ export default {
       },
       {
         text: 'США',
-        value: 'US',
+        value: 'США',
         icon: `<svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M2.00293 5.16748H22.0029V19.1675H2.00293V5.16748Z" fill="white"/>
               <path d="M2.00293 5.16748H22.0029V6.24442H2.00293V5.16748ZM2.00293 7.32137H22.0029V8.39831H2.00293V7.32137ZM2.00293 9.47517H22.0029V10.5521H2.00293V9.47517ZM2.00293 11.6291H22.0029V12.706H2.00293V11.6291ZM2.00293 13.7829H22.0029V14.8598H2.00293V13.7829ZM2.00293 15.9367H22.0029V17.0137H2.00293V15.9367ZM2.00293 18.0905H22.0029V19.1675H2.00293V18.0905Z" fill="#B22234"/>
@@ -447,7 +453,7 @@ export default {
       },
       {
         text: 'Канада',
-        value: 'CA',
+        value: 'Канада',
         icon: `<svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M2.37354 5.16357H22.3735V19.1636H2.37354V5.16357Z" fill="#FF0000"/>
                 <path d="M7.37354 5.16357H17.3735V19.1636H7.37354V5.16357Z" fill="white"/>
@@ -459,7 +465,7 @@ export default {
     countriesEN: [
       {
         text: 'United Kingdom',
-        value: 'UK',
+        value: 'Великобритания',
         icon: `<svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1.99951 5.08398H21.989V19.0824H1.99951V5.08398Z" fill="white"/>
                 <path d="M10.9947 13.4788V19.0824H12.9939V13.4788H21.9891V10.6803H12.9939V5.08398H10.9947V10.6803H1.99951V13.4788H10.9947Z" fill="#CF142B"/>
@@ -470,7 +476,7 @@ export default {
       },
       {
         text: 'USA',
-        value: 'US',
+        value: 'США',
         icon: `<svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M2.00293 5.16748H22.0029V19.1675H2.00293V5.16748Z" fill="white"/>
               <path d="M2.00293 5.16748H22.0029V6.24442H2.00293V5.16748ZM2.00293 7.32137H22.0029V8.39831H2.00293V7.32137ZM2.00293 9.47517H22.0029V10.5521H2.00293V9.47517ZM2.00293 11.6291H22.0029V12.706H2.00293V11.6291ZM2.00293 13.7829H22.0029V14.8598H2.00293V13.7829ZM2.00293 15.9367H22.0029V17.0137H2.00293V15.9367ZM2.00293 18.0905H22.0029V19.1675H2.00293V18.0905Z" fill="#B22234"/>
@@ -481,7 +487,7 @@ export default {
       },
       {
         text: 'Canada',
-        value: 'CA',
+        value: 'Канада',
         icon: `<svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M2.37354 5.16357H22.3735V19.1636H2.37354V5.16357Z" fill="#FF0000"/>
                 <path d="M7.37354 5.16357H17.3735V19.1636H7.37354V5.16357Z" fill="white"/>
@@ -501,10 +507,25 @@ export default {
       return false
     },
   },
+  created() {
+    this.getUniversities()
+  },
   methods: {
+    handleUniversityChange(value) {
+      this.table.forEach((stroke) => {
+        if (stroke['Название университета'] === value)
+          this.price = stroke['Стоимость (от…)']
+      })
+    },
+    getUniversities() {
+      this.table = costJson.pvt
+      this.universities = this.table.map(
+        (stroke) => stroke['Название университета']
+      )
+    },
     submitForm() {
-      console.log(this.form)
-      console.log(this.step)
+      this.$root.$emit('openRequest', this.form)
+      this.closeModal()
     },
     reTry() {
       this.step = 1

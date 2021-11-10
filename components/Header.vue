@@ -256,7 +256,7 @@
           <v-form ref="form" class="mt-6" @submit.prevent="submitForm">
             <p class="label dark-grey-color">{{ $t('label1') }}*</p>
             <v-text-field
-              v-model="form.name"
+              v-model="form.first_name"
               class="my-input mt-1"
               outlined
               :placeholder="$t('label1')"
@@ -266,7 +266,7 @@
 
             <p class="label dark-grey-color">{{ $t('label2') }}*</p>
             <v-text-field
-              v-model="form.phone"
+              v-model="form.phone_number"
               v-mask="'+7 7## ### ## ##'"
               class="my-input mt-1"
               outlined
@@ -524,9 +524,9 @@
       "policy":"By leaving data on the site, you agree with ",
       "span":"Privacy Policy",
       "required":"Required Field",
-      "successBtn":"",
-      "successTitle":"",
-      "successSubTitle":""
+      "successBtn":"To home",
+      "successTitle":"Thank you! <br/> Your application is accepted.",
+      "successSubTitle":"We will contact you shortly."
     },
     "ru": {
       "logo_text":"Консалтинговое агенство <br> по образованию за рубежом",
@@ -569,7 +569,10 @@ export default {
   mounted() {
     this.onScroll()
     window.addEventListener('scroll', this.onScroll)
-    this.$root.$on('openRequest', () => {
+    this.$root.$on('openRequest', (form = {}) => {
+      if (form.type) {
+        this.form.comments = Object.values(form).join(', ')
+      }
       this.openModal()
     })
   },
@@ -585,15 +588,21 @@ export default {
     },
     async submitForm() {
       if (!this.$refs.form.validate()) return
+      const headers = {
+        'X-API-KEY': 'secret_mako',
+      }
+      this.form.last_name = this.form.first_name.split(' ')[1] || ' '
+      this.form.first_name = this.form.first_name.split(' ')[0] || ' '
 
+      let api = `${this.$i18n.locale}/app/form/`
+      if(this.form.comments) api = `${this.$i18n.locale}/app/calculator/`
       await this.$axios
-        .$post(``, this.form)
+        .$post(api, this.form, { headers })
         .then(() => {
           this.success_modal = true
         })
         .catch((err) => {
-          const error = Object.values(err.response.data).join(', ')
-          alert(error)
+          console.log(err)
         })
     },
     closeModal() {
