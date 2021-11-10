@@ -1238,14 +1238,14 @@ export default {
 
 <style scoped lang="scss">
 .footer {
-  background: $blue;
+  background: $blue-color;
 
   &-links {
     color: white;
     text-decoration: none;
     transition: 0.3s;
     &:hover {
-      color: $orange;
+      color: $orange-color;
     }
   }
 }

@@ -52,7 +52,6 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: '~/plugins/swiper.js', ssr: true },
-    { src: '~/plugins/yandex-maps', ssr: false },
     { src: '~/plugins/v-mask.js', ssr: false },
   ],
 
@@ -93,9 +92,7 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-    // standalone: true,
-  },
+  build: {},
 
   i18n: {
     locales: ['ru', 'en'],

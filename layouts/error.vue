@@ -65,7 +65,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .error-page {
   width: 100%;
   height: 100%;

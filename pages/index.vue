@@ -36,16 +36,16 @@ export default {
   //   return { partners }
   // },
   data: () => ({}),
-  async created() {
-    await this.$axios
-      .$get(`${this.$i18n.locale}/app/logos/`)
-      .then((res) => {
-        console.log(res)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-  },
+  // async created() {
+  //   await this.$axios
+  //     .$get(`${this.$i18n.locale}/app/logos/`)
+  //     .then((res) => {
+  //       console.log(res)
+  //     })
+  //     .catch((err) => {
+  //       console.log(err)
+  //     })
+  // },
 }
 </script>
 

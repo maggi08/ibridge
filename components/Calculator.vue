@@ -616,7 +616,7 @@ export default {
 @media (max-width: 600px) {
   .big-btn-orange {
     width: 100%;
-    background: $orange;
+    background: $orange-color;
     &:hover,
     &-hover {
       background: #c1790c;
