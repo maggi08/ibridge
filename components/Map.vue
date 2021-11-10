@@ -210,11 +210,11 @@ export default {
 .orange-bg {
   transition: 0.3s;
   position: relative;
-  background: $blue;
+  background: $blue-color;
 }
 .big-btn-black {
   width: 100%;
-  background: $orange;
+  background: $orange-color;
 }
 // .image {
 //   position: absolute;
@@ -290,11 +290,11 @@ ymaps svg {
     height: 354px;
   }
   .orange-bg {
-    background: $blue;
+    background: $blue-color;
   }
   .big-btn-black {
     width: 100%;
-    background: $orange;
+    background: $orange-color;
     &:hover,
     &-hover {
       background: #c1790c;

@@ -1,14 +1,14 @@
 @import './variables.scss';
 
-$orange: #d2840d;
-$blue: #171b2c;
-$black: #202124;
-$dark-grey: #474747;
-$grey: #7c7c7c;
-$light-grey: #aeaeae;
-$dark-white: #f2f2f2;
-$light-white: #f8f8f8;
-$white: #ffffff;
+$orange-color: #d2840d;
+$blue-color: #171b2c;
+$black-color: #202124;
+$dark-grey-color: #474747;
+$grey-color: #7c7c7c;
+$light-grey-color: #aeaeae;
+$dark-white-color: #f2f2f2;
+$light-white-color: #f8f8f8;
+$white-color: #ffffff;
 
 * {
   margin: 0;
@@ -104,19 +104,19 @@ h5,
   color: white !important;
 }
 .orange-color {
-  color: $orange !important;
+  color: $orange-color !important;
 }
 .grey-color {
-  color: $grey !important;
+  color: $grey-color !important;
 }
 .blue-color {
-  color: $blue !important;
+  color: $blue-color !important;
 }
 .dark-grey-color {
-  color: $dark-grey !important;
+  color: $dark-grey-color !important;
 }
 .black-color {
-  color: $black;
+  color: $black-color;
 }
 
 .black-bg {
@@ -126,10 +126,10 @@ h5,
   background: #171b2c !important;
 }
 .light-white-bg {
-  background: $light-white !important;
+  background: $light-white-color !important;
 }
 .orange-bg {
-  background: $orange !important;
+  background: $orange-color !important;
 }
 .m-w-480 {
   max-width: 480px;
@@ -367,7 +367,7 @@ ul {
   opacity: 1;
   margin: 0 4px;
   &-active {
-    background: $orange !important;
+    background: $orange-color !important;
   }
 }
 
@@ -457,7 +457,7 @@ ul {
 
 .black-color {
   .theme--light.v-label {
-    color: $black !important;
+    color: $black-color !important;
   }
   .v-input--selection-controls__input:hover
     .v-input--selection-controls__ripple:before {

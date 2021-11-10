@@ -637,7 +637,7 @@ export default {
     transition: 0.3s;
 
     &:hover {
-      color: $orange;
+      color: $orange-color;
     }
   }
 
@@ -689,7 +689,7 @@ a {
     font-size: 22px;
     line-height: 120%;
     &:hover {
-      color: $orange;
+      color: $orange-color;
     }
   }
 }
