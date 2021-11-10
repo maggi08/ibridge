@@ -21,7 +21,7 @@
                 :key="indexj"
                 class="partners-item mb-8"
               >
-                <img :src="itemj.image" alt="" />
+                <img :src="itemj.logo_url" alt="" />
               </div>
             </div>
           </swiper-slide>

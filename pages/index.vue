@@ -5,7 +5,7 @@
     <Services id="services" />
     <Achivements />
     <Study />
-    <Partners id="partners" />
+    <Partners id="partners" :partners="partners" />
     <Accreditations />
     <Gallery />
     <Map />
@@ -27,12 +27,12 @@ export default {
     }
     try {
       await $axios.$get(`${i18n.locale}/app/logos/`).then((res) => {
-        partners = splitArrayIntoChunksOfLen(res, 2)
+        partners = splitArrayIntoChunksOfLen(res, 12)
+        console.log(partners)
       })
     } catch (err) {
       console.log(err)
     }
-
     return { partners }
   },
   data: () => ({}),
