@@ -3,8 +3,9 @@ import colors from 'vuetify/es5/util/colors'
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - iBridge',
-    title: 'iBridge',
+    templateTitle: '%name% - %title%',
+    name: 'iBridge',
+    title: 'Консалтинговое агенство по образованию зарубежом',
     htmlAttrs: {
       lang: 'en',
     },
@@ -67,7 +68,7 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/axios', '@nuxtjs/i18n'],
+  modules: ['@nuxtjs/axios', '@nuxtjs/i18n', 'nuxt-seo'],
 
   axios: {
     baseUrl: 'https://ibridge.kz/',
@@ -103,9 +104,41 @@ export default {
       silentTranslationWarn: true,
       silentFallbackWarn: true,
     },
-    detectBrowserLanguage: {
-      useCookie: true,
-      redirectOn: 'root',
+  },
+
+  seo: {
+    baseUrl: 'https://ibridge.kz/',
+    templateTitle: '%name% - %title%',
+    name: 'iBridge',
+    title: 'Консалтинговое агенство по образованию зарубежом',
+    keywords: 'iBridge',
+    description: 'iBridge - Консалтинговое агенство по образованию зарубежом',
+    canonical: 'auto',
+    isForcedTrailingSlash: false,
+    lang: 'ru',
+    language: 'Russian',
+    url: 'https://ibridge.kz/',
+    image: {
+      width: '200',
+      height: '200',
+      url: '/favicon-16x16.png',
+    },
+    openGraph: {
+      keywords: 'iBridge',
+      description: 'iBridge - Консалтинговое агенство по образованию зарубежом',
+      title: 'Консалтинговое агенство по образованию зарубежом',
+      image: {
+        url: '/favicon-16x16.png',
+        width: '200',
+        height: '200',
+      },
+      type: 'website',
+      url: 'https://ibridge.kz/',
+      article: {
+        author: 'iBridge',
+        publishedTime: '2021-01-01',
+        image: '/favicon-16x16.png',
+      },
     },
   },
 }

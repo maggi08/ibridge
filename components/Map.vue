@@ -216,23 +216,15 @@ export default {
   width: 100%;
   background: $orange-color;
 }
-// .image {
-//   position: absolute;
-//   right: 0;
-//   top: 0;
-//   height: 100%;
-//   width: 50%;
-//   @media (max-width: 960px) {
-//     position: static;
-//     width: 100%;
-//     height: 354px;
-//   }
-//   img {
-//     height: 100%;
-//     width: 100%;
-//     object-fit: cover;
-//   }
-// }
+.image {
+  width: 100%;
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
 .map-container {
   position: relative;
   top: 0;
