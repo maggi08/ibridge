@@ -2,7 +2,7 @@
   <div class="">
     <div class="blue-bg relative">
       <v-container class="d-md-flex align-center pa-0">
-        <div class="col-12 col-md-6 pa-3 pa-sm-0 py-16 px-3">
+        <div class="col-12 col-md-6 pa-3 pa-sm-0 py-sm-16 px-3">
           <h2
             class="white-color text-center text-sm-left"
             v-html="$t('title')"
