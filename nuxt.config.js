@@ -120,6 +120,11 @@ export default {
       silentTranslationWarn: true,
       silentFallbackWarn: true,
     },
+    strategy: 'prefix',
+    detectBrowserLanguage: {
+      useCookie: true,
+      alwaysRedirect: true,
+    },
   },
 
   optimizedImages: {
