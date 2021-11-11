@@ -47,7 +47,7 @@
                   />
                 </svg>
               </div>
-              <p class="label grey-color fw-400 mt-4 mx-2">
+              <p class="label dark-grey-color fw-400 mt-4 mx-2">
                 {{ $t('type1') }}
               </p>
             </div>
@@ -78,7 +78,7 @@
                   />
                 </svg>
               </div>
-              <p class="label grey-color fw-400 mt-4 mx-2">
+              <p class="label dark-grey-color fw-400 mt-4 mx-2">
                 {{ $t('type2') }}
               </p>
             </div>
@@ -105,7 +105,7 @@
                   <path d="M20 11V31" stroke="#171B2C" stroke-width="1.5" />
                 </svg>
               </div>
-              <p class="label grey-color fw-400 mt-4 mx-2">
+              <p class="label dark-grey-color fw-400 mt-4 mx-2">
                 {{ $t('type3') }}
               </p>
             </div>
@@ -132,7 +132,7 @@
                   />
                 </svg>
               </div>
-              <p class="label grey-color fw-400 mt-4 mx-2">
+              <p class="label dark-grey-color fw-400 mt-4 mx-2">
                 {{ $t('type4') }}
               </p>
             </div>
@@ -167,20 +167,40 @@
             >
               <template #item="{ item }">
                 <div class="d-flex align-center">
-                  <div class="mr-1" v-html="item.icon"></div>
+                  <div
+                    class="mr-1 d-flex align-center"
+                    v-html="item.icon"
+                  ></div>
 
-                  <div class="mb-1">
+                  <div class="">
                     {{ item.text }}
                   </div>
                 </div>
               </template>
               <template #selection="{ item }">
                 <div class="d-flex align-center">
-                  <div class="mr-1" v-html="item.icon"></div>
-                  <div class="mb-1">
+                  <div
+                    class="mr-1 d-flex align-center"
+                    v-html="item.icon"
+                  ></div>
+                  <div class="">
                     {{ item.text }}
                   </div>
                 </div>
+              </template>
+              <template #append>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M8 10L8.35355 10.3536L8 10.7071L7.64645 10.3536L8 10ZM12.3536 6.35355L8.35355 10.3536L7.64645 9.64645L11.6464 5.64645L12.3536 6.35355ZM7.64645 10.3536L3.64645 6.35355L4.35355 5.64645L8.35355 9.64645L7.64645 10.3536Z"
+                    fill="#202124"
+                  />
+                </svg>
               </template>
             </v-select>
           </div>
@@ -198,6 +218,20 @@
               solo
               @input="handleUniversityChange"
             >
+              <template #append>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M8 10L8.35355 10.3536L8 10.7071L7.64645 10.3536L8 10ZM12.3536 6.35355L8.35355 10.3536L7.64645 9.64645L11.6464 5.64645L12.3536 6.35355ZM7.64645 10.3536L3.64645 6.35355L4.35355 5.64645L8.35355 9.64645L7.64645 10.3536Z"
+                    fill="#202124"
+                  />
+                </svg>
+              </template>
             </v-select>
           </div>
 
@@ -233,7 +267,7 @@
             {{ $t('wantStudyAt') }}
 
             <span class="orange-color">
-              {{ form.country ? form.country : 'Adelphi University' }}?
+              {{ form.university ? form.university : 'Adelphi University' }}?
             </span>
 
             {{ $t('getConsultation') }}
@@ -369,7 +403,7 @@
     "type1": "Language programs",
     "type2": "Secondary education",
     "type3": "Preparatory programs",
-    "type4": "er education",
+    "type4": "Higher education",
     "whichDegree": "What type of academic program do you prefer? ",
     "bachelor": "Bachelor degree",
     "master": "Master's degree",
@@ -461,6 +495,36 @@ export default {
                 </svg>
                 `,
       },
+      {
+        text: 'Испания',
+        value: 'Испания',
+        icon: ``,
+      },
+      {
+        text: 'Германия',
+        value: 'Германия',
+        icon: ``,
+      },
+      {
+        text: 'Нидерланды',
+        value: 'Нидерланды',
+        icon: ``,
+      },
+      {
+        text: 'Сингапур',
+        value: 'Сингапур',
+        icon: ``,
+      },
+      {
+        text: 'ОАЭ',
+        value: 'ОАЭ',
+        icon: ``,
+      },
+      {
+        text: 'Швейцария',
+        value: 'Швейцария',
+        icon: ``,
+      },
     ],
     countriesEN: [
       {
@@ -494,6 +558,36 @@ export default {
                 <path d="M12.3734 6.47607L11.6911 8.25762C11.6137 8.45119 11.475 8.43327 11.3362 8.3251L10.8423 7.96698L11.2104 10.7033C11.2878 11.2032 11.0395 11.2032 10.9169 10.9871L10.0549 9.63606L9.91495 10.3222C9.89882 10.4122 9.82782 10.5069 9.72142 10.4844L8.63135 10.1635L8.91769 11.6207C8.97895 11.9449 9.02682 12.0792 8.85582 12.1647L8.46729 12.4204L10.3437 14.5542C10.418 14.6349 10.4555 14.78 10.4291 14.9115L10.2648 15.666C10.9109 15.5618 11.4898 15.4049 12.1362 15.3083C12.1933 15.2998 12.2888 15.4316 12.2884 15.5242L12.2028 18.2884H12.517L12.4675 15.5301C12.4671 15.4375 12.5538 15.2997 12.6108 15.3082C13.2572 15.4048 13.8362 15.5617 14.4822 15.666L14.318 14.9114C14.2916 14.7799 14.329 14.6348 14.4034 14.5541L16.2798 12.4202L15.8912 12.1646C15.7202 12.0791 15.7681 11.9448 15.8294 11.6205L16.1157 10.1633L15.0256 10.4842C14.9192 10.5067 14.8482 10.4121 14.8321 10.322L14.6922 9.63587L13.8302 10.987C13.7076 11.2031 13.4592 11.2031 13.5366 10.7032L13.9048 7.96689L13.4108 8.32501C13.2721 8.43318 13.1334 8.4511 13.056 8.25753" fill="#FF0000"/>
                 </svg>
                 `,
+      },
+      {
+        text: 'Spain',
+        value: 'Spain',
+        icon: ``,
+      },
+      {
+        text: 'Germany',
+        value: 'Germany',
+        icon: ``,
+      },
+      {
+        text: 'Netherlands',
+        value: 'Netherlands',
+        icon: ``,
+      },
+      {
+        text: 'Singapur',
+        value: 'Singapur',
+        icon: ``,
+      },
+      {
+        text: 'UAE',
+        value: 'UAE',
+        icon: ``,
+      },
+      {
+        text: 'Switzerland',
+        value: 'Switzerland',
+        icon: ``,
       },
     ],
   }),

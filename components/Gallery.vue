@@ -88,6 +88,8 @@ export default {
 
 <style scoped lang="scss">
 .gallery {
+  padding-bottom: 38px;
+
   width: 100%;
   // height: 480px;
 
@@ -114,7 +116,10 @@ export default {
   }
 
   &::-webkit-scrollbar {
-    height: 40px;
+    height: 2px;
+  }
+  &::-webkit-scrollbar-track {
+    background: #ebebeb;
   }
   &::-webkit-scrollbar-thumb {
     border-bottom: 2px solid #d2840d;

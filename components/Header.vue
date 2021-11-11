@@ -253,7 +253,7 @@
           <h5 class="text-center">
             {{ $t('modal_title') }}
           </h5>
-          <v-form ref="form" class="mt-6" @submit.prevent="submitForm">
+          <v-form ref="form" class="mt-8" @submit.prevent="submitForm">
             <p class="label dark-grey-color">{{ $t('label1') }}*</p>
             <v-text-field
               v-model="form.first_name"
@@ -267,7 +267,7 @@
             <p class="label dark-grey-color">{{ $t('label2') }}*</p>
             <v-text-field
               v-model="form.phone_number"
-              v-mask="'+7 7## ### ## ##'"
+              v-mask="'+7 7xx xxx xx xx'"
               class="my-input mt-1"
               outlined
               placeholder="+7 7xx xxx xx xx"
@@ -352,7 +352,11 @@
       </v-card>
     </v-dialog>
 
-    <v-dialog v-model="menu_modal" fullscreen>
+    <v-dialog
+      v-model="menu_modal"
+      fullscreen
+      transition="slide-x-reverse-transition"
+    >
       <v-card class="my-modal">
         <div class="close" @click="closeMenu()">
           <svg
@@ -379,7 +383,7 @@
           </svg>
         </div>
         <div class="py-4 mx-auto d-flex justify-center w-100">
-          <a href="/">
+          <!-- <a href="/">
             <svg
               class="mx-auto"
               width="81"
@@ -425,27 +429,27 @@
                 fill="#171B2C"
               />
             </svg>
-          </a>
+          </a> -->
         </div>
         <nav class="mob-nav mt-8 px-4">
           <ul class="">
             <li class="mb-8">
-              <nuxt-link to="#programs">
+              <nuxt-link class="linklink" to="#programs">
                 {{ $t('programs') }}
               </nuxt-link>
             </li>
             <li class="mb-8">
-              <nuxt-link to="#services">
+              <nuxt-link class="linklink" to="#services">
                 {{ $t('services') }}
               </nuxt-link>
             </li>
             <li class="mb-8">
-              <nuxt-link to="#partners">
+              <nuxt-link class="linklink" to="#partners">
                 {{ $t('partners') }}
               </nuxt-link>
             </li>
             <li class="mb-8">
-              <nuxt-link to="#contacts">
+              <nuxt-link class="linklink" to="#contacts">
                 {{ $t('contacts') }}
               </nuxt-link>
             </li>
@@ -516,7 +520,7 @@
       "contacts":"Contacts",
       "gotoapplication":"Send request",
       "modal_title":"Please fill out the form and we will contact you shortly. ",
-      "label1":"Name",
+      "label1":"Your name",
       "label2":"Phone",
       "btn":"Send request",
       "placeholder1":"Your name",
@@ -536,7 +540,7 @@
       "contacts":"Контакты",
       "gotoapplication":"Оставить заявку",
       "modal_title":"Заполните форму и мы с вами свяжемся:",
-      "label1":"Имя",
+      "label1":"Ваше имя",
       "label2":"Номер телефона",
       "btn":"Оставить заявку",
       "placeholder1":"Ваше имя",
@@ -595,7 +599,7 @@ export default {
       this.form.first_name = this.form.first_name.split(' ')[0] || ' '
 
       let api = `${this.$i18n.locale}/app/form/`
-      if(this.form.comments) api = `${this.$i18n.locale}/app/calculator/`
+      if (this.form.comments) api = `${this.$i18n.locale}/app/calculator/`
       await this.$axios
         .$post(api, this.form, { headers })
         .then(() => {
@@ -625,6 +629,12 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.linklink {
+  color: $black-color;
+  &:hover {
+    color: $orange-color;
+  }
+}
 .consulting {
   text-transform: uppercase;
   font-size: 10px;

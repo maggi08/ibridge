@@ -116,7 +116,7 @@ h5,
   color: $dark-grey-color !important;
 }
 .black-color {
-  color: $black-color;
+  color: $black-color !important;
 }
 
 .black-bg {
@@ -363,8 +363,8 @@ ul {
 .swiper-pagination-bullet {
   width: 10px !important;
   height: 10px !important;
-  background: #f2f2f2 !important;
-  opacity: 1;
+  background: #ebebeb !important;
+  opacity: 1 !important;
   margin: 0 4px;
   &-active {
     background: $orange-color !important;
@@ -426,7 +426,6 @@ ul {
   > .v-input__control
   > .v-input__slot {
   box-shadow: none;
-  border: 1px solid #f8f8f8;
   filter: drop-shadow(0px 8px 12px rgba(0, 0, 0, 0.04));
   border: 1px solid #f8f8f8;
 
@@ -438,6 +437,21 @@ ul {
 .v-text-field--full-width > .v-input__control > .v-input__slot,
 .v-text-field--outlined > .v-input__control > .v-input__slot {
   min-height: 48px !important;
+}
+.my-input.v-text-field.v-text-field--enclosed:not(.v-text-field--rounded)
+  > .v-input__control
+  > .v-input__slot,
+.v-text-field.v-text-field--enclosed .v-text-field__details {
+  margin-bottom: 0 !important;
+}
+.my-input.v-text-field--outlined,
+.v-text-field--solo {
+  border-radius: 0px !important;
+}
+.my-input {
+  .v-messages__message {
+    text-align: right !important;
+  }
 }
 .v-application .error--text {
   font-size: 12px;

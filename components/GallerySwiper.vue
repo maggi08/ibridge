@@ -106,14 +106,13 @@ export default {
 
     .img {
       width: 100%;
-      height: 100%;
-      max-width: 728px;
+      height: 640px;
       display: flex;
       justify-content: center;
       align-items: center;
       img {
-        max-width: 100%;
-        max-height: 100%;
+        max-width: 90%;
+        max-height: 90%;
         margin: auto;
       }
     }
@@ -121,7 +120,7 @@ export default {
   .close {
     position: absolute;
     top: -28px;
-    right: -28px;
+    right: 10px;
     cursor: pointer;
   }
 }

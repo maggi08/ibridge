@@ -1,7 +1,8 @@
 <template>
-  <div class="relative">
-    <img class="bg" src="@/assets/img/pattern_bg.png" alt="" />
-    <v-container id="achivements" class="pt-16 pb-16">
+  <div id="achivements" class="relative">
+    <div class="bg"></div>
+    <img class="bg" src="@/assets/img/bg_pattern.png" alt="" />
+    <v-container class="pt-16 pb-16">
       <p class="label grey-color text-center text-lg-left text-uppercase">
         {{ $t('label') }}
       </p>
@@ -95,10 +96,11 @@ export default {
         window.removeEventListener('scroll', this.onScroll)
         return
       }
+
       const windowPos = window.scrollY + screen.height
       const achivements = document.getElementById('achivements')
       const numbers = document.querySelectorAll('.achivements-item__number')
-      const position = ('achivements', achivements.offsetTop)
+      const position = achivements.offsetTop
       if (windowPos >= position) {
         for (const item of numbers) {
           this.animateValue(item, 0, item.innerHTML, 3000)
@@ -132,7 +134,6 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
   height: 280px;
 }
 .achivements {

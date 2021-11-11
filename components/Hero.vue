@@ -19,9 +19,9 @@
           text-center text-sm-left
         "
       >
-        <p class="label">
+        <p class="label text-uppercase">
           <span class="orange-color">{{ $t('span') }}</span>
-          <span class="text-uppercase white-color">{{ $t('label') }}</span>
+          <span class="white-color">{{ $t('label') }}</span>
         </p>
         <!-- <p class="label white-color bridge" v-html="$t('label')"></p> -->
         <h1 class="hero-main__title white-color mt-3" v-html="$t('title')"></h1>
@@ -68,7 +68,7 @@ export default {
 .hero {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 80vh;
   z-index: 10;
   &-main {
     width: 100%;
@@ -99,6 +99,12 @@ export default {
         rgba(23, 27, 44, 0) 108.09%
       );
     }
+  }
+}
+
+@media (max-width: 600px) {
+  .big-btn-orange {
+    width: 100%;
   }
 }
 </style>
