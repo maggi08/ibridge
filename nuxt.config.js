@@ -121,10 +121,15 @@ export default {
       silentTranslationWarn: true,
       silentFallbackWarn: true,
     },
-    // strategy: 'prefix',
     // detectBrowserLanguage: {
-    //   useCookie: true,
     //   alwaysRedirect: false,
+    //   fallbackLocale: 'ru',
+    //   redirectOn: 'root',
+    //   useCookie: true,
+    //   cookieCrossOrigin: false,
+    //   cookieDomain: null,
+    //   cookieKey: 'i18n_redirected',
+    //   cookieSecure: false,
     // },
   },
 
