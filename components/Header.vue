@@ -622,7 +622,8 @@ export default {
       else this.is_transparent = true
     },
     setLocale(lang) {
-      this.$root.$i18n.locale = lang
+      this.$router.replace(this.switchLocalePath(lang))
+      // this.$root.$i18n.locale = lang
     },
   },
 }

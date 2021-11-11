@@ -115,6 +115,11 @@ export default {
     defaultLocale: 'ru',
     vueI18nLoader: true,
     localeDetection: false,
+    vueI18n: {
+      fallbackLocale: 'ru',
+      silentTranslationWarn: true,
+      silentFallbackWarn: true,
+    },
   },
 
   optimizedImages: {
