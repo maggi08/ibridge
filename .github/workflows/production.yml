@@ -17,7 +17,7 @@ jobs:
           password: ${{secrets.PRODUCTION_SERVER_PASSWORD}}
           port: '22'
           script: |
-            cd /var/www/front
+            cd /var/www/ibridge
             ${{secrets.GIT_PULL}}
             npm install
             npm audit fix
