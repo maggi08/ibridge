@@ -1,5 +1,5 @@
 <template>
-  <header
+  <div
     class="header"
     :class="{ 'header-transparent': is_transparent && !isError }"
   >
@@ -507,7 +507,7 @@
         </nav>
       </v-card>
     </v-dialog>
-  </header>
+  </div>
 </template>
 
 <i18n>
@@ -645,6 +645,7 @@ export default {
   width: 100%;
   top: 0;
   left: 0;
+  padding: 8px 0;
   position: fixed;
   background: #ffffff;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.06);
@@ -671,10 +672,10 @@ export default {
       color: #f8f8f8;
     }
   }
-  &-container {
-    width: 100%;
-    height: 80px;
-  }
+  // &-container {
+  //   width: 100%;
+  //   height: 80px;
+  // }
 }
 
 .my-modal {

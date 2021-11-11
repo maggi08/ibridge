@@ -135,6 +135,8 @@ export default {
   top: 0;
   left: 0;
   height: 280px;
+  width: 100%;
+  object-fit: cover;
 }
 .achivements {
   &-item {

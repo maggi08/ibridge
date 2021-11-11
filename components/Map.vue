@@ -1,8 +1,8 @@
 <template>
   <div class="">
     <div class="blue-bg relative">
-      <v-container class="d-md-flex align-center">
-        <div class="col-12 col-md-6 pa-0 py-16 px-3">
+      <v-container class="d-md-flex align-center pa-0">
+        <div class="col-12 col-md-6 pa-3 pa-sm-0 py-16 px-3">
           <h2
             class="white-color text-center text-sm-left"
             v-html="$t('title')"
@@ -222,14 +222,31 @@ export default {
   width: 100%;
   background: $orange-color;
 }
-.image {
-  width: 100%;
-  height: 100%;
+// .image {
+//   width: 100%;
+//   height: 100%;
 
+//   img {
+//     height: 100%;
+//     width: 100%;
+//     object-fit: cover;
+//   }
+// }
+.image {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 50%;
   img {
     height: 100%;
     width: 100%;
     object-fit: cover;
+  }
+  @media (max-width: 960px) {
+    position: static;
+    width: 100%;
+    height: 354px;
   }
 }
 .map-container {
