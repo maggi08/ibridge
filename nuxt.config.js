@@ -114,12 +114,12 @@ export default {
     locales: ['ru', 'en'],
     defaultLocale: 'ru',
     vueI18nLoader: true,
-    // localeDetection: false,
-    // vueI18n: {
-    //   fallbackLocale: 'ru',
-    //   silentTranslationWarn: true,
-    //   silentFallbackWarn: true,
-    // },
+    localeDetection: false,
+    vueI18n: {
+      fallbackLocale: 'ru',
+      silentTranslationWarn: true,
+      silentFallbackWarn: true,
+    },
     // strategy: 'prefix',
     // detectBrowserLanguage: {
     //   useCookie: true,
