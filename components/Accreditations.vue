@@ -42,67 +42,67 @@ export default {
   data: () => ({
     images: [
       {
-        png: require('@/assets/img/acc/1.png'),
+        png: require('@/assets/img/acc/1-min.png'),
       },
       {
-        png: require('@/assets/img/acc/2.png'),
+        png: require('@/assets/img/acc/2-min.png'),
       },
       {
-        png: require('@/assets/img/acc/3.png'),
+        png: require('@/assets/img/acc/3-min.png'),
       },
       {
-        png: require('@/assets/img/acc/4.png'),
+        png: require('@/assets/img/acc/4-min.png'),
       },
       {
-        png: require('@/assets/img/acc/5.png'),
+        png: require('@/assets/img/acc/5-min.png'),
       },
       {
-        png: require('@/assets/img/acc/6.png'),
+        png: require('@/assets/img/acc/6-min.png'),
       },
       {
-        png: require('@/assets/img/acc/7.png'),
+        png: require('@/assets/img/acc/7-min.png'),
       },
       {
-        png: require('@/assets/img/acc/8.png'),
+        png: require('@/assets/img/acc/8-min.png'),
       },
       {
-        png: require('@/assets/img/acc/9.png'),
+        png: require('@/assets/img/acc/9-min.png'),
       },
       {
-        png: require('@/assets/img/acc/10.png'),
+        png: require('@/assets/img/acc/10-min.png'),
       },
       {
-        png: require('@/assets/img/acc/11.png'),
+        png: require('@/assets/img/acc/11-min.png'),
       },
       {
-        png: require('@/assets/img/acc/12.png'),
+        png: require('@/assets/img/acc/12-min.png'),
       },
       {
-        png: require('@/assets/img/acc/13.png'),
+        png: require('@/assets/img/acc/13-min.png'),
       },
       {
-        png: require('@/assets/img/acc/14.png'),
+        png: require('@/assets/img/acc/14-min.png'),
       },
       {
-        png: require('@/assets/img/acc/15.png'),
+        png: require('@/assets/img/acc/15-min.png'),
       },
       {
-        png: require('@/assets/img/acc/16.png'),
+        png: require('@/assets/img/acc/16-min.png'),
       },
       {
-        png: require('@/assets/img/acc/17.png'),
+        png: require('@/assets/img/acc/17-min.png'),
       },
       {
-        png: require('@/assets/img/acc/18.png'),
+        png: require('@/assets/img/acc/18-min.png'),
       },
       {
-        png: require('@/assets/img/acc/19.png'),
+        png: require('@/assets/img/acc/19-min.png'),
       },
       {
-        png: require('@/assets/img/acc/20.png'),
+        png: require('@/assets/img/acc/20-min.png'),
       },
       {
-        png: require('@/assets/img/acc/21.png'),
+        png: require('@/assets/img/acc/21-min.png'),
       },
     ],
     swiperOption: {

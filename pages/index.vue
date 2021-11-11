@@ -25,14 +25,10 @@ export default {
       }
       return chunks
     }
-    try {
-      await $axios.$get(`${i18n.locale}/app/logos/`).then((res) => {
-        partners = splitArrayIntoChunksOfLen(res, 12)
-        return { partners }
-      })
-    } catch (err) {
-      console.log(err)
-    }
+    await $axios.$get(`${i18n.locale}/app/logos/`).then((res) => {
+      partners = splitArrayIntoChunksOfLen(res, 12)
+    })
+    return { partners }
   },
   data: () => ({}),
 }

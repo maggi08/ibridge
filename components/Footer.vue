@@ -244,33 +244,33 @@
       width="1120"
       hight="640"
       :fullscreen="$vuetify.breakpoint.xsOnly"
-      class="my-modal"
+      class=""
     >
-      <v-card class="">
-        <div class="close">
-          <svg
-            width="28"
-            height="28"
-            viewBox="0 0 28 28"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M21 7L7 21"
-              stroke="white"
-              stroke-width="2"
-              stroke-linecap="square"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M7 7L21 21"
-              stroke="white"
-              stroke-width="2"
-              stroke-linecap="square"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </div>
+      <div class="close pointer" @click="modal = false">
+        <svg 
+          width="28"
+          height="28"
+          viewBox="0 0 28 28"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M21 7L7 21"
+            stroke="white"
+            stroke-width="2"
+            stroke-linecap="square"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M7 7L21 21"
+            stroke="white"
+            stroke-width="2"
+            stroke-linecap="square"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
+      <v-card>
         <div class="content pa-10">
           <h3 class="mb-6">
             {{ $t(modal_type == 'offer' ? 'public' : 'policy') }}
@@ -1283,17 +1283,15 @@ export default {
 
 .my-modal {
   position: relative;
-
-  .close {
-    position: absolute;
-
-    top: 0;
-    right: 36px;
-    z-index: 100;
-    &::-webkit-scrollbar-track {
-      background: #dbdbdb;
-    }
-  }
+  margin: 130px;
+}
+.close {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  top: 0px;
+  right: 16px;
+  z-index: 10000;
 }
 a {
   text-decoration: none;
