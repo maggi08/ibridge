@@ -113,7 +113,7 @@ export default {
   i18n: {
     locales: ['ru', 'en'],
     defaultLocale: 'ru',
-    // vueI18nLoader: true,
+    vueI18nLoader: true,
     // localeDetection: false,
     // vueI18n: {
     //   fallbackLocale: 'ru',
