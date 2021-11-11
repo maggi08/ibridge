@@ -11,7 +11,7 @@
         <swiper :options="swiperOption" class="mySwiper">
           <swiper-slide v-for="(item, index) in images" :key="index">
             <div class="box" @click="openModal(index)">
-              <img :src="item" />
+              <img :src="item.png" />
               <div class="hover"></div>
             </div>
           </swiper-slide>
@@ -41,27 +41,69 @@
 export default {
   data: () => ({
     images: [
-      require('@/assets/img/acc/1.png'),
-      require('@/assets/img/acc/2.png'),
-      require('@/assets/img/acc/3.png'),
-      require('@/assets/img/acc/4.png'),
-      require('@/assets/img/acc/5.png'),
-      require('@/assets/img/acc/6.png'),
-      require('@/assets/img/acc/7.png'),
-      require('@/assets/img/acc/8.png'),
-      require('@/assets/img/acc/9.png'),
-      require('@/assets/img/acc/10.png'),
-      require('@/assets/img/acc/11.png'),
-      require('@/assets/img/acc/12.png'),
-      require('@/assets/img/acc/13.png'),
-      require('@/assets/img/acc/14.png'),
-      require('@/assets/img/acc/15.png'),
-      require('@/assets/img/acc/16.png'),
-      require('@/assets/img/acc/17.png'),
-      require('@/assets/img/acc/18.png'),
-      require('@/assets/img/acc/19.png'),
-      require('@/assets/img/acc/20.png'),
-      require('@/assets/img/acc/21.png'),
+      {
+        png: require('@/assets/img/acc/1.png'),
+      },
+      {
+        png: require('@/assets/img/acc/2.png'),
+      },
+      {
+        png: require('@/assets/img/acc/3.png'),
+      },
+      {
+        png: require('@/assets/img/acc/4.png'),
+      },
+      {
+        png: require('@/assets/img/acc/5.png'),
+      },
+      {
+        png: require('@/assets/img/acc/6.png'),
+      },
+      {
+        png: require('@/assets/img/acc/7.png'),
+      },
+      {
+        png: require('@/assets/img/acc/8.png'),
+      },
+      {
+        png: require('@/assets/img/acc/9.png'),
+      },
+      {
+        png: require('@/assets/img/acc/10.png'),
+      },
+      {
+        png: require('@/assets/img/acc/11.png'),
+      },
+      {
+        png: require('@/assets/img/acc/12.png'),
+      },
+      {
+        png: require('@/assets/img/acc/13.png'),
+      },
+      {
+        png: require('@/assets/img/acc/14.png'),
+      },
+      {
+        png: require('@/assets/img/acc/15.png'),
+      },
+      {
+        png: require('@/assets/img/acc/16.png'),
+      },
+      {
+        png: require('@/assets/img/acc/17.png'),
+      },
+      {
+        png: require('@/assets/img/acc/18.png'),
+      },
+      {
+        png: require('@/assets/img/acc/19.png'),
+      },
+      {
+        png: require('@/assets/img/acc/20.png'),
+      },
+      {
+        png: require('@/assets/img/acc/21.png'),
+      },
     ],
     swiperOption: {
       effect: 'coverflow',

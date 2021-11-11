@@ -4,7 +4,12 @@
       {{ $t('calculate') }}
     </button>
 
-    <v-dialog v-model="showModal" width="640" persistent>
+    <v-dialog
+      v-model="showModal"
+      width="640"
+      persistent
+      :fullscreen="$vuetify.breakpoint.xsOnly"
+    >
       <v-card class="my-modal">
         <div class="close" @click="closeModal"></div>
 

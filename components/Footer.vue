@@ -247,6 +247,30 @@
       class="my-modal"
     >
       <v-card class="">
+        <div class="close">
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 28 28"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M21 7L7 21"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="square"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M7 7L21 21"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="square"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
         <div class="content pa-10">
           <h3 class="mb-6">
             {{ $t(modal_type == 'offer' ? 'public' : 'policy') }}
@@ -1193,30 +1217,6 @@
             replaced by a new version. <br />14.3. The current version of the
             Policy is freely available on the Internet at https://iBridge.com.
           </div>
-        </div>
-        <div class="close">
-          <svg
-            width="28"
-            height="28"
-            viewBox="0 0 28 28"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M21 7L7 21"
-              stroke="white"
-              stroke-width="2"
-              stroke-linecap="square"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M7 7L21 21"
-              stroke="white"
-              stroke-width="2"
-              stroke-linecap="square"
-              stroke-linejoin="round"
-            />
-          </svg>
         </div>
       </v-card>
     </v-dialog>

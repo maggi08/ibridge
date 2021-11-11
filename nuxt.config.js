@@ -1,4 +1,5 @@
 import colors from 'vuetify/es5/util/colors'
+import shrinkRay from 'shrink-ray-current'
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -61,16 +62,28 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
-    // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
-
     '@aceforth/nuxt-optimized-images',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/axios', '@nuxtjs/i18n', 'nuxt-seo'],
+  modules: [
+    '@nuxtjs/axios',
+    '@nuxtjs/i18n',
+    'nuxt-seo',
+    [
+      'nuxt-compress',
+      {
+        gzip: {
+          threshold: 8192,
+        },
+        brotli: {
+          threshold: 8192,
+        },
+      },
+    ],
+  ],
 
   axios: {
     baseUrl: 'https://ibridge.kz/',
@@ -102,16 +115,14 @@ export default {
     defaultLocale: 'ru',
     vueI18nLoader: true,
     localeDetection: false,
-    vueI18n: {
-      localeDetection: false,
-      fallbackLocale: 'ru',
-      silentTranslationWarn: true,
-      silentFallbackWarn: true,
-    },
   },
 
   optimizedImages: {
     optimizeImages: true,
+  },
+
+  render: {
+    compressor: shrinkRay(),
   },
 
   seo: {
