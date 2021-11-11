@@ -123,7 +123,7 @@ export default {
     strategy: 'prefix',
     detectBrowserLanguage: {
       useCookie: true,
-      alwaysRedirect: true,
+      alwaysRedirect: false,
     },
   },
 
