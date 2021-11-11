@@ -99,7 +99,9 @@ export default {
     locales: ['ru', 'en'],
     defaultLocale: 'ru',
     vueI18nLoader: true,
+    localeDetection: false,
     vueI18n: {
+      localeDetection: false,
       fallbackLocale: 'ru',
       silentTranslationWarn: true,
       silentFallbackWarn: true,
