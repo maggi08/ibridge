@@ -65,6 +65,8 @@ export default {
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+
+    '@aceforth/nuxt-optimized-images',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -106,6 +108,10 @@ export default {
       silentTranslationWarn: true,
       silentFallbackWarn: true,
     },
+  },
+
+  optimizedImages: {
+    optimizeImages: true,
   },
 
   seo: {

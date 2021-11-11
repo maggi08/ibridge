@@ -24,10 +24,13 @@
           <span class="white-color">{{ $t('label') }}</span>
         </p>
         <!-- <p class="label white-color bridge" v-html="$t('label')"></p> -->
-        <h1 class="hero-main__title white-color mt-3" v-html="$t('title')"></h1>
+        <h1
+          class="hero-main__title white-color mt-2 mt-sm-3"
+          v-html="$t('title')"
+        ></h1>
 
-        <p class="white-color mt-5" v-html="$t('subtitle')"></p>
-        <button class="big-btn-orange mt-9" @click="openRequest">
+        <p class="white-color mt-6 mt-sm-5" v-html="$t('subtitle')"></p>
+        <button class="big-btn-orange mt-10" @click="openRequest">
           {{ $t('gotoapplication') }}
         </button>
       </div>
@@ -70,6 +73,10 @@ export default {
   width: 100%;
   height: 80vh;
   z-index: 10;
+
+  @media (max-width: 600px) {
+    height: 87vh;
+  }
   &-main {
     width: 100%;
     max-width: 640px;

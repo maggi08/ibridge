@@ -149,7 +149,7 @@ export default {
     -ms-filter: drop-shadow(0px 10px 20px rgba(41, 41, 42, 0.07));
     -o-filter: drop-shadow(0px 10px 20px rgba(41, 41, 42, 0.07));
     filter: drop-shadow(0px 10px 20px rgba(41, 41, 42, 0.07));
-    box-shadow: 0px 10px 20px rgba(41, 41, 42, 0.07);
+    // box-shadow: 0px 10px 20px rgba(41, 41, 42, 0.07);
 
     &:after {
       content: '';

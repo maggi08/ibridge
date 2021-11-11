@@ -1,5 +1,5 @@
 <template>
-  <div class="light-white-bg py-16">
+  <div class="white-bg py-16">
     <v-container>
       <p class="text-center text-sm-left label grey-color text-uppercase">
         {{ $t('subtitle') }}
@@ -11,7 +11,7 @@
         <swiper :options="swiperOption" class="mySwiper">
           <swiper-slide v-for="(item, index) in images" :key="index">
             <div class="box" @click="openModal(index)">
-              <img :src="item" alt="" />
+              <img :src="item" />
               <div class="hover"></div>
             </div>
           </swiper-slide>
@@ -77,8 +77,8 @@ export default {
         modifier: 2,
       },
       navigation: {
-        nextEl: 'swiper-button-next',
-        prevEl: 'swiper-button-prev',
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
       },
       pagination: {
         el: '.accreditation-pagination',

@@ -46,6 +46,10 @@ h1 {
   line-height: 120%;
   font-feature-settings: 'pnum' on, 'lnum' on;
   color: #202124;
+
+  @media (max-width: 600px) {
+    font-size: 28px;
+  }
 }
 h2 {
   font-family: 'Playfair Display', serif;

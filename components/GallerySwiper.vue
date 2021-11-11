@@ -71,7 +71,6 @@ export default {
     openModal(index) {
       const swiper = document.querySelector('.gallery-swiper')
       if (swiper?.swiper) {
-        console.log(swiper.swiper)
         swiper.swiper.slideTo(index)
       }
       this.gallery_modal = true

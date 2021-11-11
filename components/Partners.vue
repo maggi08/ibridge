@@ -71,10 +71,12 @@ export default {
 
 <style scoped lang="scss">
 .swiper-pagination {
+  position: static;
   margin: 0 auto;
+  margin-top: 40px;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: -40px;
 }
 .light-white-bg {
   color: #fbfbfb;
