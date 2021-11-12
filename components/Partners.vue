@@ -4,9 +4,10 @@
       <p class="text-center text-sm-left label grey-color text-uppercase">
         {{ $t('subtitle') }}
       </p>
-      <h2 class="text-center text-sm-left mt-10 black-color m-w-480">
-        {{ $t('title') }}
-      </h2>
+      <h2
+        class="text-center text-sm-left mt-3 black-color m-w-480"
+        v-html="$t('title')"
+      ></h2>
       <div class="relative">
         <swiper :options="swiperOption">
           <swiper-slide
@@ -35,11 +36,11 @@
 <i18n>
 {
   "en": {
-    "title": "We cooperate with 300 educational institutions",
+    "title": "We cooperate with 300 <br/> educational institutions",
     "subtitle": "Our partners"
   },
   "ru": {
-    "title": "Сотрудничаем более 300 учебными заведениями",
+    "title": "Сотрудничаем более c 300 <br/> учебными заведениями",
     "subtitle": "Партнеры"
   }
 }
@@ -59,6 +60,10 @@ export default {
     swiperOption: {
       slidesPerView: 1,
       spaceBetween: 0,
+      loop: true,
+      autoplay: {
+        delay: 4000,
+      },
       pagination: {
         el: '.my-pagination',
         type: 'bullets',

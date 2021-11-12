@@ -20,7 +20,7 @@
         <div class="swiper-button-next"></div>
       </div>
     </v-container>
-    <GallerySwiper ref="swiper" :images="images" />
+    <GallerySwiper ref="swiper" :images="images" type="accreditation" />
   </div>
 </template>
 

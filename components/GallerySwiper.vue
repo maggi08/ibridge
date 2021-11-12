@@ -26,7 +26,11 @@
             stroke-linejoin="round"
           />
         </svg>
-        <swiper class="gallery-swiper" :options="gallerySwiper">
+        <swiper
+          class="gallery-swiper"
+          :class="`gallery-swiper-${type}`"
+          :options="gallerySwiper"
+        >
           <swiper-slide v-for="(item, index) in images" :key="index" class="r">
             <div class="img d-flex align-center justify-center">
               <img :src="item" alt="" />
@@ -51,6 +55,10 @@ export default {
         return []
       },
     },
+    type: {
+      type: String,
+      required: true,
+    },
   },
   data: () => ({
     gallery_modal: false,
@@ -69,7 +77,7 @@ export default {
   }),
   methods: {
     openModal(index) {
-      const swiper = document.querySelector('.gallery-swiper')
+      const swiper = document.querySelector(`.gallery-swiper-${this.type}`)
       if (swiper?.swiper) {
         swiper.swiper.slideTo(index)
       }

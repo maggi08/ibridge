@@ -30,7 +30,6 @@ export default {
     })
     return { partners }
   },
-  data: () => ({}),
 }
 </script>
 

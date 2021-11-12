@@ -452,13 +452,16 @@ ul {
 .v-text-field--solo {
   border-radius: 0px !important;
 }
+.my-input.v-input {
+  font-size: 14px !important;
+}
 .my-input {
   .v-messages__message {
     text-align: right !important;
   }
 }
 .v-application .error--text {
-  font-size: 12px;
+  font-size: 14px;
   color: #dd2c00 !important;
   caret-color: #dd2c00 !important;
 }

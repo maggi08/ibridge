@@ -101,7 +101,6 @@ export default {
     margin: 0 auto;
     width: 256px;
     height: 100%;
-    // height: 185px;
     background: #ffffff;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.04);
     border-bottom: 2px solid transparent;

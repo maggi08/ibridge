@@ -83,6 +83,7 @@ export default {
         },
       },
     ],
+    ['vue-scrollto/nuxt', { duration: 300, offset: -70 }],
   ],
 
   axios: {

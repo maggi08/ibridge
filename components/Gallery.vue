@@ -1,5 +1,5 @@
 <template>
-  <div class="light-white-bg py-16">
+  <div class="white-bg py-16">
     <v-container>
       <p class="label grey-color text-uppercase">{{ $t('subtitle') }}</p>
       <h2 class="mt-3 black-color m-w-480">{{ $t('title') }}</h2>
@@ -18,7 +18,7 @@
         </div>
       </div>
     </v-container>
-    <GallerySwiper ref="swiper" :images="gallery" />
+    <GallerySwiper ref="swiperGallery" :images="gallery" type="gallery" />
   </div>
 </template>
 
@@ -80,7 +80,7 @@ export default {
   }),
   methods: {
     openModal(index) {
-      this.$refs.swiper.openModal(index)
+      this.$refs.swiperGallery.openModal(index)
     },
   },
 }
@@ -94,7 +94,7 @@ export default {
   // height: 480px;
 
   overflow-x: scroll;
-  // overflow-y: hidden;
+  overflow-y: hidden;
 
   display: grid;
   grid-gap: 24px;
