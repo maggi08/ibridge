@@ -11,7 +11,7 @@
         <swiper :options="swiperOption" class="mySwiper">
           <swiper-slide v-for="(item, index) in images" :key="index">
             <div class="box" @click="openModal(index)">
-              <img :src="item.png" />
+              <img :src="item" />
               <div class="hover"></div>
             </div>
           </swiper-slide>
@@ -41,69 +41,27 @@
 export default {
   data: () => ({
     images: [
-      {
-        png: require('@/assets/img/acc/1-min.png'),
-      },
-      {
-        png: require('@/assets/img/acc/2-min.png'),
-      },
-      {
-        png: require('@/assets/img/acc/3-min.png'),
-      },
-      {
-        png: require('@/assets/img/acc/4-min.png'),
-      },
-      {
-        png: require('@/assets/img/acc/5-min.png'),
-      },
-      {
-        png: require('@/assets/img/acc/6-min.png'),
-      },
-      {
-        png: require('@/assets/img/acc/7-min.png'),
-      },
-      {
-        png: require('@/assets/img/acc/8-min.png'),
-      },
-      {
-        png: require('@/assets/img/acc/9-min.png'),
-      },
-      {
-        png: require('@/assets/img/acc/10-min.png'),
-      },
-      {
-        png: require('@/assets/img/acc/11-min.png'),
-      },
-      {
-        png: require('@/assets/img/acc/12-min.png'),
-      },
-      {
-        png: require('@/assets/img/acc/13-min.png'),
-      },
-      {
-        png: require('@/assets/img/acc/14-min.png'),
-      },
-      {
-        png: require('@/assets/img/acc/15-min.png'),
-      },
-      {
-        png: require('@/assets/img/acc/16-min.png'),
-      },
-      {
-        png: require('@/assets/img/acc/17-min.png'),
-      },
-      {
-        png: require('@/assets/img/acc/18-min.png'),
-      },
-      {
-        png: require('@/assets/img/acc/19-min.png'),
-      },
-      {
-        png: require('@/assets/img/acc/20-min.png'),
-      },
-      {
-        png: require('@/assets/img/acc/21-min.png'),
-      },
+      require('@/assets/img/acc/1-min.png'),
+      require('@/assets/img/acc/2-min.png'),
+      require('@/assets/img/acc/3-min.png'),
+      require('@/assets/img/acc/4-min.png'),
+      require('@/assets/img/acc/5-min.png'),
+      require('@/assets/img/acc/6-min.png'),
+      require('@/assets/img/acc/7-min.png'),
+      require('@/assets/img/acc/8-min.png'),
+      require('@/assets/img/acc/9-min.png'),
+      require('@/assets/img/acc/10-min.png'),
+      require('@/assets/img/acc/11-min.png'),
+      require('@/assets/img/acc/12-min.png'),
+      require('@/assets/img/acc/13-min.png'),
+      require('@/assets/img/acc/14-min.png'),
+      require('@/assets/img/acc/15-min.png'),
+      require('@/assets/img/acc/16-min.png'),
+      require('@/assets/img/acc/17-min.png'),
+      require('@/assets/img/acc/18-min.png'),
+      require('@/assets/img/acc/19-min.png'),
+      require('@/assets/img/acc/20-min.png'),
+      require('@/assets/img/acc/21-min.png'),
     ],
     swiperOption: {
       effect: 'coverflow',

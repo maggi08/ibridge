@@ -267,7 +267,7 @@
             <p class="label dark-grey-color">{{ $t('label2') }}*</p>
             <v-text-field
               v-model="form.phone_number"
-              v-mask="'+7 7xx xxx xx xx'"
+              v-mask="'+7 7## ### ## ##'"
               class="my-input mt-1"
               outlined
               placeholder="+7 7xx xxx xx xx"
