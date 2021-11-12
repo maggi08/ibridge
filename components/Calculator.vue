@@ -12,284 +12,300 @@
     >
       <v-card class="my-modal">
         <div class="close" @click="closeModal"></div>
-
-        <div class="header label grey-color fw-400 px-10 py-5">
-          {{ $t('calculatorTitle') }}
-          <div class="header-border" :style="{ width: 25 * step + '%' }"></div>
-        </div>
-
-        <div v-if="step == 1" class="py-10 px-3 py-sm-10 pb-0">
-          <h5>{{ $t('whichProgram') }}</h5>
-
-          <div class="carts d-flex row mx-0 justify-space-between mt-4">
+        <div class="">
+          <div class="header label grey-color fw-400 px-10 py-5">
+            {{ $t('calculatorTitle') }}
             <div
-              class="carts-item ma-auto mt-4"
-              :class="{
-                'carts-item-active': form.type == 'Языковые программы',
-              }"
-              @click="form.type = 'Языковые программы'"
-            >
-              <div class="">
-                <svg
-                  width="40"
-                  height="40"
-                  viewBox="0 0 40 40"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M29.5833 12H35V28.5V34L29.5833 29.875H9V23"
-                    stroke="#D2840D"
-                    stroke-width="1.5"
-                  />
-                  <path d="M12 14H14" stroke="#171B2C" stroke-width="1.5" />
-                  <path d="M16 14H18" stroke="#171B2C" stroke-width="1.5" />
-                  <path d="M20 14H22" stroke="#171B2C" stroke-width="1.5" />
-                  <path
-                    d="M30 4.99997H4V21.5V27L9.41667 22.875H30V4.99997Z"
-                    stroke="#D2840D"
-                    stroke-width="1.5"
-                  />
-                </svg>
-              </div>
-              <p class="label dark-grey-color fw-400 mt-4 mx-2">
-                {{ $t('type1') }}
-              </p>
-            </div>
-            <div
-              class="carts-item ma-auto mt-4"
-              :class="{
-                'carts-item-active': form.type == 'Среднее образование',
-              }"
-              @click="form.type = 'Среднее образование'"
-            >
-              <div class="">
-                <svg
-                  width="40"
-                  height="40"
-                  viewBox="0 0 40 40"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M20.0001 35H16.6519L16.6519 25H23.3483L23.3483 35H20.0001Z"
-                    stroke="#171B2C"
-                    stroke-width="1.5"
-                  />
-                  <path
-                    d="M28.9286 21.6666H35.625V35H28.9286M28.9286 21.6666L20 12.7778M28.9286 21.6666V35M20 12.7778V9.44445M20 12.7778L11.0714 21.6666M20 9.44445H26.6964V5H20V9.44445ZM11.0714 21.6666H4.375V35H11.0714M11.0714 21.6666V35M11.0714 35H16.6518H20H23.3482H28.9286"
-                    stroke="#D2840D"
-                    stroke-width="1.5"
-                  />
-                </svg>
-              </div>
-              <p class="label dark-grey-color fw-400 mt-4 mx-2">
-                {{ $t('type2') }}
-              </p>
-            </div>
-            <div
-              class="carts-item ma-auto mt-4"
-              :class="{
-                'carts-item-active': form.type == 'Подготовительные программы',
-              }"
-              @click="form.type = 'Подготовительные программы'"
-            >
-              <div class="">
-                <svg
-                  width="40"
-                  height="40"
-                  viewBox="0 0 40 40"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M20 10.0718C22.6476 8.43616 25.7214 7.5 29 7.5C31.1038 7.5 33.1233 7.88547 35 8.59389V31.022C33.1233 30.3136 31.1038 29.9282 29 29.9282C25.7214 29.9282 22.6476 30.8643 20 32.5M20 10.0718V32.5M20 10.0718C17.3524 8.43616 14.2786 7.5 11 7.5C8.89619 7.5 6.87667 7.88547 5 8.59389V31.022C6.87667 30.3136 8.89619 29.9282 11 29.9282C14.2786 29.9282 17.3524 30.8643 20 32.5"
-                    stroke="#D2840D"
-                    stroke-width="1.5"
-                  />
-                  <path d="M20 11V31" stroke="#171B2C" stroke-width="1.5" />
-                </svg>
-              </div>
-              <p class="label dark-grey-color fw-400 mt-4 mx-2">
-                {{ $t('type3') }}
-              </p>
-            </div>
-            <div
-              class="carts-item ma-auto mt-4"
-              :class="{
-                'carts-item-active': form.type == 'Высшее образование',
-              }"
-              @click="form.type = 'Высшее образование'"
-            >
-              <div class="">
-                <svg
-                  width="40"
-                  height="40"
-                  viewBox="0 0 40 40"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M35 15V27.858" stroke="#171B2C" stroke-width="1.5" />
-                  <path
-                    d="M30.1957 17.9167L35 15.3125L20.1174 7.5L5 15.3125L10.0391 17.9167M30.1957 17.9167L20.1174 23.125L10.0391 17.9167M30.1957 17.9167V27.0312L20.1174 32.5L10.0391 27.0312V17.9167"
-                    stroke="#D2840D"
-                    stroke-width="1.5"
-                  />
-                </svg>
-              </div>
-              <p class="label dark-grey-color fw-400 mt-4 mx-2">
-                {{ $t('type4') }}
-              </p>
-            </div>
+              class="header-border"
+              :style="{ width: 25 * step + '%' }"
+            ></div>
           </div>
-        </div>
 
-        <div v-if="step == 2" class="pa-10 pb-0">
-          <h5>{{ $t('whichDegree') }}</h5>
-          <v-radio-group v-model="form.degree" class="mt-6">
-            <v-radio
-              class="black-color"
-              :label="$t('bachelor')"
-              :value="'Бакалавриат'"
-            ></v-radio>
-            <v-radio
-              class="black-color"
-              :label="$t('master')"
-              :value="'Магистратура'"
-            ></v-radio>
-          </v-radio-group>
+          <div v-if="step == 1" class="py-10 px-3 py-sm-10 pb-0">
+            <h5>{{ $t('whichProgram') }}</h5>
 
-          <h5 class="mt-12">{{ $t('whichCountry') }}</h5>
-          <div class="max-308">
-            <v-select
-              v-model="form.country"
-              class="my-input country-input mt-6"
-              :items="$i18n.locale == 'ru' ? countriesRU : countriesEN"
-              item-text="text"
-              item-value="value"
-              :placeholder="$t('countryPlaceholder')"
-              solo
-            >
-              <template #item="{ item }">
-                <div class="d-flex align-center">
-                  <div
-                    class="mr-1 d-flex align-center"
-                    v-html="item.icon"
-                  ></div>
-
-                  <div class="">
-                    {{ item.text }}
-                  </div>
+            <div class="carts d-flex row mx-0 justify-space-between mt-4">
+              <div
+                class="carts-item ma-auto mt-4"
+                :class="{
+                  'carts-item-active': form.type == 'Языковые программы',
+                }"
+                @click="form.type = 'Языковые программы'"
+              >
+                <div class="">
+                  <svg
+                    width="40"
+                    height="40"
+                    viewBox="0 0 40 40"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M29.5833 12H35V28.5V34L29.5833 29.875H9V23"
+                      stroke="#D2840D"
+                      stroke-width="1.5"
+                    />
+                    <path d="M12 14H14" stroke="#171B2C" stroke-width="1.5" />
+                    <path d="M16 14H18" stroke="#171B2C" stroke-width="1.5" />
+                    <path d="M20 14H22" stroke="#171B2C" stroke-width="1.5" />
+                    <path
+                      d="M30 4.99997H4V21.5V27L9.41667 22.875H30V4.99997Z"
+                      stroke="#D2840D"
+                      stroke-width="1.5"
+                    />
+                  </svg>
                 </div>
-              </template>
-              <template #selection="{ item }">
-                <div class="d-flex align-center">
-                  <div
-                    class="mr-1 d-flex align-center"
-                    v-html="item.icon"
-                  ></div>
-                  <div class="">
-                    {{ item.text }}
-                  </div>
+                <p class="label dark-grey-color fw-400 mt-4 mx-2">
+                  {{ $t('type1') }}
+                </p>
+              </div>
+              <div
+                class="carts-item ma-auto mt-4"
+                :class="{
+                  'carts-item-active': form.type == 'Среднее образование',
+                }"
+                @click="form.type = 'Среднее образование'"
+              >
+                <div class="">
+                  <svg
+                    width="40"
+                    height="40"
+                    viewBox="0 0 40 40"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M20.0001 35H16.6519L16.6519 25H23.3483L23.3483 35H20.0001Z"
+                      stroke="#171B2C"
+                      stroke-width="1.5"
+                    />
+                    <path
+                      d="M28.9286 21.6666H35.625V35H28.9286M28.9286 21.6666L20 12.7778M28.9286 21.6666V35M20 12.7778V9.44445M20 12.7778L11.0714 21.6666M20 9.44445H26.6964V5H20V9.44445ZM11.0714 21.6666H4.375V35H11.0714M11.0714 21.6666V35M11.0714 35H16.6518H20H23.3482H28.9286"
+                      stroke="#D2840D"
+                      stroke-width="1.5"
+                    />
+                  </svg>
                 </div>
-              </template>
-              <template #append>
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M8 10L8.35355 10.3536L8 10.7071L7.64645 10.3536L8 10ZM12.3536 6.35355L8.35355 10.3536L7.64645 9.64645L11.6464 5.64645L12.3536 6.35355ZM7.64645 10.3536L3.64645 6.35355L4.35355 5.64645L8.35355 9.64645L7.64645 10.3536Z"
-                    fill="#202124"
-                  />
-                </svg>
-              </template>
-            </v-select>
-          </div>
-        </div>
-
-        <div v-if="step == 3" class="pa-10 pb-0">
-          <h5>{{ $t('whichUniversity') }}</h5>
-
-          <div class="max-308">
-            <v-select
-              v-model="form.university"
-              class="my-input country-input mt-6"
-              :items="universities"
-              :placeholder="$t('universityPlaceholder')"
-              solo
-              @input="handleUniversityChange"
-            >
-              <template #append>
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M8 10L8.35355 10.3536L8 10.7071L7.64645 10.3536L8 10ZM12.3536 6.35355L8.35355 10.3536L7.64645 9.64645L11.6464 5.64645L12.3536 6.35355ZM7.64645 10.3536L3.64645 6.35355L4.35355 5.64645L8.35355 9.64645L7.64645 10.3536Z"
-                    fill="#202124"
-                  />
-                </svg>
-              </template>
-            </v-select>
-          </div>
-
-          <h5 class="mt-12">{{ $t('whereLive') }}</h5>
-
-          <v-radio-group v-model="form.campus" class="mt-6">
-            <v-radio
-              class="black-color"
-              :label="$t('onCampus')"
-              :value="'В кампусе'"
-            ></v-radio>
-            <v-radio
-              class="black-color"
-              :label="$t('notCampus')"
-              :value="'Не в кампусе'"
-            ></v-radio>
-          </v-radio-group>
-        </div>
-
-        <div v-if="step == 4" class="pa-10 pb-0">
-          <div class="box mt-10 mx-auto">
-            <p class="box-title" v-html="$t('costText')"></p>
-
-            <div class="mt-4 w-100 text-center text-sm-right">
-              <p class="box-cost">
-                <span class="box-text mr-4">{{ $t('from') }}</span>
-                {{ price }}
-              </p>
+                <p class="label dark-grey-color fw-400 mt-4 mx-2">
+                  {{ $t('type2') }}
+                </p>
+              </div>
+              <div
+                class="carts-item ma-auto mt-4"
+                :class="{
+                  'carts-item-active':
+                    form.type == 'Подготовительные программы',
+                }"
+                @click="form.type = 'Подготовительные программы'"
+              >
+                <div class="">
+                  <svg
+                    width="40"
+                    height="40"
+                    viewBox="0 0 40 40"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M20 10.0718C22.6476 8.43616 25.7214 7.5 29 7.5C31.1038 7.5 33.1233 7.88547 35 8.59389V31.022C33.1233 30.3136 31.1038 29.9282 29 29.9282C25.7214 29.9282 22.6476 30.8643 20 32.5M20 10.0718V32.5M20 10.0718C17.3524 8.43616 14.2786 7.5 11 7.5C8.89619 7.5 6.87667 7.88547 5 8.59389V31.022C6.87667 30.3136 8.89619 29.9282 11 29.9282C14.2786 29.9282 17.3524 30.8643 20 32.5"
+                      stroke="#D2840D"
+                      stroke-width="1.5"
+                    />
+                    <path d="M20 11V31" stroke="#171B2C" stroke-width="1.5" />
+                  </svg>
+                </div>
+                <p class="label dark-grey-color fw-400 mt-4 mx-2">
+                  {{ $t('type3') }}
+                </p>
+              </div>
+              <div
+                class="carts-item ma-auto mt-4"
+                :class="{
+                  'carts-item-active': form.type == 'Высшее образование',
+                }"
+                @click="form.type = 'Высшее образование'"
+              >
+                <div class="">
+                  <svg
+                    width="40"
+                    height="40"
+                    viewBox="0 0 40 40"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M35 15V27.858"
+                      stroke="#171B2C"
+                      stroke-width="1.5"
+                    />
+                    <path
+                      d="M30.1957 17.9167L35 15.3125L20.1174 7.5L5 15.3125L10.0391 17.9167M30.1957 17.9167L20.1174 23.125L10.0391 17.9167M30.1957 17.9167V27.0312L20.1174 32.5L10.0391 27.0312V17.9167"
+                      stroke="#D2840D"
+                      stroke-width="1.5"
+                    />
+                  </svg>
+                </div>
+                <p class="label dark-grey-color fw-400 mt-4 mx-2">
+                  {{ $t('type4') }}
+                </p>
+              </div>
             </div>
           </div>
 
-          <p class="cart-text grey-color f16 text-center mt-6 mx-auto">
-            {{ $t('wantStudyAt') }}
+          <div v-if="step == 2" class="pa-10 pb-0">
+            <h5>{{ $t('whichDegree') }}</h5>
+            <v-radio-group v-model="form.degree" class="mt-6">
+              <v-radio
+                class="black-color"
+                :label="$t('bachelor')"
+                :value="'Бакалавриат'"
+              ></v-radio>
+              <v-radio
+                class="black-color"
+                :label="$t('master')"
+                :value="'Магистратура'"
+              ></v-radio>
+            </v-radio-group>
 
-            <span class="orange-color f16">
-              {{ form.university ? form.university : 'Adelphi University' }}?
-            </span>
+            <h5 class="mt-12">{{ $t('whichCountry') }}</h5>
+            <div class="max-308">
+              <v-select
+                v-model="form.country"
+                class="my-input country-input mt-6"
+                :items="$i18n.locale == 'ru' ? countriesRU : countriesEN"
+                item-text="text"
+                item-value="value"
+                :placeholder="$t('countryPlaceholder')"
+                solo
+              >
+                <template #item="{ item }">
+                  <div class="d-flex align-center">
+                    <div
+                      class="mr-1 d-flex align-center"
+                      v-html="item.icon"
+                    ></div>
 
-            {{ $t('getConsultation') }}
-          </p>
+                    <div class="">
+                      {{ item.text }}
+                    </div>
+                  </div>
+                </template>
+                <template #selection="{ item }">
+                  <div class="d-flex align-center">
+                    <div
+                      class="mr-1 d-flex align-center"
+                      v-html="item.icon"
+                    ></div>
+                    <div class="">
+                      {{ item.text }}
+                    </div>
+                  </div>
+                </template>
+                <template #append>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8 10L8.35355 10.3536L8 10.7071L7.64645 10.3536L8 10ZM12.3536 6.35355L8.35355 10.3536L7.64645 9.64645L11.6464 5.64645L12.3536 6.35355ZM7.64645 10.3536L3.64645 6.35355L4.35355 5.64645L8.35355 9.64645L7.64645 10.3536Z"
+                      fill="#202124"
+                    />
+                  </svg>
+                </template>
+              </v-select>
+            </div>
+          </div>
+
+          <div v-if="step == 3" class="pa-10 pb-0">
+            <h5>{{ $t('whichUniversity') }}</h5>
+
+            <div class="max-308">
+              <v-select
+                v-model="form.university"
+                class="my-input country-input mt-6"
+                :items="universities"
+                :placeholder="$t('universityPlaceholder')"
+                solo
+                @input="handleUniversityChange"
+              >
+                <template #append>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8 10L8.35355 10.3536L8 10.7071L7.64645 10.3536L8 10ZM12.3536 6.35355L8.35355 10.3536L7.64645 9.64645L11.6464 5.64645L12.3536 6.35355ZM7.64645 10.3536L3.64645 6.35355L4.35355 5.64645L8.35355 9.64645L7.64645 10.3536Z"
+                      fill="#202124"
+                    />
+                  </svg>
+                </template>
+              </v-select>
+            </div>
+
+            <h5 class="mt-12">{{ $t('whereLive') }}</h5>
+
+            <v-radio-group v-model="form.campus" class="mt-6">
+              <v-radio
+                class="black-color"
+                :label="$t('onCampus')"
+                :value="'В кампусе'"
+              ></v-radio>
+              <v-radio
+                class="black-color"
+                :label="$t('notCampus')"
+                :value="'Не в кампусе'"
+              ></v-radio>
+            </v-radio-group>
+          </div>
+
+          <div v-if="step == 4" class="pa-10 pb-0">
+            <div class="box mt-10 mx-auto">
+              <p class="box-title" v-html="$t('costText')"></p>
+
+              <div class="mt-4 w-100 text-center text-sm-right">
+                <p class="box-cost">
+                  <span class="box-text mr-4">{{ $t('from') }}</span>
+                  {{ price }}
+                </p>
+              </div>
+            </div>
+
+            <p class="cart-text grey-color f16 text-center mt-6 mx-auto">
+              {{ $t('wantStudyAt') }}
+
+              <span class="orange-color f16">
+                {{ form.university ? form.university : 'Adelphi University' }}?
+              </span>
+
+              {{ $t('getConsultation') }}
+            </p>
+          </div>
         </div>
-
-        <div class="d-flex align-center justify-space-between mt-14 pa-10">
+        <div
+          class="
+            d-flex
+            align-center
+            justify-space-between
+            mt-auto mt-sm-14
+            pa-10
+          "
+        >
           <button
             v-if="step != 1 && step != 4"
-            class="btn-orange-outline mr-auto"
+            class="f16 btn-orange-outline mr-auto"
             @click="prevStep"
           >
             {{ $t('prev') }}
           </button>
           <button
             v-if="step != 4"
-            class="btn-orange ml-auto"
+            class="f16 btn-orange ml-auto"
             :class="{ 'btn-orange-disabled': disabledNext }"
             @click="nextStep"
           >
@@ -298,7 +314,7 @@
 
           <button
             v-if="step == 4"
-            class="btn-orange-outline mr-auto"
+            class="f16 btn-orange-outline mr-auto"
             @click="reTry"
             @mouseover="hover = true"
             @mouseleave="hover = false"
@@ -384,7 +400,7 @@
 
           <button
             v-if="step == 4"
-            class="btn-orange ml-auto"
+            class="f16 btn-orange ml-auto"
             @click="submitForm"
           >
             {{ $t('submitForm') }}
@@ -1923,8 +1939,18 @@ export default {
 </script>
 
 <style scoped lang="scss">
+h5 {
+  font-size: 20px;
+  line-height: 120%;
+}
 .my-modal {
   transition: 0.3s ease;
+  @media (max-width: 600px) {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
   .header {
     position: relative;
     background: #f8f8f8;
