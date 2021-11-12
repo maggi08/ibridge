@@ -114,7 +114,7 @@ export default {
   i18n: {
     locales: ['ru', 'en'],
     defaultLocale: 'ru',
-    strategy: 'no_prefix',
+    strategy: 'prefix',
     vueI18nLoader: true,
     localeDetection: false,
     vueI18n: {
