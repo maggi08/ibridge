@@ -124,7 +124,6 @@ export default {
     },
     detectBrowserLanguage: {
       fallbackLocale: 'ru',
-      redirectOn: 'root',
       useCookie: true,
     },
   },
