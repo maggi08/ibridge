@@ -29,7 +29,11 @@
           v-html="$t('title')"
         ></h1>
 
-        <p class="white-color mt-6 mt-sm-5" v-html="$t('subtitle')"></p>
+        <p
+          class="white-color mt-6 mt-sm-5"
+          style="max-width: 500px"
+          v-html="$t('subtitle')"
+        ></p>
         <button class="big-btn-orange mt-10" @click="openRequest">
           {{ $t('gotoapplication') }}
         </button>
@@ -44,14 +48,14 @@
       "span":"iBridge",
       "title":"Choose your study program with us in the best educational institutions in the world",
       "label":" - for brighter future",
-      "subtitle":"We offer over than 300 educational institutions and programs <br/>  for applicants",
+      "subtitle":"We offer over than 300 educational institutions and programs for applicants",
       "gotoapplication":"Send request"
     },
     "ru": {
       "span":"iBridge",
       "title":"Выбери свою программу обучения в лучшие учебные заведения мира вместе c нами",
       "label":" - мост к светлому будущему",
-      "subtitle":"Предлагаем 370 учебных заведений для поступления <br/> абитуриентам и магистрантам.",
+      "subtitle":"Предлагаем 370 учебных заведений для поступления абитуриентам и магистрантам.",
       "gotoapplication":"Оставить заявку"
     }
   }

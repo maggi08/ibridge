@@ -18,7 +18,7 @@
           <div class="header-border" :style="{ width: 25 * step + '%' }"></div>
         </div>
 
-        <div v-if="step == 1" class="pa-10 pb-0">
+        <div v-if="step == 1" class="py-10 px-3 py-sm-10 pb-0">
           <h5>{{ $t('whichProgram') }}</h5>
 
           <div class="carts d-flex row mx-0 justify-space-between mt-4">
@@ -260,18 +260,18 @@
           <div class="box mt-10 mx-auto">
             <p class="box-title" v-html="$t('costText')"></p>
 
-            <div class="mt-4 w-100 text-right">
+            <div class="mt-4 w-100 text-center text-sm-right">
               <p class="box-cost">
                 <span class="box-text mr-4">{{ $t('from') }}</span>
-                {{ price }}$
+                {{ price }}
               </p>
             </div>
           </div>
 
-          <p class="cart-text text-center mt-6 mx-auto">
+          <p class="cart-text grey-color f16 text-center mt-6 mx-auto">
             {{ $t('wantStudyAt') }}
 
-            <span class="orange-color">
+            <span class="orange-color f16">
               {{ form.university ? form.university : 'Adelphi University' }}?
             </span>
 
@@ -305,7 +305,7 @@
           >
             <svg
               v-if="!hover"
-              class="mr-1"
+              class="mr-0 mr-sm-1"
               width="20"
               height="20"
               viewBox="0 0 20 20"
@@ -344,7 +344,7 @@
             </svg>
             <svg
               v-else
-              class="mr-1"
+              class="mr-0 mr-sm-1"
               width="20"
               height="20"
               viewBox="0 0 20 20"
@@ -379,7 +379,7 @@
               />
             </svg>
 
-            {{ $t('retry') }}
+            <span class="d-none d-sm-inline">{{ $t('retry') }}</span>
           </button>
 
           <button
@@ -1954,6 +1954,10 @@ export default {
       text-align: center;
       cursor: pointer;
       transition: 0.3s ease-in;
+
+      @media (max-width: 600px) {
+        max-width: 148px;
+      }
 
       &:hover,
       &-active {

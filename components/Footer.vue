@@ -68,12 +68,12 @@
           "
         >
           <li class="white-color mx-4 pointer mb-4 mb-md-0">
-            <div class="footer-links" @click="openModal('offer')">
+            <div class="footer-links f14" @click="openModal('offer')">
               {{ $t('public') }}
             </div>
           </li>
           <li class="white-color mx-4 pointer">
-            <div class="footer-links" @click="openModal('policy')">
+            <div class="footer-links f14" @click="openModal('policy')">
               {{ $t('policy') }}
             </div>
           </li>
@@ -1244,6 +1244,10 @@ export default {
   top: 56px;
   right: 56px;
   z-index: 10000;
+  @media (max-width: 600px) {
+    top: 28px;
+    right: 28px;
+  }
 }
 a {
   text-decoration: none;

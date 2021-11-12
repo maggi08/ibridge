@@ -91,7 +91,9 @@ export default {
     width: 100%;
     max-width: 168px;
     height: 76px;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
     @media (max-width: 350px) {
       max-width: 120px;
     }

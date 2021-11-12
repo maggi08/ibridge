@@ -2,9 +2,10 @@
   <div class="">
     <div class="blue-bg relative">
       <v-container class="d-md-flex align-center pa-0">
-        <div class="col-12 col-md-6 pa-3 pa-sm-0 py-sm-16 px-3">
+        <div class="col-12 col-md-6 pa-3 pb-0 pb-md-16 py-16">
           <h2
             class="white-color text-center text-sm-left"
+            style="max-width: 480px"
             v-html="$t('title')"
           ></h2>
 
@@ -113,7 +114,7 @@
 <i18n>
 {
   "en": {
-    "title": "Have you already chosen <br/> your educational program?",
+    "title": "Have you already chosen your educational program?",
     "subtitle": "You can calculate the cost of your education <br/> according to your chosen program.",
     "calculate": "Calculate the cost",
     "contacts":"Contacts",
@@ -125,7 +126,7 @@
     "worktime2":"Sat: 10:00 - 15:00"
   },
   "ru": {
-    "title": "А вы уже выбрали учебное <br/> заведение?",
+    "title": "А вы уже выбрали учебное заведение?",
     "subtitle": "Вы можете посчитать стоимость <br/> обучения по выбранной вами программе. ",
     "calculate": "Посчитать стоимость",
     "contacts":"Контакты",

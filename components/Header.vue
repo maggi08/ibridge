@@ -390,22 +390,38 @@
                 v-scroll-to="{ el: '#programs', offset: -150 }"
                 class="linklink"
                 to="/"
+                @click.native="menu_modal = false"
               >
                 {{ $t('programs') }}
               </nuxt-link>
             </li>
             <li class="mb-8">
-              <nuxt-link v-scroll-to="'#services'" class="linklink" to="/">
+              <nuxt-link
+                v-scroll-to="'#services'"
+                class="linklink"
+                to="/"
+                @click.native="menu_modal = false"
+              >
                 {{ $t('services') }}
               </nuxt-link>
             </li>
             <li class="mb-8">
-              <nuxt-link v-scroll-to="'#partners'" class="linklink" to="/">
+              <nuxt-link
+                v-scroll-to="'#partners'"
+                class="linklink"
+                to="/"
+                @click.native="menu_modal = false"
+              >
                 {{ $t('partners') }}
               </nuxt-link>
             </li>
             <li class="mb-8">
-              <nuxt-link v-scroll-to="'#contacts'" class="linklink" to="/">
+              <nuxt-link
+                v-scroll-to="'#contacts'"
+                class="linklink"
+                to="/"
+                @click.native="menu_modal = false"
+              >
                 {{ $t('contacts') }}
               </nuxt-link>
             </li>
@@ -498,7 +514,7 @@
       "modal_title":"Заполните форму и мы с вами свяжемся:",
       "label1":"Имя",
       "label2":"Номер телефона",
-      "btn":"Оставить заявку",
+      "btn":"Отправить",
       "placeholder1":"Ваше имя",
       "placeholder2":"Ваш номер телефона",
       "policy":"Оставляя данные на сайте, Вы соглашаетесь с ",
@@ -574,7 +590,7 @@ export default {
     },
     onScroll() {
       const pos = window.scrollY
-      if (pos > 100) this.is_transparent = false
+      if (pos > 10) this.is_transparent = false
       else this.is_transparent = true
     },
     setLocale(lang) {

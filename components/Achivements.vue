@@ -11,7 +11,7 @@
         v-html="$t('title')"
       ></h2>
 
-      <div class="mt-14 achivements d-flex align-center row mx-0">
+      <div class="mt-10 mt-sm-14 achivements d-flex align-center row mx-0">
         <div
           v-for="(item, index) in achivements"
           :key="index"

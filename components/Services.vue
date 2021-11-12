@@ -15,12 +15,14 @@
           :key="index"
           class="services-item mb-8"
         >
-          <div v-html="item.svg"></div>
-          <h5 class="mt-6" v-html="$t(item.title)"></h5>
-          <p
-            class="mt-2 cart-text dark-grey-color"
-            v-html="$t(item.subtitle)"
-          ></p>
+          <div class="icon" v-html="item.svg"></div>
+          <div class="">
+            <h5 class="mt-6" v-html="$t(item.title)"></h5>
+            <p
+              class="mt-2 cart-text dark-grey-color"
+              v-html="$t(item.subtitle)"
+            ></p>
+          </div>
         </div>
       </div>
     </v-container>
@@ -159,10 +161,25 @@ export default {
   }
 
   @media (max-width: 600px) {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
 
     &-item {
       max-width: unset;
+    }
+  }
+  @media (max-width: 400px) {
+    grid-template-columns: repeat(1, 1fr);
+
+    &-item {
+      display: flex;
+      align-items: center;
+
+      h5 {
+        margin-top: 0 !important;
+      }
+      .icon {
+        margin-right: 24px;
+      }
     }
   }
 }
