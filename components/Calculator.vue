@@ -271,7 +271,7 @@
               <div class="mt-4 w-100 text-center text-sm-right">
                 <p class="box-cost">
                   <span class="box-text mr-4">{{ $t('from') }}</span>
-                  {{ price }}
+                  {{ price }}$
                 </p>
               </div>
             </div>
@@ -1945,12 +1945,7 @@ h5 {
 }
 .my-modal {
   transition: 0.3s ease;
-  @media (max-width: 600px) {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
+
   .header {
     position: relative;
     background: #f8f8f8;
@@ -1980,10 +1975,6 @@ h5 {
       text-align: center;
       cursor: pointer;
       transition: 0.3s ease-in;
-
-      @media (max-width: 600px) {
-        max-width: 148px;
-      }
 
       &:hover,
       &-active {
@@ -2028,6 +2019,18 @@ h5 {
   max-width: 308px;
 }
 @media (max-width: 600px) {
+  .my-modal {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .carts-item {
+    max-width: 148px;
+  }
+  .btn-orange-outline {
+    background: transparent;
+  }
   .big-btn-orange {
     width: 100%;
     background: $orange-color;

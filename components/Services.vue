@@ -6,8 +6,13 @@
     data-aos-delay="200"
   >
     <v-container class="pt-10 pb-16">
-      <p class="label grey-color text-uppercase">{{ $t('label') }}</p>
-      <h2 class="mt-3 black-color" v-html="$t('title')"></h2>
+      <p class="label text-center text-sm-left grey-color text-uppercase">
+        {{ $t('label') }}
+      </p>
+      <h2
+        class="mt-3 text-center text-sm-left black-color"
+        v-html="$t('title')"
+      ></h2>
 
       <div class="mt-14 services">
         <div

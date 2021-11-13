@@ -94,7 +94,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    @media (max-width: 350px) {
+    @media (max-width: 450px) {
       max-width: 120px;
     }
 

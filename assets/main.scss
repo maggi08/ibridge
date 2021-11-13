@@ -32,18 +32,17 @@ p {
   font-size: 16px;
   line-height: 140%;
   color: #202124;
-  @media (max-width: 600px) {
-    font-weight: 500;
-    font-size: 10px;
-    line-height: 120%;
-  }
+  // @media (max-width: 600px) {
+  //   font-weight: 500;
+  //   font-size: 10px;
+  //   line-height: 120%;
+  // }
 }
 h1 {
   font-family: 'Playfair Display', serif;
   font-weight: bold;
   font-size: 42px;
   line-height: 120%;
-  font-feature-settings: 'pnum' on, 'lnum' on;
   color: #202124;
 
   @media (max-width: 600px) {
