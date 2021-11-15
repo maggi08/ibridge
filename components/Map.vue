@@ -17,7 +17,7 @@
           <Calculator />
         </div>
         <div class="image mt-16 mt-md-0 pa-0">
-          <img class="" src="../assets/img/map_bg.jpg" alt="" />
+          <img class="" src="../assets/img/block-2.png" alt="" />
         </div>
       </v-container>
     </div>
