@@ -75,7 +75,6 @@ export default {
       require('@/assets/img/gallery/image16.jpg'),
       require('@/assets/img/gallery/image17.jpg'),
       require('@/assets/img/gallery/image19.jpg'),
-      require('@/assets/img/gallery/image20.jpg'),
     ],
   }),
   methods: {
