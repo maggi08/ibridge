@@ -21,12 +21,12 @@
             ></div>
           </div>
 
-          <div v-if="step == 1" class="py-10 px-3 py-sm-10 pb-0">
-            <h5>{{ $t('whichProgram') }}</h5>
+          <div v-if="step == 1" class="py-10 px-3 px-sm-10 py-sm-10 pb-0">
+            <h5 class="f20">{{ $t('whichProgram') }}</h5>
 
             <div class="carts d-flex row mx-0 justify-space-between mt-4">
               <div
-                class="carts-item ma-auto mt-4"
+                class="carts-item mr-auto mt-4"
                 :class="{
                   'carts-item-active': form.type == 'Языковые программы',
                 }"
@@ -119,7 +119,7 @@
                 </p>
               </div>
               <div
-                class="carts-item ma-auto mt-4"
+                class="carts-item ml-auto mt-4"
                 :class="{
                   'carts-item-active': form.type == 'Высшее образование',
                 }"
@@ -1940,7 +1940,7 @@ export default {
 
 <style scoped lang="scss">
 h5 {
-  font-size: 20px;
+  font-size: 16px;
   line-height: 120%;
 }
 .my-modal {

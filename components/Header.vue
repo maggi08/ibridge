@@ -338,9 +338,7 @@
           />
         </svg>
 
-        <p class="title mt-8">
-          {{ $t('successTitle') }}
-        </p>
+        <p class="title mt-8" v-html="$t('successTitle')"></p>
 
         <p class="subtitle text-center mt-4">
           {{ $t('successSubTitle') }}
@@ -596,6 +594,7 @@ export default {
     setLocale(lang) {
       // this.$router.push(this.switchLocalePath(lang))
       this.$root.$i18n.locale = lang
+      this.closeMenu()
     },
   },
 }

@@ -24,8 +24,14 @@
           <div class="">
             <h5 class="mt-6" v-html="$t(item.title)"></h5>
             <p
-              class="mt-2 cart-text dark-grey-color"
+              class="d-none d-sm-inline mt-2 cart-text dark-grey-color"
+              style="max-width: 220px"
               v-html="$t(item.subtitle)"
+            ></p>
+            <p
+              class="d-sm-none mt-2 cart-text dark-grey-color"
+              style="max-width: 220px"
+              v-html="$t(item.sm_subtitle)"
             ></p>
           </div>
         </div>
@@ -40,33 +46,45 @@
     "label": "Services",
     "title": "We are here to assist you with every <br/> step of your study:",
     "title1": "Evaluation Service ",
-    "subtitle1": "We provide our students <br/> test for their career guidance",
+    "subtitle1": "We provide our students <br/> test for their career guidance", 
+    "sm_subtitle1": "We provide our students test for their career guidance",
     "title2": "Universities Admission Consulting",
-    "subtitle2": "We help students identify academic <br/> programs and universities",
+    "subtitle2": "We help students identify academic <br/> programs and universities", 
+    "sm_subtitle2": "We help students identify academic programs and universities",
     "title3": "Enrollment and registration",
-    "subtitle3": "We provide assistance with collecting <br/> the documents for admission",
+        "subtitle3": "We provide assistance with collecting <br/> the documents for admission", 
+        "sm_subtitle3": "We provide assistance with collecting the documents for admission",
     "title4": "Visa support",
-    "subtitle4": "We provide a visa <br/> support to our students",
+        "subtitle4": "We provide a visa <br/> support to our students", 
+        "sm_subtitle4": "We provide a visa support to our students",
     "title5": "Housing and Travel Assistance",
-    "subtitle5": "We assist students with housing, <br/> accommodations and airport pick up.",
+        "subtitle5": "We assist students with housing, <br/> accommodations and airport pick up", 
+        "sm_subtitle5": "We assist students with housing, accommodations and airport pick up",
     "title6": "Supervising students",
-    "subtitle6": "We accompany and supervise <br/> our students during their education period"
+        "subtitle6": "We accompany and supervise <br/> our students during their education period",
+        "sm_subtitle6": "We accompany and supervise our students during their education period"
   },
   "ru": {
     "label": "Услуги",
     "title": "Помогаем на всех этапах <br/> поступления",
     "title1": "Профориентационный тест",
-    "subtitle1": "Проводим тест <br/> на профориентацию",
+        "subtitle1": "Проводим тест <br/> на профориентацию", 
+        "sm_subtitle1": "Проводим тест на профориентацию",
     "title2": "Консультирование",
-    "subtitle2": "Подберем академические <br/> программы и университеты",
+        "subtitle2": "Подберем академические <br/> программы и университеты", 
+        "sm_subtitle2": "Подберем академические программы и университеты",
     "title3": "Зачисление и оформление",
-    "subtitle3": "Соберем пакет <br/> документов для поступления",
+        "subtitle3": "Соберем пакет <br/> документов для поступления", 
+        "sm_subtitle3": "Соберем пакет документов для поступления",
     "title4": "Визовая поддержка",
-    "subtitle4": "Осуществим визовую <br/> поддержку студенту",
+        "subtitle4": "Осуществим визовую <br/> поддержку студенту", 
+        "sm_subtitle4": "Осуществим визовую поддержку студенту",
     "title5": "Организация поездки",
-    "subtitle5": "Организуем поездку <br/> в учебное заведение",
+        "subtitle5": "Организуем поездку <br/> в учебное заведение", 
+        "sm_subtitle5": "Организуем поездку в учебное заведение",
     "title6": "Курирование студентов",
-    "subtitle6": "Сопровождаем и курируем <br/> студента во время обучения"
+        "subtitle6": "Сопровождаем и курируем <br/> студента во время обучения",
+        "sm_subtitle6": "Сопровождаем и курируем студента во время обучения"
   }
 }
 
@@ -86,6 +104,7 @@ export default {
 `,
         title: 'title1',
         subtitle: 'subtitle1',
+        sm_subtitle: 'sm_subtitle1',
       },
       {
         svg: `<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -99,6 +118,7 @@ export default {
 `,
         title: 'title2',
         subtitle: 'subtitle2',
+        sm_subtitle: 'sm_subtitle2',
       },
       {
         svg: `<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -114,6 +134,7 @@ export default {
 `,
         title: 'title3',
         subtitle: 'subtitle3',
+        sm_subtitle: 'sm_subtitle3',
       },
       {
         svg: `<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -126,6 +147,7 @@ export default {
 `,
         title: 'title4',
         subtitle: 'subtitle4',
+        sm_subtitle: 'sm_subtitle4',
       },
       {
         svg: `<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -136,6 +158,7 @@ export default {
 `,
         title: 'title5',
         subtitle: 'subtitle5',
+        sm_subtitle: 'sm_subtitle5',
       },
       {
         svg: `<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -146,6 +169,7 @@ export default {
 `,
         title: 'title6',
         subtitle: 'subtitle6',
+        sm_subtitle: 'sm_subtitle6',
       },
     ],
   }),
