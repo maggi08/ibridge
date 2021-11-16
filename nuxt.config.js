@@ -56,6 +56,7 @@ export default {
     { src: '~/plugins/swiper.js', ssr: true },
     { src: '~/plugins/v-mask.js', ssr: false },
     { src: '~/plugins/path.js', ssr: true },
+    { src: '~/plugins/ym.js', ssr: true },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -85,17 +86,6 @@ export default {
       },
     ],
     ['vue-scrollto/nuxt', { duration: 300, offset: -70 }],
-    [
-      '@nuxtjs/yandex-metrika',
-      {
-        id: '86499897',
-        webvisor: true,
-        // clickmap:true,
-        // useCDN:false,
-        // trackLinks:true,
-        // accurateTrackBounce:true,
-      },
-    ],
   ],
 
   axios: {
