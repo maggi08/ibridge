@@ -85,6 +85,17 @@ export default {
       },
     ],
     ['vue-scrollto/nuxt', { duration: 300, offset: -70 }],
+    [
+      '@nuxtjs/yandex-metrika',
+      {
+        id: '86499897',
+        webvisor: true,
+        // clickmap:true,
+        // useCDN:false,
+        // trackLinks:true,
+        // accurateTrackBounce:true,
+      },
+    ],
   ],
 
   axios: {
