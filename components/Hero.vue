@@ -1,6 +1,5 @@
 <template>
   <div class="hero d-flex align-center">
-    <!-- <img class="" src="" width="" height="" alt="" /> -->
     <picture>
       <source
         class="hero-img"

@@ -24,13 +24,22 @@
         </button>
       </div>
       <div class="col-12 col-sm-6 col-lg-7 d-flex justify-end mb-16 mb-sm-0">
-        <img
-          class="image mx-auto mx-sm-0 ml-sm-auto"
-          src="~/assets/img/study.jpg"
-          width="360"
-          height="430"
-          alt=""
-        />
+        <picture class="image mx-auto mx-sm-0 ml-sm-auto">
+          <source
+            class="image mx-auto mx-sm-0 ml-sm-auto"
+            srcset="~/assets/img/study.webp"
+            type="image/webp"
+            width="360px"
+            height="430px"
+          />
+          <img
+            class="image mx-auto mx-sm-0 ml-sm-auto"
+            loading="lazy"
+            :src="$path('~/assets/img/study.jpg')"
+            width="360px"
+            height="430px"
+          />
+        </picture>
       </div>
     </div>
   </v-container>
