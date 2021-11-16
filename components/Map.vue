@@ -254,7 +254,8 @@ export default {
   top: 0;
   height: 100%;
   width: 50%;
-  img {
+  img,
+  source {
     height: 100%;
     width: 100%;
     object-fit: cover;
