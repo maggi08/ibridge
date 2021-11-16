@@ -17,7 +17,22 @@
           <Calculator />
         </div>
         <div class="image mt-16 mt-md-0 pa-0">
-          <img class="" src="../assets/img/block-2.png" alt="" />
+          <picture>
+            <source
+              class="hero-img"
+              srcset="~/assets/img/block-2.webp"
+              type="image/webp"
+              width="704px"
+              height="354px"
+            />
+            <img
+              class="hero-img"
+              loading="lazy"
+              :src="'~/assets/img/block-2.png'"
+              width="704px"
+              height="354px"
+            />
+          </picture>
         </div>
       </v-container>
     </div>

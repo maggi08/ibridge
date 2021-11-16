@@ -35,7 +35,7 @@
           <img
             class="image mx-auto mx-sm-0 ml-sm-auto"
             loading="lazy"
-            :src="$path('~/assets/img/study.jpg')"
+            :src="'~/assets/img/study.jpg'"
             width="360px"
             height="430px"
           />

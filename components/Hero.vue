@@ -11,7 +11,7 @@
       <img
         class="hero-img"
         loading="lazy"
-        :src="$path('~/assets/img/hero1.jpg')"
+        :src="'~/assets/img/hero1.jpg'"
         width="1440px"
         height="700px"
       />
