@@ -26,7 +26,7 @@
 
             <div class="carts d-flex row mx-0 justify-space-between mt-4">
               <div
-                class="carts-item mr-auto mt-4"
+                class="carts-item ml-auto ml-sm-0 mr-auto mt-4"
                 :class="{
                   'carts-item-active': form.type == 'Языковые программы',
                 }"
@@ -119,7 +119,7 @@
                 </p>
               </div>
               <div
-                class="carts-item ml-auto mt-4"
+                class="carts-item mr-auto mr-sm-auto ml-auto mt-4"
                 :class="{
                   'carts-item-active': form.type == 'Высшее образование',
                 }"

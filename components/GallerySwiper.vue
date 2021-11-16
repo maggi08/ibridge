@@ -117,14 +117,16 @@ export default {
     .img {
       width: 100%;
       height: 640px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
 
-      img {
-        max-width: 90%;
-        max-height: 90%;
+      picture {
+        max-width: 80%;
+        max-height: 80%;
         margin: auto;
+      }
+      img,
+      source {
+        width: 100%;
+        height: 100%;
         object-fit: cover;
       }
     }
