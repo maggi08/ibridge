@@ -65,6 +65,7 @@ export default {
       slidesPerView: 1,
       spaceBetween: 0,
       loop: true,
+      speed: 600,
       autoplay: {
         delay: 4000,
       },
