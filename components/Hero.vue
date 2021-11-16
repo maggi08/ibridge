@@ -1,12 +1,22 @@
 <template>
   <div class="hero d-flex align-center">
-    <img
-      class="hero-img"
-      src="~/assets/img/hero1.jpg"
-      width="1440px"
-      height="700px"
-      alt=""
-    />
+    <!-- <img class="" src="" width="" height="" alt="" /> -->
+    <picture>
+      <source
+        class="hero-img"
+        srcset="~/assets/img/hero1.webp"
+        type="image/webp"
+        width="1440px"
+        height="700px"
+      />
+      <img
+        class="hero-img"
+        loading="lazy"
+        :src="$path('~/assets/img/hero1.jpg')"
+        width="1440px"
+        height="700px"
+      />
+    </picture>
     <div class="hero-img-mask"></div>
     <v-container class="">
       <div
