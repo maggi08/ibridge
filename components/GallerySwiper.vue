@@ -33,7 +33,10 @@
         >
           <swiper-slide v-for="(item, index) in images" :key="index" class="r">
             <div class="img d-flex align-center justify-center">
-              <img :src="item" alt="" />
+              <picture>
+                <source :srcset="item" type="image/webp" />
+                <img loading="lazy" :src="$path(item)" />
+              </picture>
             </div>
           </swiper-slide>
         </swiper>
@@ -117,10 +120,12 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
+
       img {
         max-width: 90%;
         max-height: 90%;
         margin: auto;
+        object-fit: cover;
       }
     }
   }

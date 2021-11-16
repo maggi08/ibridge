@@ -14,7 +14,21 @@
           class="gallery-image one"
           @click="openModal(index)"
         >
-          <img v-if="item" class="" :src="item" alt="" />
+          <picture>
+            <source
+              :srcset="item"
+              type="image/webp"
+              width="352px"
+              height="480px"
+            />
+            <img
+              loading="lazy"
+              :src="$path(item)"
+              width="352px"
+              height="480px"
+            />
+          </picture>
+          <!-- <img v-if="item" class="" :src="item" alt="" /> -->
         </div>
       </div>
     </v-container>
@@ -57,24 +71,24 @@ export default {
       },
     },
     gallery: [
-      require('@/assets/img/gallery/image0.jpeg'),
-      require('@/assets/img/gallery/image1.jpeg'),
-      require('@/assets/img/gallery/image3.jpeg'),
-      require('@/assets/img/gallery/image4.jpeg'),
-      require('@/assets/img/gallery/image5.jpeg'),
-      require('@/assets/img/gallery/image6.jpeg'),
-      require('@/assets/img/gallery/image7.jpeg'),
-      require('@/assets/img/gallery/image8.jpg'),
-      require('@/assets/img/gallery/image9.jpg'),
-      require('@/assets/img/gallery/image10.jpg'),
-      require('@/assets/img/gallery/image11.jpg'),
-      require('@/assets/img/gallery/image12.jpg'),
-      require('@/assets/img/gallery/image13.jpg'),
-      require('@/assets/img/gallery/image14.jpg'),
-      require('@/assets/img/gallery/image15.jpg'),
-      require('@/assets/img/gallery/image16.jpg'),
-      require('@/assets/img/gallery/image17.jpg'),
-      require('@/assets/img/gallery/image19.jpg'),
+      require('@/assets/img/gallery/image0.webp'),
+      require('@/assets/img/gallery/image1.webp'),
+      require('@/assets/img/gallery/image3.webp'),
+      require('@/assets/img/gallery/image4.webp'),
+      require('@/assets/img/gallery/image5.webp'),
+      require('@/assets/img/gallery/image6.webp'),
+      require('@/assets/img/gallery/image7.webp'),
+      require('@/assets/img/gallery/image8.webp'),
+      require('@/assets/img/gallery/image9.webp'),
+      require('@/assets/img/gallery/image10.webp'),
+      require('@/assets/img/gallery/image11.webp'),
+      require('@/assets/img/gallery/image12.webp'),
+      require('@/assets/img/gallery/image13.webp'),
+      require('@/assets/img/gallery/image14.webp'),
+      require('@/assets/img/gallery/image15.webp'),
+      require('@/assets/img/gallery/image16.webp'),
+      require('@/assets/img/gallery/image17.webp'),
+      require('@/assets/img/gallery/image19.webp'),
     ],
   }),
   methods: {
