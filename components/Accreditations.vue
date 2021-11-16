@@ -11,7 +11,20 @@
         <swiper :options="swiperOption" class="mySwiper">
           <swiper-slide v-for="(item, index) in images" :key="index">
             <div class="box" @click="openModal(index)">
-              <img :src="item" />
+              <picture>
+                <source
+                  :srcset="item"
+                  type="image/webp"
+                  width="400px"
+                  height="320px"
+                />
+                <img
+                  loading="lazy"
+                  :src="$path(item)"
+                  width="400px"
+                  height="320px"
+                />
+              </picture>
               <div class="hover"></div>
             </div>
           </swiper-slide>
@@ -41,12 +54,15 @@
 export default {
   data: () => ({
     images: [
-      require('@/assets/img/acc/1.png'),
-      require('@/assets/img/acc/2.png'),
-      require('@/assets/img/acc/3.png'),
-      require('@/assets/img/acc/4.png'),
-      require('@/assets/img/acc/6.png'),
-      require('@/assets/img/acc/20.png'),
+      require('@/assets/img/acc/1.webp'),
+      require('@/assets/img/acc/2.webp'),
+      require('@/assets/img/acc/3.webp'),
+      require('@/assets/img/acc/4.webp'),
+      require('@/assets/img/acc/5.webp'),
+      require('@/assets/img/acc/6.webp'),
+      require('@/assets/img/acc/7.webp'),
+      require('@/assets/img/acc/8.webp'),
+      require('@/assets/img/acc/9.webp'),
     ],
     swiperOption: {
       effect: 'coverflow',

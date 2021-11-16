@@ -55,6 +55,7 @@ export default {
   plugins: [
     { src: '~/plugins/swiper.js', ssr: true },
     { src: '~/plugins/v-mask.js', ssr: false },
+    { src: '~/plugins/path.js', ssr: true },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
