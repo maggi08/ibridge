@@ -16,13 +16,17 @@
             data-aos="fade-in"
             data-aos-duration="1000"
           >
-            <div class="partners d-flex justify-space-between row mt-14 mx-0">
+            <div class="partners mt-14 mx-0">
               <div
                 v-for="(itemj, indexj) in item"
                 :key="indexj"
                 class="partners-item mb-8"
               >
-                <img :src="itemj.logo_url" alt="" />
+                <!-- <img :src="itemj.logo_url" alt="" /> -->
+                <picture>
+                  <source class="" :srcset="itemj.logo_url" type="image/webp" />
+                  <img class="" loading="lazy" :src="itemj.logo_url" />
+                </picture>
               </div>
             </div>
           </swiper-slide>
@@ -78,7 +82,7 @@ export default {
 .swiper-pagination {
   position: static;
   margin: 0 auto;
-  margin-top: 40px;
+  margin-top: 8px;
   left: 0;
   right: 0;
   bottom: -40px;
@@ -87,6 +91,9 @@ export default {
   color: #fbfbfb;
 }
 .partners {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   &-item {
     width: 100%;
     max-width: 168px;
@@ -94,15 +101,30 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: auto;
+    margin-right: auto;
     @media (max-width: 450px) {
       max-width: 120px;
     }
 
-    img {
+    img,
+    source {
       max-width: 100%;
       max-height: 100%;
       margin: auto;
     }
+  }
+}
+@media (max-width: 950px) {
+  .partners {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .partners {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(6, 1fr);
   }
 }
 </style>

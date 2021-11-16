@@ -141,7 +141,8 @@ export default {
     z-index: 2;
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0.16));
   }
-  img {
+  img,
+  source {
     position: absolute;
     width: 100%;
     height: 100%;
