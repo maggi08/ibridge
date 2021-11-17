@@ -95,7 +95,7 @@ export default {
       speed: 1500,
       fadeEffect: { crossFade: true },
       autoplay: {
-        delay: 3000,
+        delay: 8000,
       },
     },
     images: [
