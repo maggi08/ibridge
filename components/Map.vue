@@ -20,7 +20,7 @@
           <picture>
             <source
               class="hero-img"
-              srcset="~/assets/img/block-2.webp"
+              srcset="~assets/img/block-2.webp"
               type="image/webp"
               width="704px"
               height="354px"
@@ -28,7 +28,7 @@
             <img
               class="hero-img"
               loading="lazy"
-              :src="'~/assets/img/block-2.png'"
+              :src="'~assets/img/block-2.png'"
               width="704px"
               height="354px"
             />
