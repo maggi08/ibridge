@@ -88,12 +88,14 @@
 export default {
   data: () => ({
     swiperOption: {
+      effect: 'fade',
       loop: true,
       slidesPerView: 1,
       spaceBetween: 0,
-      speed: 1000,
+      speed: 1500,
+      fadeEffect: { crossFade: true },
       autoplay: {
-        delay: 8000,
+        delay: 3000,
       },
     },
     images: [
