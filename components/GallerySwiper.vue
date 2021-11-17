@@ -35,7 +35,7 @@
             <div class="img d-flex align-center justify-center">
               <picture>
                 <source :srcset="item" type="image/webp" />
-                <img loading="lazy" :src="$path(item)" />
+                <img :src="$path(item)" />
               </picture>
             </div>
           </swiper-slide>

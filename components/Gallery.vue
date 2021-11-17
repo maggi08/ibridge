@@ -21,12 +21,7 @@
               width="352px"
               height="480px"
             />
-            <img
-              loading="lazy"
-              :src="$path(item)"
-              width="352px"
-              height="480px"
-            />
+            <img :src="$path(item)" width="352px" height="480px" />
           </picture>
           <!-- <img v-if="item" class="" :src="item" alt="" /> -->
         </div>

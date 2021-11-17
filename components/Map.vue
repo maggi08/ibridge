@@ -27,7 +27,6 @@
             />
             <img
               class="hero-img"
-              loading="lazy"
               :src="'~assets/img/block-2.png'"
               width="704px"
               height="354px"

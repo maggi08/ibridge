@@ -18,12 +18,7 @@
                   width="400px"
                   height="320px"
                 />
-                <img
-                  loading="lazy"
-                  :src="$path(item)"
-                  width="400px"
-                  height="320px"
-                />
+                <img :src="$path(item)" width="400px" height="320px" />
               </picture>
               <div class="hover"></div>
             </div>

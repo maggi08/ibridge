@@ -25,7 +25,7 @@
                 <!-- <img :src="itemj.logo_url" alt="" /> -->
                 <picture>
                   <source class="" :srcset="itemj.logo_url" type="image/webp" />
-                  <img class="" loading="lazy" :src="itemj.logo_url" />
+                  <img class="" :src="itemj.logo_url" />
                 </picture>
               </div>
             </div>
