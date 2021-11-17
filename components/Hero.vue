@@ -10,7 +10,7 @@
       />
       <img
         class="hero-img"
-        :src="'~assets/img/hero1.jpg'"
+        src="~assets/img/hero1.jpg"
         width="1440px"
         height="700px"
       />

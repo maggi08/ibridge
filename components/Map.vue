@@ -27,7 +27,7 @@
             />
             <img
               class="hero-img"
-              :src="'~assets/img/block-2.png'"
+              src="~assets/img/block-2.png"
               width="704px"
               height="354px"
             />
