@@ -3,7 +3,7 @@
     <picture>
       <source
         class="hero-img"
-        srcset="~/assets/img/hero1.webp"
+        srcset="~assets/img/hero1.webp"
         type="image/webp"
         width="1440px"
         height="700px"
@@ -11,7 +11,7 @@
       <img
         class="hero-img"
         loading="lazy"
-        :src="'~/assets/img/hero1.jpg'"
+        :src="'~assets/img/hero1.jpg'"
         width="1440px"
         height="700px"
       />
