@@ -34,8 +34,8 @@
           <swiper-slide v-for="(item, index) in images" :key="index" class="r">
             <div class="img d-flex align-center justify-center">
               <picture>
-                <source :srcset="item" type="image/webp" />
-                <img :src="$path(item)" />
+                <source :srcset="item.webp" type="image/webp" />
+                <img :src="item.jpg" />
               </picture>
             </div>
           </swiper-slide>

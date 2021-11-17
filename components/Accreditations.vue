@@ -13,12 +13,12 @@
             <div class="box" @click="openModal(index)">
               <picture>
                 <source
-                  :srcset="item"
+                  :srcset="item.webp"
                   type="image/webp"
                   width="400px"
                   height="320px"
                 />
-                <img :src="$path(item)" width="400px" height="320px" />
+                <img :src="item.jpg" width="400px" height="320px" />
               </picture>
               <div class="hover"></div>
             </div>
@@ -49,15 +49,42 @@
 export default {
   data: () => ({
     images: [
-      require('@/assets/img/acc/1.webp'),
-      require('@/assets/img/acc/2.webp'),
-      require('@/assets/img/acc/3.webp'),
-      require('@/assets/img/acc/4.webp'),
-      require('@/assets/img/acc/5.webp'),
-      require('@/assets/img/acc/6.webp'),
-      require('@/assets/img/acc/7.webp'),
-      require('@/assets/img/acc/8.webp'),
-      require('@/assets/img/acc/9.webp'),
+      {
+        webp: require('@/assets/img/acc/1.webp'),
+        jpg: require('@/assets/img/acc/1.jpg'),
+      },
+      {
+        webp: require('@/assets/img/acc/2.webp'),
+        jpg: require('@/assets/img/acc/2.jpg'),
+      },
+      {
+        webp: require('@/assets/img/acc/3.webp'),
+        jpg: require('@/assets/img/acc/3.jpg'),
+      },
+      {
+        webp: require('@/assets/img/acc/4.webp'),
+        jpg: require('@/assets/img/acc/4.jpg'),
+      },
+      {
+        webp: require('@/assets/img/acc/5.webp'),
+        jpg: require('@/assets/img/acc/5.jpg'),
+      },
+      {
+        webp: require('@/assets/img/acc/6.webp'),
+        jpg: require('@/assets/img/acc/6.jpg'),
+      },
+      {
+        webp: require('@/assets/img/acc/7.webp'),
+        jpg: require('@/assets/img/acc/7.jpg'),
+      },
+      {
+        webp: require('@/assets/img/acc/8.webp'),
+        jpg: require('@/assets/img/acc/8.jpg'),
+      },
+      {
+        webp: require('@/assets/img/acc/9.webp'),
+        jpg: require('@/assets/img/acc/9.jpg'),
+      },
     ],
     swiperOption: {
       effect: 'coverflow',

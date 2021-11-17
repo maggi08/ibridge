@@ -1,5 +1,6 @@
 export default ({ app }) => {
   if (process.env.NODE_ENV !== 'production') return
+
   ;(function (m, e, t, r, i, k, a) {
     m[i] =
       m[i] ||
