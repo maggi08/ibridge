@@ -1,20 +1,36 @@
 <template>
   <div class="hero d-flex align-center">
-    <picture>
+    <swiper :options="swiperOption" class="mySwiper hero-img">
+      <swiper-slide v-for="(item, index) in images" :key="index">
+        <picture>
+          <source
+            class="hero-img"
+            :srcset="item.webp"
+            type="image/webp"
+            width="1440px"
+            height="700px"
+          />
+          <img class="hero-img" :src="item.jpg" width="1440px" height="700px" />
+        </picture>
+      </swiper-slide>
+    </swiper>
+
+    <!-- <picture>
       <source
         class="hero-img"
-        srcset="~assets/img/hero1.webp"
+        :srcset="activeImage.webp"
         type="image/webp"
         width="1440px"
         height="700px"
       />
       <img
         class="hero-img"
-        src="~assets/img/hero1.jpg"
+        :src="activeImage.jpg"
         width="1440px"
         height="700px"
       />
-    </picture>
+    </picture> -->
+
     <div class="hero-img-mask"></div>
     <v-container class="">
       <div
@@ -36,7 +52,6 @@
           class="hero-main__title white-color mt-2 mt-sm-3"
           v-html="$t('title')"
         ></h1>
-
         <p
           class="white-color mt-6 mt-sm-5"
           style="max-width: 500px"
@@ -71,7 +86,36 @@
 
 <script>
 export default {
+  data: () => ({
+    swiperOption: {
+      loop: true,
+      slidesPerView: 1,
+      spaceBetween: 0,
+      speed: 1000,
+      autoplay: {
+        delay: 8000,
+      },
+    },
+    images: [
+      {
+        webp: require('@/assets/img/main/photo1.webp'),
+        jpg: require('@/assets/img/main/photo1.jpg'),
+      },
+      {
+        webp: require('@/assets/img/main/photo2.webp'),
+        jpg: require('@/assets/img/main/photo2.jpg'),
+      },
+      {
+        webp: require('@/assets/img/main/photo3.webp'),
+        jpg: require('@/assets/img/main/photo3.jpg'),
+      },
+    ],
+  }),
+  mounted() {
+    this.changeImage()
+  },
   methods: {
+    changeImage() {},
     openRequest() {
       this.$root.$emit('openRequest')
     },
