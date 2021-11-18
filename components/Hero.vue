@@ -11,6 +11,7 @@
             height="700px"
           />
           <img class="hero-img" :src="item.jpg" width="1440px" height="700px" />
+          <div class="hero-img-mask"></div>
         </picture>
       </swiper-slide>
     </swiper>
@@ -31,7 +32,6 @@
       />
     </picture> -->
 
-    <div class="hero-img-mask"></div>
     <v-container class="">
       <div
         class="
@@ -95,7 +95,7 @@ export default {
       speed: 1500,
       fadeEffect: { crossFade: true },
       autoplay: {
-        delay: 8000,
+        delay: 1000,
       },
     },
     images: [
