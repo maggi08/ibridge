@@ -565,8 +565,7 @@ export default {
       const headers = {
         'X-API-KEY': 'secret_mako',
       }
-      this.form.last_name = this.form.first_name.split(' ')[1] || ' '
-      this.form.first_name = this.form.first_name.split(' ')[0] || ' '
+      this.form.last_name = this.form.first_name
 
       let api = `${this.$i18n.locale}/app/form/`
       if (this.form.comments) api = `${this.$i18n.locale}/app/calculator/`
