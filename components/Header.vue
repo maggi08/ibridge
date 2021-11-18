@@ -565,13 +565,16 @@ export default {
       const headers = {
         'X-API-KEY': 'secret_mako',
       }
-      this.form.last_name = this.form.first_name
+      this.form.last_name =
+        this.form.first_name.split(' ')[1] || this.form.first_name
+      this.form.first_name = this.form.first_name.split(' ')[0] || ' '
 
       let api = `${this.$i18n.locale}/app/form/`
       if (this.form.comments) api = `${this.$i18n.locale}/app/calculator/`
       await this.$axios
         .$post(api, this.form, { headers })
         .then(() => {
+          this.request_modal = false
           this.success_modal = true
         })
         .catch((err) => {
