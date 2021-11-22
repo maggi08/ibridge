@@ -78,6 +78,7 @@ export default {
     '@nuxtjs/eslint-module',
     '@nuxtjs/vuetify',
     '@aceforth/nuxt-optimized-images',
+    '@nuxtjs/google-analytics',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -102,6 +103,9 @@ export default {
 
   gtm: {
     id: 'GTM-KHP4ZK2',
+  },
+  googleAnalytics: {
+    id: 'UA-213409174-1',
   },
 
   axios: {
