@@ -46,6 +46,18 @@ export default {
       { rel: 'manifest', href: '/site.webmanifest' },
       { rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: '#5bbad5' },
     ],
+    script: [
+      {
+        src: 'https://apis.google.com/js/platform.js',
+        async: true,
+        defer: true,
+      },
+      {
+        src: 'https://www.googletagmanager.com/gtag/js?id=GTM-KHP4ZK2',
+        async: true,
+        defer: true,
+      },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -55,7 +67,7 @@ export default {
   plugins: [
     { src: '~/plugins/swiper.js', ssr: true },
     { src: '~/plugins/v-mask.js', ssr: false },
-    // { src: '~/plugins/ym.js', ssr: false },
+    { src: '~/plugins/gtm.js', ssr: false },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -115,7 +127,22 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    bundleRenderer: {
+      shouldPreload: (file, type) => {
+        return ['script', 'style', 'font'].includes(type)
+      },
+    },
+    extend(config, { isDev, isClient }) {
+      config.module.rules.push({
+        test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+        loader: 'file-loader',
+      })
+      if (isDev) {
+        config.mode = 'development'
+      }
+    },
+  },
 
   i18n: {
     locales: ['ru', 'en'],
