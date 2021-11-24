@@ -102,9 +102,9 @@ export default {
     '@nuxtjs/gtm',
   ],
 
-  gtm: {
-    id: 'GTM-KHP4ZK2',
-  },
+  // gtm: {
+  //   id: 'GTM-KHP4ZK2',
+  // },
   // googleAnalytics: {
   //   id: 'UA-213409174-1',
   // },
