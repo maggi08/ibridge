@@ -52,11 +52,11 @@ export default {
         async: true,
         defer: true,
       },
-      {
-        src: 'https://www.googletagmanager.com/gtag/js?id=GTM-KHP4ZK2',
-        async: true,
-        defer: true,
-      },
+      // {
+      //   src: 'https://www.googletagmanager.com/gtag/js?id=GTM-KHP4ZK2',
+      //   async: true,
+      //   defer: true,
+      // },
     ],
   },
 
@@ -67,7 +67,7 @@ export default {
   plugins: [
     { src: '~/plugins/swiper.js', ssr: true },
     { src: '~/plugins/v-mask.js', ssr: false },
-    { src: '~/plugins/gtm.js', ssr: false },
+    // { src: '~/plugins/gtm.js', ssr: false },
     { src: '~/plugins/ym.js', ssr: false },
   ],
 
