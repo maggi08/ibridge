@@ -52,6 +52,11 @@ export default {
         async: true,
         defer: true,
       },
+      // {
+      //   src: 'https://www.googletagmanager.com/gtag/js?id=GTM-KHP4ZK2',
+      //   async: true,
+      //   defer: true,
+      // },
     ],
   },
 
@@ -62,6 +67,7 @@ export default {
   plugins: [
     { src: '~/plugins/swiper.js', ssr: true },
     { src: '~/plugins/v-mask.js', ssr: false },
+    // { src: '~/plugins/gtm.js', ssr: false },
     { src: '~/plugins/ym.js', ssr: false },
   ],
 
@@ -73,6 +79,7 @@ export default {
     '@nuxtjs/eslint-module',
     '@nuxtjs/vuetify',
     '@aceforth/nuxt-optimized-images',
+    '@nuxtjs/google-analytics',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -92,9 +99,15 @@ export default {
       },
     ],
     ['vue-scrollto/nuxt', { duration: 300, offset: -70 }],
-    '@nuxtjs/google-tag-manager',
-    { id: 'GTM-KHP4ZK2' },
+    '@nuxtjs/gtm',
   ],
+
+  // gtm: {
+  //   id: 'GTM-KHP4ZK2',
+  // },
+  // googleAnalytics: {
+  //   id: 'UA-213409174-1',
+  // },
 
   axios: {
     baseUrl: 'https://ibridge.kz/',
