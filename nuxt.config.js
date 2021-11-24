@@ -105,9 +105,9 @@ export default {
   gtm: {
     id: 'GTM-KHP4ZK2',
   },
-  googleAnalytics: {
-    id: 'UA-213409174-1',
-  },
+  // googleAnalytics: {
+  //   id: 'UA-213409174-1',
+  // },
 
   axios: {
     baseUrl: 'https://ibridge.kz/',
