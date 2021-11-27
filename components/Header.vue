@@ -554,6 +554,9 @@ export default {
     closeMenu() {
       this.menu_modal = false
     },
+    resetDefault() {
+      this.form = {}
+    },
     openMenu() {
       this.menu_modal = true
     },
