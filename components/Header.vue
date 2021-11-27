@@ -576,9 +576,11 @@ export default {
         .then(() => {
           this.request_modal = false
           this.success_modal = true
+          this.form = {}
         })
         .catch((err) => {
           console.log(err)
+          this.form = {}
         })
     },
     closeModal() {
