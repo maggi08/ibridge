@@ -93,6 +93,7 @@ export default {
     ],
     ['vue-scrollto/nuxt', { duration: 300, offset: -70 }],
     ['@nuxtjs/google-tag-manager', { id: 'GTM-KHP4ZK2' }],
+    '@dukanify/nuxt-multiple-facebook-pixel-module',
   ],
 
   axios: {
@@ -158,6 +159,12 @@ export default {
 
   render: {
     compressor: shrinkRay(),
+  },
+
+  facebook: {
+    track: 'PageView',
+    pixelId: ['362285389031053'],
+    disabled: false,
   },
 
   seo: {
