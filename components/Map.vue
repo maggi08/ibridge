@@ -58,8 +58,12 @@
             </div>
             <div class="content">
               <p class="cart-text grey-color mb-2">{{ $t('phone') }}</p>
-              <p class="subtitle">+7 (708) 888 27 22</p>
-              <p class="subtitle">+7 (705) 888 82 96</p>
+              <a style="color: white" href="tel:+77088882722">
+                <p class="subtitle">+7 (708) 888 27 22</p></a
+              >
+              <a style="color: white" href="tel:+77058888296">
+                <p class="subtitle">+7 (705) 888 82 96</p></a
+              >
             </div>
           </div>
           <div class="d-flex align-center mt-6">
