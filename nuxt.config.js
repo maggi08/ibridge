@@ -137,11 +137,11 @@ export default {
   },
 
   i18n: {
-    locales: ['ru', 'en'],
+    locales: ['ru'],
     defaultLocale: 'ru',
     strategy: 'no_prefix',
     vueI18nLoader: true,
-    localeDetection: true,
+    localeDetection: false,
     vueI18n: {
       fallbackLocale: 'ru',
       silentTranslationWarn: true,
