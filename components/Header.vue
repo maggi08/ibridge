@@ -580,10 +580,12 @@ export default {
           this.request_modal = false
           this.success_modal = true
           this.form = {}
+          this.$refs.form.reset()
         })
         .catch((err) => {
           console.log(err)
           this.form = {}
+          // this.$refs.form.reset()
         })
     },
     closeModal() {
