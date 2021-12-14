@@ -6,7 +6,7 @@ export default {
   head: {
     templateTitle: '%name% - %title%',
     name: 'iBridge',
-    title: 'Консалтинговое агенство по образованию зарубежом',
+    title: 'Консалтинговое агентство по образованию зарубежом',
     htmlAttrs: {
       lang: 'en',
     },
@@ -171,9 +171,9 @@ export default {
     baseUrl: 'https://ibridge.kz/',
     templateTitle: '%name% - %title%',
     name: 'iBridge',
-    title: 'Консалтинговое агенство по образованию зарубежом',
+    title: 'Консалтинговое агентство по образованию зарубежом',
     keywords: 'iBridge',
-    description: 'iBridge - Консалтинговое агенство по образованию зарубежом',
+    description: 'iBridge - Консалтинговое агентство по образованию зарубежом',
     canonical: 'auto',
     isForcedTrailingSlash: false,
     lang: 'ru',
@@ -186,8 +186,9 @@ export default {
     },
     openGraph: {
       keywords: 'iBridge',
-      description: 'iBridge - Консалтинговое агенство по образованию зарубежом',
-      title: 'Консалтинговое агенство по образованию зарубежом',
+      description:
+        'iBridge - Консалтинговое агентство по образованию зарубежом',
+      title: 'Консалтинговое агентство по образованию зарубежом',
       image: {
         url: '/favicon-16x16.png',
         width: '200',

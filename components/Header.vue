@@ -503,7 +503,7 @@
       "successSubTitle":"We will contact you shortly."
     },
     "ru": {
-      "logo_text":"Консалтинговое агенство <br> по образованию за рубежом",
+      "logo_text":"Консалтинговое агентство <br> по образованию за рубежом",
       "programs":"Программы",
       "services":"Услуги",
       "partners":"Партнеры",
