@@ -250,6 +250,10 @@ button {
   &:disabled,
   &-disabled {
     background: #aeaeae;
+    &:hover {
+      background: #aeaeae;
+      cursor: default;
+    }
   }
 }
 .big-btn-black {

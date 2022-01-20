@@ -285,7 +285,11 @@
               </span>
             </p>
 
-            <button type="submit" class="big-btn-orange mt-10 w-100">
+            <button
+              type="submit"
+              class="mt-10 w-100 big-btn-orange"
+              :class="[!isButtonActive ? 'big-btn-orange-disabled' : '']"
+            >
               {{ $t('btn') }}
             </button>
           </v-form>
@@ -534,6 +538,7 @@ export default {
     },
   },
   data: () => ({
+    isButtonActive: true,
     menu_modal: false,
     success_modal: false,
     request_modal: false,
@@ -564,7 +569,9 @@ export default {
       this.$root.$emit('openPolicy')
     },
     async submitForm() {
+      if (!this.isButtonActive) return
       if (!this.$refs.form.validate()) return
+      this.isButtonActive = false
       const headers = {
         'X-API-KEY': 'secret_mako',
       }
@@ -582,10 +589,11 @@ export default {
           this.form = {}
           this.$refs.form.reset()
         })
-        .catch((err) => {
-          console.log(err)
+        .catch(() => {
           this.form = {}
-          // this.$refs.form.reset()
+        })
+        .finally(() => {
+          this.isButtonActive = true
         })
     },
     closeModal() {
