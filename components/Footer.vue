@@ -181,7 +181,7 @@
           </svg>
 
           <a
-            href="tel:+77011118764"
+            href="https://wa.me/77011118764"
             target="_blank"
             class="label orange-color ml-1"
           >
