@@ -18,6 +18,7 @@ jobs:
           port: '22'
           script: |
             cd /var/www/ibridge
+            git stash
             ${{secrets.GIT_PULL}}
             npm install
             npm audit fix
