@@ -573,7 +573,7 @@ export default {
       if (!this.$refs.form.validate()) return
       this.isButtonActive = false
       const headers = {
-        'X-API-KEY': 'secret_mako',
+        'X-API-KEY': '99jp2o7os-qkoo$vv0e-ibridge',
       }
       this.form.last_name =
         this.form.first_name.split(' ')[1] || this.form.first_name
