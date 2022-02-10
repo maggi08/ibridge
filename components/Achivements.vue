@@ -10,8 +10,10 @@
         class="mt-3 black-color text-center text-lg-left"
         v-html="$t('title')"
       ></h2>
-
-      <div class="mt-10 mt-sm-12 achivements d-flex align-center row mx-0">
+      <div
+        v-if="counters.length == 0"
+        class="mt-10 mt-sm-12 achivements d-flex align-center row mx-0"
+      >
         <div
           v-for="(item, index) in achivements"
           :key="index"
@@ -35,6 +37,38 @@
               {{ item.number }}
             </div>
             <h5 class="mt-2 text-center fw-400" v-html="$t(item.title)"></h5>
+          </div>
+        </div>
+      </div>
+      <div
+        v-else
+        class="mt-10 mt-sm-12 achivements d-flex align-center row mx-0"
+      >
+        <div
+          v-for="(item, index) in counters"
+          :key="index"
+          class="col-6 col-lg-3 pa-0 mb-8"
+        >
+          <div
+            class="
+              achivements-item
+              d-flex
+              flex-column
+              justify-center
+              align-center
+              mb-10
+              mx-auto
+            "
+          >
+            <div
+              :id="`number${index}`"
+              class="achivements-item__number text-center"
+            >
+              {{ item.counter_value }}
+            </div>
+            <h5 class="mt-2 text-center fw-400">
+              {{ item.Counter_text }}
+            </h5>
           </div>
         </div>
       </div>
@@ -65,6 +99,14 @@
 
 <script>
 export default {
+  props: {
+    counters: {
+      type: Array,
+      default: () => {
+        return []
+      },
+    },
+  },
   data: () => ({
     isDone: false,
     achivements: [

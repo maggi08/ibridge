@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <div class="blue-bg relative">
+    <div v-if="!notmain" class="blue-bg relative">
       <v-container class="d-md-flex align-center pa-0">
         <div class="col-12 col-md-6 pa-3 pb-0 pb-md-16 py-16">
           <h2
@@ -35,6 +35,7 @@
         </div>
       </v-container>
     </div>
+
     <div id="contacts" class="map-container">
       <v-container class="py-0">
         <div class="address">
@@ -167,6 +168,12 @@ const settings = {
   coordorder: 'latlong',
 }
 export default {
+  props: {
+    notmain: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data: () => ({
     coords: [43.22044, 76.928717],
     myMap: null,
@@ -241,22 +248,17 @@ export default {
   width: 100%;
   background: $orange-color;
 }
-// .image {
-//   width: 100%;
-//   height: 100%;
-
-//   img {
-//     height: 100%;
-//     width: 100%;
-//     object-fit: cover;
-//   }
-// }
 .image {
   position: absolute;
   right: 0;
   top: 0;
   height: 100%;
   width: 50%;
+
+  &-left {
+    right: unset;
+    left: 0;
+  }
   img,
   source {
     height: 100%;
@@ -269,6 +271,7 @@ export default {
     height: 354px;
   }
 }
+
 .map-container {
   position: relative;
   top: 0;

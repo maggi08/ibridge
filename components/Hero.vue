@@ -16,22 +16,6 @@
       </swiper-slide>
     </swiper>
 
-    <!-- <picture>
-      <source
-        class="hero-img"
-        :srcset="activeImage.webp"
-        type="image/webp"
-        width="1440px"
-        height="700px"
-      />
-      <img
-        class="hero-img"
-        :src="activeImage.jpg"
-        width="1440px"
-        height="700px"
-      />
-    </picture> -->
-
     <v-container class="">
       <div
         class="
@@ -48,16 +32,23 @@
           <span class="white-color">{{ $t('label') }}</span>
         </p>
         <!-- <p class="label white-color bridge" v-html="$t('label')"></p> -->
-        <h1
-          class="hero-main__title white-color mt-2 mt-sm-3"
-          v-html="$t('title')"
-        ></h1>
+        <h1 class="hero-main__title white-color mt-2 mt-sm-3">
+          {{ title }}
+        </h1>
         <p
           class="white-color mt-6 mt-sm-5"
           style="max-width: 500px"
-          v-html="$t('subtitle')"
+          v-html="subtitle"
         ></p>
-        <button class="big-btn-orange mt-10" @click="openRequest">
+
+        <button
+          v-if="isCountry"
+          class="big-btn-orange mt-10"
+          @click="goToUniversities"
+        >
+          {{ buttonName }}
+        </button>
+        <button v-else class="big-btn-orange mt-10" @click="openRequest">
           {{ $t('gotoapplication') }}
         </button>
       </div>
@@ -72,20 +63,35 @@
       "title":"Choose your study program with us in the best educational institutions in the world",
       "label":" - for brighter future",
       "subtitle":"We offer over than 300 educational institutions and programs for applicants",
-      "gotoapplication":"Send request"
+      "gotoapplication":"Send request",
+      "studyPlaces":"See our partners"
     },
     "ru": {
       "span":"iBridge",
       "title":"Выбери свою программу обучения в лучшие учебные заведения мира вместе c нами",
       "label":" - мост к светлому будущему",
       "subtitle":"Предлагаем 370 учебных заведений для поступления абитуриентам и магистрантам.",
-      "gotoapplication":"Оставить заявку"
+      "gotoapplication":"Оставить заявку",
+      "studyPlaces":"Учебные заведения"
     }
   }
 </i18n>
 
 <script>
+import lang from '@/mixins/lang'
+
 export default {
+  mixins: [lang],
+  props: {
+    country: {
+      type: Object,
+      default: null,
+    },
+    partner: {
+      type: Object,
+      default: null,
+    },
+  },
   data: () => ({
     swiperOption: {
       effect: 'fade',
@@ -98,26 +104,89 @@ export default {
         delay: 8000,
       },
     },
-    images: [
-      {
-        webp: require('@/assets/img/main/photo1.webp'),
-        jpg: require('@/assets/img/main/photo1.jpg'),
-      },
-      {
-        webp: require('@/assets/img/main/photo2.webp'),
-        jpg: require('@/assets/img/main/photo2.jpg'),
-      },
-      {
-        webp: require('@/assets/img/main/photo3.webp'),
-        jpg: require('@/assets/img/main/photo3.jpg'),
-      },
-    ],
   }),
-  mounted() {
-    this.changeImage()
+  computed: {
+    isCountry() {
+      if (this.country?.pk) return true
+      return false
+    },
+    isPartner() {
+      if (this.partner?.pk) return true
+      return false
+    },
+    partnerInfo() {
+      let info = {}
+      if (this.isPartner) {
+        info = this.getByLanguage(this.partner.partner_translations)
+      }
+      return info
+    },
+    countryInfo() {
+      let info = {}
+      if (this.isCountry) {
+        info = this.getByLanguage(this.country.country_translations)
+      }
+      return info
+    },
+    title() {
+      if (this.isCountry && this.countryInfo.banner_title)
+        return this.countryInfo.banner_title
+      if (this.isPartner && this.partnerInfo.partner_name)
+        return this.partnerInfo.partner_name
+      return this.$t('title')
+    },
+    subtitle() {
+      if (this.isCountry && this.countryInfo.banner_sub_title)
+        return this.countryInfo.banner_sub_title
+      if (this.isPartner) {
+        let message = `<strong>Год основания: </strong> ${this.partnerInfo.foundation_year} <br/>
+        <strong>Место расположения: </strong> ${this.partnerInfo.location} <br/>
+        <strong>Плата за обучение + сборы: </strong> ${this.partnerInfo.payment} <br/>
+        `
+        if (this.$i18n.locale === 'en')
+          message = `<strong>Year of foundation: </strong> ${this.partnerInfo.foundation_year} <br/>
+        <strong>Location: </strong> ${this.partnerInfo.location} <br/>
+        <strong>Tuition fee + fees: </strong> ${this.partnerInfo.payment} <br/>
+        `
+        return message
+      }
+      return this.$t('subtitle')
+    },
+    buttonName() {
+      if (this.isCountry) return this.$t('studyPlaces')
+      return this.$t('gotoapplication')
+    },
+    images() {
+      const arr = [
+        {
+          webp: require('@/assets/img/main/photo1.webp'),
+          jpg: require('@/assets/img/main/photo1.jpg'),
+        },
+        {
+          webp: require('@/assets/img/main/photo2.webp'),
+          jpg: require('@/assets/img/main/photo2.jpg'),
+        },
+        {
+          webp: require('@/assets/img/main/photo3.webp'),
+          jpg: require('@/assets/img/main/photo3.jpg'),
+        },
+      ]
+
+      if (this.isCountry && this.country.banner_image) {
+        return [{ webp: null, jpg: this.country.banner_image }]
+      }
+      if (this.isPartner && this.partner.partner_image) {
+        return [{ webp: null, jpg: this.partner.partner_image }]
+      }
+
+      return arr
+    },
   },
+  created() {},
   methods: {
-    changeImage() {},
+    goToUniversities() {
+      this.$router.push(`/Universities/${this.country.pk}`)
+    },
     openRequest() {
       this.$root.$emit('openRequest')
     },
