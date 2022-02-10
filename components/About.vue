@@ -1,13 +1,13 @@
 <template>
   <div class="about">
-    <v-container class="d-flex align-start">
+    <v-container class="d-flex flex-column flex-md-row">
       <div class="col-12 col-md-6">
         <div class="titleee">О стране</div>
         <div class="text mt-6" v-html="aboutText"></div>
       </div>
       <div class="col-12 col-md-6 d-flex flex-column">
         <div v-if="partner" class="media">
-          <iframe :src="partner.about_video_url" :title="University"></iframe>
+          <iframe :src="partner.about_video_url" title="partner video"></iframe>
         </div>
         <div v-else-if="country" class="media">
           <swiper :options="swiperOption" class="mySwiper">

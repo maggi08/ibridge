@@ -4,6 +4,7 @@
     <Achivements :counters="counters" />
     <About :partner="partner" />
     <StudyNew />
+    <Universities :partners="partners" />
     <Map notmain />
 
     <!-- <pre>{{ partner }}</pre> -->
@@ -16,6 +17,8 @@ export default {
   mixins: [lang],
   async asyncData({ $axios, i18n, params }) {
     let partner = null
+    let partners = []
+
     await $axios
       .$get(`${i18n.locale}/partners/${params.id}/`)
       .then((res) => {
@@ -25,7 +28,15 @@ export default {
         console.log(err)
       })
 
-    return { partner }
+    await $axios
+      .$get(`${i18n.locale}/partners/`)
+      .then((res) => {
+        partners = res
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+    return { partner, partners }
   },
   computed: {
     counters() {

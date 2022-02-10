@@ -514,3 +514,7 @@ ul {
   > .v-input__slot {
   filter: none !important;
 }
+
+.v-application--is-ltr .v-text-field .v-input__prepend-inner {
+  margin-top: 10px;
+}

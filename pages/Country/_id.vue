@@ -1,8 +1,10 @@
 <template>
   <div class="">
     <Hero :country="country" />
-    <Carts id="programs" />
+    <Carts />
     <About :country="country" />
+    <Services :country="country" :translation="translation" />
+    <Universities :partners="partners" />
     <StudyNew />
     <Map notmain />
 
@@ -11,9 +13,12 @@
 </template>
 
 <script>
+import lang from '@/mixins/lang'
 export default {
+  mixins: [lang],
   async asyncData({ $axios, i18n, params }) {
     let country = null
+    let partners = []
     await $axios
       .$get(`${i18n.locale}/countries/${params.id}/`)
       .then((res) => {
@@ -23,9 +28,25 @@ export default {
         console.log(err)
       })
 
-    return { country }
+    await $axios
+      .$get(`${i18n.locale}/partners/`)
+      .then((res) => {
+        partners = res
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+
+    return { country, partners }
   },
 
+  computed: {
+    translation() {
+      if (this.country?.country_translations)
+        return this.getByLanguage(this.country.country_translations)
+      return {}
+    },
+  },
   async created() {
     await this.$axios.$get(`${this.$i18n.locale}/countries/`).then((res) => {})
   },
