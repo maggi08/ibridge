@@ -1,13 +1,9 @@
 <template>
-  <div class=""></div>
+  <div class="">a</div>
 </template>
 
 <script>
-export default {
-
-}
+export default {}
 </script>
 
-<style>
-
-</style>
+<style></style>
