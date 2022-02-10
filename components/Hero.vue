@@ -44,7 +44,7 @@
         <button
           v-if="isCountry"
           class="big-btn-orange mt-10"
-          @click="goToUniversities"
+          @click="goToPartners"
         >
           {{ buttonName }}
         </button>
@@ -184,8 +184,8 @@ export default {
   },
   created() {},
   methods: {
-    goToUniversities() {
-      this.$router.push(`/Universities/${this.country.pk}`)
+    goToPartners() {
+      this.$router.push(`/Partner/${this.country.pk}`)
     },
     openRequest() {
       this.$root.$emit('openRequest')
