@@ -1,9 +1,11 @@
 <template>
-  <div class="">a</div>
+  <div class=""></div>
 </template>
 
 <script>
-export default {}
+export default {
+  layout: 'empty',
+}
 </script>
 
 <style></style>
