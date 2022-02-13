@@ -3,8 +3,11 @@
     <Hero :partner="partner" />
     <Achivements :counters="counters" />
     <About :partner="partner" />
-    <StudyNew />
+    <What />
     <Universities :partners="partners" />
+    <StudyNew />
+    <PartnerCountries />
+    <Gallery />
     <Map notmain />
 
     <!-- <pre>{{ partner }}</pre> -->

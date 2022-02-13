@@ -1,9 +1,13 @@
 <template>
-  <div class="about">
+  <div v-if="country || partner" class="about light-white-bg py-16">
     <v-container class="d-flex flex-column flex-md-row">
       <div class="col-12 col-md-6">
-        <div class="titleee">О стране</div>
+        <div class="titleee">{{ country ? $t('title1') : $t('title2') }}</div>
         <div class="text mt-6" v-html="aboutText"></div>
+
+        <button v-if="partner" class="big-btn-orange mt-8" @click="openRequest">
+          {{ $t('button') }}
+        </button>
       </div>
       <div class="col-12 col-md-6 d-flex flex-column">
         <div v-if="partner" class="media">
@@ -39,6 +43,21 @@
     </v-container>
   </div>
 </template>
+
+<i18n>
+{
+  "en": {
+    "title1": "About country",
+    "title2": "About university",
+    "button": "Send request"
+  },
+  "ru": {
+    "title1": "О стране",
+    "title2": "Об университете",
+    "button": "Оставить заявку"
+  }
+}
+</i18n>
 
 <script>
 import lang from '@/mixins/lang'
@@ -80,6 +99,11 @@ export default {
         return info.about_text
       }
       return ''
+    },
+  },
+  methods: {
+    openRequest() {
+      this.$root.$emit('openRequest')
     },
   },
 }
