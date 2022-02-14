@@ -325,7 +325,12 @@ export default {
       this.$router.push(`/Partner/${this.model}`)
     },
     openRequest() {
-      this.$root.$emit('openRequest')
+      let res = 'Главная'
+      if (this.isCountry && this.countryInfo?.country_name)
+        res = this.countryInfo.country_name
+      if (this.isPartner && this.partnerInfo?.partner_name)
+        res = this.partnerInfo.partner_name
+      this.$root.$emit('openRequest', { source: res })
     },
   },
 }

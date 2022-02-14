@@ -107,7 +107,16 @@ export default {
   },
   methods: {
     openRequest() {
-      this.$root.$emit('openRequest')
+      let res = 'about'
+      if (this.country?.country_translations) {
+        const info = this.getByLanguage(this.country.country_translations)
+        res = info.country_name
+      }
+      if (this.partner?.partner_translations) {
+        const info = this.getByLanguage(this.partner.partner_translations)
+        res = info.partner_name
+      }
+      this.$root.$emit('openRequest', { source: res })
     },
   },
 }

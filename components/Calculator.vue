@@ -1903,7 +1903,7 @@ export default {
       )
     },
     submitForm() {
-      this.$root.$emit('openRequest', this.form)
+      this.$root.$emit('openRequest', { ...this.form, source: 'Главная' })
       this.closeModal()
     },
     reTry() {

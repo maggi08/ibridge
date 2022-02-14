@@ -248,6 +248,7 @@ export default {
   mounted() {
     this.$root.$on('openRequest', (form = {}) => {
       if (form.type) {
+        this.form.source = 'Ивенты'
         this.form.comments = Object.values(form).join(', ')
       }
       this.openModal()
@@ -268,6 +269,7 @@ export default {
       this.request_modal = true
     },
     async submitForm() {
+      console.log(this.form)
       if (!this.isButtonActive) return
       if (!this.$refs.form.validate()) return
       this.isButtonActive = false

@@ -63,7 +63,7 @@
 export default {
   methods: {
     openRequest() {
-      this.$root.$emit('openRequest')
+      this.$root.$emit('openRequest', { source: 'Главная' })
     },
   },
 }
