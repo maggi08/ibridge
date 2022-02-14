@@ -111,7 +111,7 @@
               {{ $t('programs') }}
             </nuxt-link>
           </li>
-          <!-- <li class="mx-4 ml-0 relative">
+          <li class="mx-4 ml-0 relative">
             <div
               class="d-flex align-center ml-auto"
               @click="isToggled = !isToggled"
@@ -133,12 +133,17 @@
               </svg>
             </div>
             <div v-if="isToggled" class="countries-dropdown">
-              <div v-for="(item, index) in countries" :key="index" class="item">
+              <div
+                v-for="(item, index) in countries"
+                :key="index"
+                class="item"
+                @click="goToCountry(item.pk)"
+              >
                 <img :src="item.country_logo" alt="" />
                 {{ getByLanguage(item.country_translations).country_name }}
               </div>
             </div>
-          </li> -->
+          </li>
 
           <li class="mx-4">
             <nuxt-link v-scroll-to="'#services'" to="/">
@@ -414,7 +419,7 @@
           </svg>
         </div>
         <div class="py-4 mx-auto d-flex justify-center w-100"></div>
-        <nav class="mob-nav mt-8 px-4">
+        <nav v-if="step == 1" class="mob-nav mt-8 px-4">
           <ul class="">
             <li class="mb-8">
               <nuxt-link
@@ -425,6 +430,28 @@
               >
                 {{ $t('programs') }}
               </nuxt-link>
+            </li>
+            <li class="mb-8">
+              <div
+                class="d-flex align-center ml-auto"
+                @click="mobCountryToggled"
+              >
+                {{ $t('countries') }}
+                <svg
+                  class="ml-1 rotate-180"
+                  :class="{ 'rotate-180-active': isToggled }"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M8 6L8.35355 5.64645L8 5.29289L7.64645 5.64645L8 6ZM12.3536 9.64645L8.35355 5.64645L7.64645 6.35355L11.6464 10.3536L12.3536 9.64645ZM7.64645 5.64645L3.64645 9.64645L4.35355 10.3536L8.35355 6.35355L7.64645 5.64645Z"
+                    fill="white"
+                  />
+                </svg>
+              </div>
             </li>
             <li class="mb-8">
               <nuxt-link
@@ -508,6 +535,35 @@
             </div>
           </ul>
         </nav>
+        <div v-else class="">
+          <p @click="step = 1" class="country-mob">
+            <svg
+              class="mr-2"
+              width="24"
+              height="25"
+              viewBox="0 0 24 25"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 12.5L8.29289 11.7929L7.58579 12.5L8.29289 13.2071L9 12.5ZM14.2929 5.79289L8.29289 11.7929L9.70711 13.2071L15.7071 7.20711L14.2929 5.79289ZM8.29289 13.2071L14.2929 19.2071L15.7071 17.7929L9.70711 11.7929L8.29289 13.2071Z"
+                fill="#D2840D"
+              />
+            </svg>
+            {{ $t('countries') }}
+          </p>
+          <div class="countries-dropdown countries-dropdown-mob">
+            <div
+              v-for="(item, index) in countries"
+              :key="index"
+              class="item"
+              @click="goToCountry(item.pk)"
+            >
+              <img :src="item.country_logo" alt="" />
+              {{ getByLanguage(item.country_translations).country_name }}
+            </div>
+          </div>
+        </div>
       </v-card>
     </v-dialog>
   </div>
@@ -571,6 +627,7 @@ export default {
     },
   },
   data: () => ({
+    step: 1,
     isToggled: false,
     isButtonActive: true,
     menu_modal: false,
@@ -599,6 +656,11 @@ export default {
     })
   },
   methods: {
+    goToCountry(id) {
+      this.$router.push(`/country/${id}`)
+      this.isToggled = false
+      this.closeMenu()
+    },
     closeMenu() {
       this.menu_modal = false
     },
@@ -656,6 +718,10 @@ export default {
       this.$root.$i18n.locale = lang
       this.closeMenu()
     },
+    mobCountryToggled() {
+      this.isToggled = !this.isToggled
+      this.step = 2
+    },
   },
 }
 </script>
@@ -674,6 +740,17 @@ export default {
     color: $orange-color;
   }
 }
+.country-mob {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 140%;
+  color: #d2840d;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
 .consulting {
   text-transform: uppercase;
   font-size: 10px;
@@ -682,11 +759,20 @@ export default {
 }
 .countries-dropdown {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  margin-top: 12px;
-  width: 100%;
+  left: 0;
+  top: 48px;
   width: 198px;
+  &-mob {
+    width: unset;
+    margin-top: 32px;
+    position: static;
+
+    .item {
+      margin-bottom: 16px;
+      font-weight: 500;
+      font-size: 16px;
+    }
+  }
   .item {
     display: flex;
     align-items: center;
@@ -797,12 +883,14 @@ a {
 }
 .mob-nav {
   a,
-  h3 {
+  h3,
+  ul li div {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
     font-size: 22px;
     line-height: 120%;
+    cursor: pointer;
     &:hover {
       color: $orange-color;
     }

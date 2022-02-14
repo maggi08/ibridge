@@ -16,7 +16,7 @@
           :key="index"
           class="country-item"
           :class="{ 'country-item-little': countries.length > 3 }"
-          @click="goToCountry"
+          @click="goToCountry(item.pk)"
         >
           <img class="mr-4" :src="item.country_logo" alt="" />
           <!-- <svg
