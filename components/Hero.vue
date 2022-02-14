@@ -321,7 +321,6 @@ export default {
       return res
     },
     submitSearch() {
-      console.log(this.model)
       this.$router.push(`/Partner/${this.model}`)
     },
     openRequest() {

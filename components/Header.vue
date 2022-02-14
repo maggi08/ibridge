@@ -650,8 +650,6 @@ export default {
     window.addEventListener('scroll', this.onScroll)
     this.$root.$on('openRequest', (form = {}) => {
       this.form.source = form.source
-      console.log(this.form)
-      console.log(form)
       if (form.type) {
         this.form.comments = Object.values(form).join(', ')
       }
@@ -678,6 +676,11 @@ export default {
     },
     async submitForm() {
       this.form.source = this.form.source ?? 'Главная'
+      if (this.$route.name === 'Country-id')
+        this.form.source = `country - ${this.$route.params.id}`
+      if (this.$route.name === 'Partner-id')
+        this.form.source = `partner - ${this.$route.params.id}`
+
       if (!this.isButtonActive) return
       if (!this.$refs.form.validate()) return
       this.isButtonActive = false
