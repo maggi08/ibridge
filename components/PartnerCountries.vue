@@ -18,8 +18,8 @@
           :class="{ 'country-item-little': countries.length > 3 }"
           @click="goToCountry"
         >
-          <!-- <img class="mr-4" :src="item.img" alt="" /> -->
-          <svg
+          <img class="mr-4" :src="item.country_logo" alt="" />
+          <!-- <svg
             class="mr-4"
             width="24"
             height="24"
@@ -40,9 +40,11 @@
               d="M21.9895 5H20.8793L14.2267 9.66601H15.3369L22 5H21.9895ZM9.76287 14.3321H8.6526L2 18.9981H3.11027L9.77333 14.3321H9.76287ZM7.5512 9.66965H8.6614L2 5V5.7826L7.5512 9.66965ZM16.4349 14.3303H15.3246L21.986 19V18.2174L16.4349 14.3303Z"
               fill="#CF142B"
             />
-          </svg>
+          </svg> -->
 
-          Великобритания
+          <!-- {{ item }} -->
+          {{ getByLanguage(item.country_translations).country_name }}
+          <!-- {{ getByLanguage(item.country_translations) }} -->
 
           <svg
             class="ml-auto"
@@ -95,13 +97,23 @@
 </i18n>
 
 <script>
+import lang from '@/mixins/lang'
 export default {
+  mixins: [lang],
+
   data: () => ({
-    countries: [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
+    countries: [],
   }),
+  mounted() {
+    this.$axios
+      .get(`${this.$i18n.locale}/countries/`)
+      .then((res) => {
+        this.countries = res.data
+      })
+      .catch(() => {})
+  },
   methods: {
     goToCountry(id = 1) {
-      console.log(123)
       this.$router.push(`/Country/${id}`)
     },
   },

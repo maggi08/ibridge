@@ -8,18 +8,36 @@
         class="text-center text-sm-left mt-3 black-color m-w-480"
         v-html="$t('title')"
       ></h2>
-      <div class="w-100 d-flex justify-space-between align-start mt-6">
-        <p class="subtitle2" v-html="$t('subtitle2')"></p>
+      <div
+        class="
+          w-100
+          d-flex
+          flex-column flex-sm-row
+          align-center align-sm-start
+          justify-space-between
+          mt-6
+        "
+      >
+        <p
+          class="subtitle2 text-center text-sm-left"
+          v-html="$t('subtitle2')"
+        ></p>
         <div class="search-container">
           <v-autocomplete
-            v-model="search"
-            :items="partners"
+            v-model="model"
+            :items="partneers"
+            item-text="partner_name"
+            item-value="pk"
+            :loading="isLoading"
+            :search-input.sync="search"
             class="my-input"
             outlined
             hide-details
+            hide-no-data
             append-icon=""
             prepend-inner-icon=""
             :placeholder="$t('placeholder')"
+            @change="submitSearch"
           >
             <template #prepend-inner class="d-flex">
               <svg
@@ -41,8 +59,8 @@
         </div>
       </div>
     </v-container>
-    <v-container class="mt-16">
-      <div class="tabs d-flex justify-space-between">
+    <v-container class="mt-9 mt-md-16">
+      <div class="d-none d-md-flex tabs justify-space-between">
         <div
           v-for="(item, index) in tabs"
           :key="index"
@@ -52,6 +70,36 @@
         >
           {{ $t(item.title) }}
         </div>
+      </div>
+      <div class="d-flex d-md-none">
+        <v-select
+          v-model="tab"
+          class="my-input"
+          :items="tabs"
+          :item-text="text"
+          item-value="value"
+          hide-no-data
+          outlined
+          hide-details
+          append-icon=""
+          prepend-inner-icon=""
+          @change="toggleTab"
+        >
+          <template #append>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M10 12.5L10.3536 12.8536L10 13.2071L9.64645 12.8536L10 12.5ZM15.3536 7.85355L10.3536 12.8536L9.64645 12.1464L14.6464 7.14645L15.3536 7.85355ZM9.64645 12.8536L4.64645 7.85355L5.35355 7.14645L10.3536 12.1464L9.64645 12.8536Z"
+                fill="#D2840D"
+              />
+            </svg>
+          </template>
+        </v-select>
       </div>
 
       <div class="mt-10 partners">
@@ -137,10 +185,18 @@ export default {
       type: Array,
       default: () => [],
     },
+    countryTranslation: {
+      type: Object,
+      default: null,
+    },
   },
+
   data: () => ({
     test: [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
+    partneers: [],
+    model: '',
     search: '',
+    isLoading: false,
     pageSize: 3,
     tab: 1,
     tabs: [
@@ -151,16 +207,82 @@ export default {
       { title: 'tab5', value: 5 },
     ],
   }),
+  computed: {
+    countryName() {
+      if (this.countryTranslation?.country_name)
+        return this.countryTranslation.country_name
+      return ''
+    },
+  },
+  watch: {
+    search(value) {
+      if (this.isLoading) return
+
+      this.isLoading = true
+      this.$axios
+        .get(`${this.$i18n.locale}/partners?search=${value}`)
+        .then((res) => {
+          this.partneers = res.data
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+        .finally(() => (this.isLoading = false))
+    },
+  },
   created() {
+    this.partneers = this.partners
     this.test = [...this.partners].splice(0, this.pageSize)
   },
   methods: {
+    text(item) {
+      let a = {
+        tab1: 'Университеты',
+        tab2: 'Средние школы',
+        tab3: 'Языковые курсы',
+        tab4: 'Подготовка к поступлению',
+        tab5: 'Летние онлайн программы',
+      }
+
+      if (this.$i18n.locale === 'en') {
+        a = {
+          tab1: 'Schools',
+          tab2: 'High schools',
+          tab3: 'Language classes',
+          tab4: 'Preparing for admission',
+          tab5: 'Summer online programs',
+        }
+      }
+      return a[item.title]
+    },
+    submitSearch() {
+      this.$router.push(`/Partner/${this.model}`)
+    },
     showMore() {
       this.pageSize += 3
       this.test = [...this.partners].splice(0, this.pageSize)
     },
     toggleTab(value) {
-      this.tab = value
+      this.tab = value.value || value
+      const res = {
+        tab1: 'Университеты',
+        tab2: 'Средние школы',
+        tab3: 'Языковые курсы',
+        tab4: 'Подготовка к поступлению',
+        tab5: 'Летние онлайн программы',
+      }
+      const title = value.title ? res[value.title] : res[`tab${value}`]
+      this.$axios
+        .get(
+          `${this.$i18n.locale}/partners?title=${title}&country_name=${this.countryName}`
+        )
+        .then((res) => {
+          this.pageSize = 3
+          this.test = [...res.data].splice(0, this.pageSize)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
     },
     goToPartner(id) {
       this.$router.push(`/Partner/${id}`)
@@ -183,8 +305,15 @@ export default {
   line-height: 140%;
   color: #474747;
 }
+
 .search-container {
   max-width: 228px;
+
+  @media (max-width: 600px) {
+    margin-top: 40px;
+    width: 100%;
+    max-width: unset;
+  }
 }
 
 .tab {
@@ -224,6 +353,12 @@ export default {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 32px;
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 .partner-item {
   width: 100%;

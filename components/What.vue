@@ -10,7 +10,7 @@
           :key="index"
           class="faculty-item"
         >
-          {{ item }}
+          {{ item.text }}
 
           <svg
             class="img"
@@ -61,14 +61,24 @@
     "subtitle": "faculties"
   },
   "ru": {
-    "title": "Фотографии наших студентов",
-    "subtitle": "Фотогалерея"
+    "title": "Что я могу изучать?",
+    "subtitle": "факультеты"
   }
 }
 </i18n>
 
 <script>
 export default {
+  props: {
+    translation: {
+      type: Object,
+      default: null,
+    },
+    partner: {
+      type: Object,
+      default: null,
+    },
+  },
   data: () => ({
     faculties: [
       'Aviation and aerospace engineering',
@@ -81,6 +91,10 @@ export default {
       'Aviation and aerospace engineering',
     ],
   }),
+
+  created() {
+    this.faculties = this.translation.faculties
+  },
 }
 </script>
 
@@ -90,9 +104,16 @@ export default {
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 32px;
 
-  // @media screen {
-  //   grid-template-columns: repeat(2, 1fr);
-  // }
+  @media (max-width: 1150px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 800px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 600px) {
+    grid-gap: 24px;
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 .faculty-item {
   display: flex;
@@ -112,7 +133,9 @@ export default {
   color: #202124;
 
   position: relative;
-
+  @media (max-width: 600px) {
+    max-width: unset;
+  }
   .img {
     position: absolute;
     right: 0;

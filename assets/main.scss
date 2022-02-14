@@ -518,3 +518,20 @@ ul {
 .v-application--is-ltr .v-text-field .v-input__prepend-inner {
   margin-top: 10px;
 }
+
+.search-input {
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.04);
+}
+
+.search-input {
+  &.v-text-field.v-text-field--enclosed:not(.v-text-field--rounded)
+    > .v-input__control
+    > .v-input__slot,
+  .v-text-field.v-text-field--enclosed .v-text-field__details {
+    padding-right: 0 !important;
+  }
+  .v-input__append-inner {
+    margin-top: 0 !important;
+  }
+}

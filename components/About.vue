@@ -1,7 +1,9 @@
 <template>
   <div v-if="country || partner" class="about light-white-bg py-16">
-    <v-container class="d-flex flex-column flex-md-row">
-      <div class="col-12 col-md-6">
+    <v-container
+      class="d-flex flex-column-reverse flex-md-row pt-md-4 pb-md-11"
+    >
+      <div class="col-12 col-md-6 pa-0 pt-16 pt-md-0">
         <div class="titleee">{{ country ? $t('title1') : $t('title2') }}</div>
         <div class="text mt-6" v-html="aboutText"></div>
 
@@ -9,7 +11,7 @@
           {{ $t('button') }}
         </button>
       </div>
-      <div class="col-12 col-md-6 d-flex flex-column">
+      <div class="col-12 col-md-6 pa-0 d-flex flex-column">
         <div v-if="partner" class="media">
           <iframe :src="partner.about_video_url" title="partner video"></iframe>
         </div>
@@ -114,16 +116,23 @@ export default {
   font-weight: normal;
   font-size: 30px;
   line-height: 120%;
+  @media (max-width: 600px) {
+    font-size: 22px;
+  }
 }
 
 .text {
   max-width: 448px;
   font-size: 18px;
   line-height: 140%;
+
+  @media (max-width: 600px) {
+    font-size: 18px;
+  }
 }
 .about {
-  margin-top: 80px;
-  margin-bottom: 106px;
+  // margin-top: 80px;
+  // margin-bottom: 106px;
 }
 .media {
   width: 100%;

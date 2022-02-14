@@ -67,7 +67,7 @@
               {{ item.counter_value }}
             </div>
             <h5 class="mt-2 text-center fw-400">
-              {{ item.Counter_text }}
+              {{ item.counter_text }}
             </h5>
           </div>
         </div>

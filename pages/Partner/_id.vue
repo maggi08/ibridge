@@ -1,9 +1,13 @@
 <template>
   <div class="">
     <Hero :partner="partner" />
-    <Achivements :counters="counters" />
-    <About :partner="partner" />
-    <What />
+    <Achivements v-if="counters" :counters="counters" />
+    <About v-if="partner && translation" :partner="partner" />
+    <What
+      v-if="partner && translation"
+      :partner="partner"
+      :translation="translation"
+    />
     <Universities :partners="partners" />
     <StudyNew />
     <PartnerCountries />
@@ -47,6 +51,12 @@ export default {
         return this.getByLanguage(this.partner.partner_translations).counters
       }
       return []
+    },
+    translation() {
+      if (this.partner?.partner_translations) {
+        return this.getByLanguage(this.partner.partner_translations)
+      }
+      return null
     },
   },
   async created() {

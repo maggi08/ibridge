@@ -111,6 +111,35 @@
               {{ $t('programs') }}
             </nuxt-link>
           </li>
+          <!-- <li class="mx-4 ml-0 relative">
+            <div
+              class="d-flex align-center ml-auto"
+              @click="isToggled = !isToggled"
+            >
+              {{ $t('countries') }}
+              <svg
+                class="ml-1 rotate-180"
+                :class="{ 'rotate-180-active': isToggled }"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8 6L8.35355 5.64645L8 5.29289L7.64645 5.64645L8 6ZM12.3536 9.64645L8.35355 5.64645L7.64645 6.35355L11.6464 10.3536L12.3536 9.64645ZM7.64645 5.64645L3.64645 9.64645L4.35355 10.3536L8.35355 6.35355L7.64645 5.64645Z"
+                  fill="white"
+                />
+              </svg>
+            </div>
+            <div v-if="isToggled" class="countries-dropdown">
+              <div v-for="(item, index) in countries" :key="index" class="item">
+                <img :src="item.country_logo" alt="" />
+                {{ getByLanguage(item.country_translations).country_name }}
+              </div>
+            </div>
+          </li> -->
+
           <li class="mx-4">
             <nuxt-link v-scroll-to="'#services'" to="/">
               {{ $t('services') }}
@@ -487,6 +516,7 @@
 <i18n>
   {
     "en": {
+      "countries":"Countries",
       "logo_text":"Study Abroad <br> Consultancy Service",
       "programs":"Programs",
       "services":"Services",
@@ -507,6 +537,7 @@
       "successSubTitle":"We will contact you shortly."
     },
     "ru": {
+      "countries":"Страны",
       "logo_text":"Консалтинговое агентство <br> по образованию за рубежом",
       "programs":"Программы",
       "services":"Услуги",
@@ -530,7 +561,9 @@
 </i18n>
 
 <script>
+import lang from '@/mixins/lang'
 export default {
+  mixins: [lang],
   props: {
     isError: {
       type: Boolean,
@@ -538,13 +571,23 @@ export default {
     },
   },
   data: () => ({
+    isToggled: false,
     isButtonActive: true,
     menu_modal: false,
     success_modal: false,
     request_modal: false,
     is_transparent: true,
     form: {},
+    countries: [],
   }),
+  created() {
+    this.$axios
+      .get(`${this.$i18n.locale}/countries`)
+      .then((res) => {
+        this.countries = res.data
+      })
+      .catch(() => {})
+  },
   mounted() {
     this.onScroll()
     window.addEventListener('scroll', this.onScroll)
@@ -618,6 +661,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.rotate-180 {
+  translate: 0.22s;
+  transform: rotate(180deg);
+  &-active {
+    transform: rotate(0deg);
+  }
+}
 .linklink {
   color: $black-color;
   &:hover {
@@ -629,6 +679,39 @@ export default {
   font-size: 10px;
   line-height: 120%;
   color: #7c7c7c;
+}
+.countries-dropdown {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin-top: 12px;
+  width: 100%;
+  width: 198px;
+  .item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 8px 16px;
+    background: #fff;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 140%;
+    color: #474747;
+
+    img {
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+    }
+
+    &:hover,
+    &-active {
+      background: #fbfbfb;
+      cursor: pointer;
+    }
+  }
 }
 .header {
   width: 100%;
@@ -650,6 +733,18 @@ export default {
     }
   }
 
+  ul li div {
+    color: #202124;
+    transition: 0.3s;
+    cursor: pointer;
+    svg path {
+      fill: #202124;
+    }
+    &:hover {
+      color: $orange-color;
+    }
+  }
+
   &-transparent {
     background: transparent;
     box-shadow: none;
@@ -659,6 +754,17 @@ export default {
     }
     a {
       color: #f8f8f8;
+    }
+    ul li div {
+      color: #f8f8f8;
+      transition: 0.3s;
+      cursor: pointer;
+      &:hover {
+        color: $orange-color;
+      }
+      svg path {
+        fill: #f8f8f8;
+      }
     }
   }
   // &-container {

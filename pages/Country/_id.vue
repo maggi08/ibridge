@@ -4,7 +4,11 @@
     <Carts />
     <About :country="country" />
     <Services :country="country" :translation="translation" />
-    <Universities :partners="partners" />
+    <Universities
+      id="universities"
+      :partners="partners"
+      :country-translation="translation"
+    />
     <StudyNew />
     <Map notmain />
 
