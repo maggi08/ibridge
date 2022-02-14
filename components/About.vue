@@ -94,13 +94,12 @@ export default {
     aboutText() {
       if (this.country?.country_translations) {
         const info = this.getByLanguage(this.country.country_translations)
-        console.log(info.about_text.split(/\r?\n/))
         const res = info.about_text.replace(/\r?\n/g, '<br/>')
         return res
       }
       if (this.partner?.partner_translations) {
         const info = this.getByLanguage(this.partner.partner_translations)
-        const res = info.about_text.replace(/(\\r)*\\n/g, '<br>')
+        const res = info.about_text.replace(/\r?\n/g, '<br>')
         return res
       }
       return ''
