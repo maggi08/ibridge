@@ -649,6 +649,8 @@ export default {
     this.onScroll()
     window.addEventListener('scroll', this.onScroll)
     this.$root.$on('openRequest', (form = {}) => {
+      this.form.source = form.source
+      console.log(this.form)
       console.log(form)
       if (form.type) {
         this.form.comments = Object.values(form).join(', ')
@@ -675,10 +677,10 @@ export default {
       this.$root.$emit('openPolicy')
     },
     async submitForm() {
+      this.form.source = this.form.source ?? 'Главная'
       if (!this.isButtonActive) return
       if (!this.$refs.form.validate()) return
       this.isButtonActive = false
-      console.log(this.form)
       const headers = {
         'X-API-KEY': '99jp2o7os-qkoo$vv0e-ibridge',
       }

@@ -246,13 +246,13 @@ export default {
     request_modal: false,
   }),
   mounted() {
-    this.$root.$on('openRequest', (form = {}) => {
-      if (form.type) {
-        this.form.source = 'Ивенты'
-        this.form.comments = Object.values(form).join(', ')
-      }
-      this.openModal()
-    })
+    // this.$root.$on('openRequest', (form = {}) => {
+    //   this.form.source = 'Ивенты'
+    //   if (form.type) {
+    //     this.form.comments = Object.values(form).join(', ')
+    //   }
+    //   this.openModal()
+    // })
   },
   methods: {
     openPolicy() {
@@ -269,7 +269,7 @@ export default {
       this.request_modal = true
     },
     async submitForm() {
-      console.log(this.form)
+      this.form.source = 'Ивенты'
       if (!this.isButtonActive) return
       if (!this.$refs.form.validate()) return
       this.isButtonActive = false
