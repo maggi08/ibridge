@@ -303,9 +303,7 @@ export default {
         .then((res) => {
           this.partners = [...res.data, ...this.partners]
         })
-        .catch((err) => {
-          console.log(err)
-        })
+        .catch(() => {})
         .finally(() => (this.isLoading = false))
     },
   },

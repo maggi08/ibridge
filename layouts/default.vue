@@ -1,8 +1,8 @@
 <template>
   <v-app>
-    <Header @openModal="openModal" />
+    <Header />
     <v-main>
-      <Nuxt @openModal="openModal" />
+      <Nuxt />
     </v-main>
     <Footer />
   </v-app>
@@ -14,11 +14,7 @@ import aos from '~/mixins/aos'
 export default {
   mixins: [aos],
   data: () => ({}),
-  methods: {
-    openModal() {
-      console.log(123)
-    },
-  },
+  methods: {},
 }
 </script>
 

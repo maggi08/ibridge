@@ -221,16 +221,13 @@ export default {
         .then((res) => {
           this.partneers = res.data
         })
-        .catch((err) => {
-          console.log(err)
-        })
+        .catch(() => {})
         .finally(() => (this.isLoading = false))
     },
   },
   created() {
     this.partneers = this.partners
     this.toggleTab(1)
-    // this.test = [...this.partners].splice(0, this.pageSize)
   },
   methods: {
     text(item) {
@@ -274,6 +271,7 @@ export default {
         tab5: 'Летние онлайн программы',
       }
       const title = value.title ? res[value.title] : res[`tab${value}`]
+      console.log(title)
       this.$axios
         .get(
           `${this.$i18n.locale}/partners?title=${title}&country_name=${this.countryName}`
@@ -282,9 +280,7 @@ export default {
           this.pageSize = 3
           this.test = [...res.data].splice(0, this.pageSize)
         })
-        .catch((err) => {
-          console.log(err)
-        })
+        .catch(() => {})
     },
     goToPartner(item) {
       const id = item.pk
