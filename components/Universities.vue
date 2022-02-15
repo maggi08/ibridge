@@ -231,7 +231,8 @@ export default {
     },
   },
   created() {
-    this.partneers = this.partners
+    // this.partneers = this.partners
+    this.toggleTab(1)
     this.test = [...this.partners].splice(0, this.pageSize)
   },
   methods: {
