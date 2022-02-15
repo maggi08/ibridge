@@ -270,8 +270,8 @@ export default {
         tab4: 'Подготовка к поступлению',
         tab5: 'Летние онлайн программы',
       }
-      const title = value.title ? res[value.title] : res[`tab${value}`]
-      console.log(title)
+      const title = value.title ? res[value.title] : res[`tab${this.tab}`]
+
       this.$axios
         .get(
           `${this.$i18n.locale}/partners?title=${title}&country_name=${this.countryName}`
