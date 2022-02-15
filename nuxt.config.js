@@ -62,6 +62,7 @@ export default {
   plugins: [
     { src: '~/plugins/swiper.js', ssr: true },
     { src: '~/plugins/v-mask.js', ssr: false },
+    { src: '~/plugins/translate', ssr: true },
     // { src: '~/plugins/ym.js', ssr: false },
   ],
 

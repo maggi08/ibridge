@@ -137,7 +137,7 @@
                 v-for="(item, index) in countries"
                 :key="index"
                 class="item"
-                @click="goToCountry(item.pk)"
+                @click="goToCountry(item)"
               >
                 <img :src="item.country_logo" alt="" />
                 {{ getByLanguage(item.country_translations).country_name }}
@@ -657,8 +657,13 @@ export default {
     })
   },
   methods: {
-    goToCountry(id) {
-      this.$router.push(`/country/${id}`)
+    goToCountry(item) {
+      if (this.getByLanguage(item.country_translations)) {
+        const slug = this.$translate(
+          this.getByLanguage(item.country_translations).country_name
+        )
+        this.$router.push(`/country/${slug}/${item.pk}`)
+      }
       this.isToggled = false
       this.closeMenu()
     },
@@ -676,11 +681,18 @@ export default {
     },
     async submitForm() {
       this.form.source = this.form.source ?? 'Главная'
+      if (
+        this.$route.name === 'Partner-name-id' ||
+        this.$route.name === 'Country-name-id'
+      ) {
+        this.form.source = this.$route.params.name
+      } else if (this.$route.name === 'Events') this.form.source = 'Ивенты'
+      else this.form.source = 'Главная'
+
       if (this.$route.name === 'Country-id')
         this.form.source = `country - ${this.$route.params.id}`
       if (this.$route.name === 'Partner-id')
         this.form.source = `partner - ${this.$route.params.id}`
-
       if (!this.isButtonActive) return
       if (!this.$refs.form.validate()) return
       this.isButtonActive = false
@@ -721,7 +733,6 @@ export default {
       else this.is_transparent = true
     },
     setLocale(lang) {
-      // this.$router.push(this.switchLocalePath(lang))
       this.$root.$i18n.locale = lang
       this.closeMenu()
     },

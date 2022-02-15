@@ -16,7 +16,7 @@
           :key="index"
           class="country-item"
           :class="{ 'country-item-little': countries.length > 3 }"
-          @click="goToCountry(item.pk)"
+          @click="goToCountry(item)"
         >
           <img class="mr-4" :src="item.country_logo" alt="" />
           <!-- <svg
@@ -113,8 +113,11 @@ export default {
       .catch(() => {})
   },
   methods: {
-    goToCountry(id = 1) {
-      this.$router.push(`/Country/${id}`)
+    goToCountry(item) {
+      const slug = this.$translate(
+        this.getByLanguage(item.country_translations).country_name
+      )
+      this.$router.push(`/Country/${slug}/${item.pk}`)
     },
   },
 }

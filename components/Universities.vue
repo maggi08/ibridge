@@ -109,24 +109,21 @@
           class="partner-item d-flex flex-column"
         >
           <div class="partner-item-img">
-            <img :src="partners[0].partner_image" alt="" />
+            <img :src="item.partner_image" alt="" />
           </div>
           <div class="pa-6">
             <p class="partner-item-title">
-              {{ getInfo(partners[0]).partner_name }}
+              {{ getInfo(item).partner_name }}
             </p>
             <p class="partner-item-location mt-6">
-              {{ getInfo(partners[0]).location }}
+              {{ getInfo(item).location }}
             </p>
             <p class="partner-item-price mt-2">
-              {{ getInfo(partners[0]).payment }}
+              {{ getInfo(item).payment }}
             </p>
           </div>
           <div class="px-6 pb-6 mt-auto">
-            <button
-              class="w-100 big-btn-outline"
-              @click="goToPartner(partners[0].pk)"
-            >
+            <button class="w-100 big-btn-outline" @click="goToPartner(item)">
               {{ $t('more') }}
             </button>
           </div>
@@ -256,8 +253,12 @@ export default {
       }
       return a[item.title]
     },
-    submitSearch() {
-      this.$router.push(`/Partner/${this.model}`)
+    submitSearch(val) {
+      const id = this.partners.findIndex((el) => el.pk === val)
+      const slug = this.$translate(
+        this.getByLanguage(this.partners[id].partner_translations).partner_name
+      )
+      this.$router.push(`/Partner/${slug}/${this.model}`)
     },
     showMore() {
       this.pageSize += 3
@@ -285,8 +286,12 @@ export default {
           console.log(err)
         })
     },
-    goToPartner(id) {
-      this.$router.push(`/Partner/${id}`)
+    goToPartner(item) {
+      const id = item.pk
+      const slug = this.$translate(
+        this.getByLanguage(item.partner_translations).partner_name
+      )
+      this.$router.push(`/Partner/${slug}/${id}`)
     },
     getInfo(item) {
       if (item.partner_translations)

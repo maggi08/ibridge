@@ -220,7 +220,6 @@ export default {
       if (this.isPartner) {
         info = this.getByLanguage(this.partner.partner_translations)
       }
-      console.log(info)
       return info
     },
     countryInfo() {
@@ -302,7 +301,7 @@ export default {
       this.$axios
         .get(`${this.$i18n.locale}/partners?search=${value}`)
         .then((res) => {
-          this.partners = res.data
+          this.partners = [...res.data, ...this.partners]
         })
         .catch((err) => {
           console.log(err)
@@ -320,8 +319,12 @@ export default {
       )
       return res
     },
-    submitSearch() {
-      this.$router.push(`/Partner/${this.model}`)
+    submitSearch(val) {
+      const id = this.partners.findIndex((el) => el.pk === val)
+      const slug = this.$translate(
+        this.getByLanguage(this.partners[id].partner_translations).partner_name
+      )
+      this.$router.push(`/Partner/${slug}/${this.model}`)
     },
     openRequest() {
       let res = 'Главная'
