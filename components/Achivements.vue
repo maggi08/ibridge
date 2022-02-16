@@ -80,7 +80,7 @@
 {
   "en": {
     "label": "Advantages",
-    "title": "Achievements <br/> of our company",
+    "title": "Achievements",
     "title1": "years of experience",
     "title2": "partner universities",
     "title3": "language centers",
@@ -88,7 +88,7 @@
   },
   "ru": {
     "label": "Преимущества",
-    "title": "Успехи и достижения <br/> компании",
+    "title": "Успехи и достижения",
     "title1": "лет опыта",
     "title2": "партнеров <br/> университетов",
     "title3": "языковых <br/> центров",
