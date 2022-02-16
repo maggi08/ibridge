@@ -58,11 +58,11 @@
 {
   "en": {
     "title": "What can I study?",
-    "subtitle": "faculties"
+    "subtitle": "faculties and specializations"
   },
   "ru": {
     "title": "Что я могу изучать?",
-    "subtitle": "факультеты"
+    "subtitle": "факультеты и специализации"
   }
 }
 </i18n>
