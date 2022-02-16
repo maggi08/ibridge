@@ -214,11 +214,8 @@
           </div>
         </div>
 
-        <button
-          class="ml-6 btn-orange"
-          :class="{ 'd-none': is_transparent && !isError }"
-          @click="openModal"
-        >
+        <!-- :class="{ 'd-none': is_transparent && !isError }" -->
+        <button class="ml-6 btn-orange" @click="openModal">
           {{ $t('gotoapplication') }}
         </button>
       </div>
@@ -564,6 +561,11 @@
             </div>
           </div>
         </div>
+        <div class="pa-4 mb-8 w-100" style="position: absolute; bottom: 0">
+          <button class="w-100 btn-orange" @click="openModal">
+            {{ $t('gotoapplication') }}
+          </button>
+        </div>
       </v-card>
     </v-dialog>
   </div>
@@ -900,6 +902,9 @@ a {
   text-decoration: none;
 }
 .mob-nav {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   a,
   h3,
   ul li div {
