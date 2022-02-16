@@ -133,8 +133,10 @@ export default {
 
 .countries {
   display: flex;
-  flex-wrap: wrap;
   gap: 32px;
+  @media (max-width: 900px) {
+    flex-wrap: wrap;
+  }
 }
 .country-item {
   display: flex;
