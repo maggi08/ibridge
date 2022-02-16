@@ -93,12 +93,12 @@ export default {
   grid-template-columns: repeat(4, 1fr);
 
   margin-top: -56px;
-  justify-content: center;
+  justify-content: space-between;
   &-wrapper {
     z-index: 10;
   }
   &-item {
-    margin: 0 auto;
+    // margin: 0 auto;
     width: 256px;
     height: 100%;
     background: #ffffff;
