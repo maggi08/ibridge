@@ -114,10 +114,7 @@ export default {
   },
   methods: {
     goToCountry(item) {
-      const slug = this.$translate(
-        this.getByLanguage(item.country_translations).country_name
-      )
-      this.$router.push(`/Country/${slug}/${item.pk}`)
+      this.$router.push(`/${item.country_slug}`)
     },
   },
 }

@@ -319,10 +319,12 @@ export default {
     },
     submitSearch(val) {
       const id = this.partners.findIndex((el) => el.pk === val)
-      const slug = this.$translate(
-        this.getByLanguage(this.partners[id].partner_translations).partner_name
-      )
-      this.$router.push(`/Partner/${slug}/${this.model}`)
+      console.log(id)
+      if (id === -1) return
+      console.log(this.partners[id])
+      const countrySlug = this.partners[id].country.country_slug
+      const partnerSlug = this.partners[id].partner_slug
+      this.$router.push(`/${countrySlug}/${partnerSlug}`)
     },
     openRequest() {
       let res = 'Главная'

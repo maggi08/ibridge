@@ -252,10 +252,11 @@ export default {
     },
     submitSearch(val) {
       const id = this.partners.findIndex((el) => el.pk === val)
-      const slug = this.$translate(
-        this.getByLanguage(this.partners[id].partner_translations).partner_name
-      )
-      this.$router.push(`/Partner/${slug}/${this.model}`)
+      if (id === -1) return
+      console.log(this.partner[id])
+      const countrySlug = this.partners[id].country.country_slug
+      const partnerSlug = this.partners[id].partner_slug
+      this.$router.push(`/${countrySlug}/${partnerSlug}`)
     },
     showMore() {
       this.pageSize += 3
@@ -283,11 +284,9 @@ export default {
         .catch(() => {})
     },
     goToPartner(item) {
-      const id = item.pk
-      const slug = this.$translate(
-        this.getByLanguage(item.partner_translations).partner_name
-      )
-      this.$router.push(`/Partner/${slug}/${id}`)
+      const countrySlug = item.country.country_slug
+      const partnerSlug = item.partner_slug
+      this.$router.push(`/${countrySlug}/${partnerSlug}`)
     },
     getInfo(item) {
       if (item.partner_translations)

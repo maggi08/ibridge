@@ -111,7 +111,7 @@
               {{ $t('programs') }}
             </nuxt-link>
           </li>
-          <!-- <li class="mx-4 ml-0 relative">
+          <li class="mx-4 ml-0 relative">
             <div
               class="d-flex align-center ml-auto"
               @click="isToggled = !isToggled"
@@ -143,7 +143,7 @@
                 {{ getByLanguage(item.country_translations).country_name }}
               </div>
             </div>
-          </li> -->
+          </li>
 
           <li class="mx-4">
             <nuxt-link v-scroll-to="'#services'" to="/">
@@ -658,12 +658,12 @@ export default {
   },
   methods: {
     goToCountry(item) {
-      if (this.getByLanguage(item.country_translations)) {
-        const slug = this.$translate(
-          this.getByLanguage(item.country_translations).country_name
-        )
-        this.$router.push(`/country/${slug}/${item.pk}`)
-      }
+      // if (this.getByLanguage(item.country_translations)) {
+      // const slug = this.$translate(
+      //   this.getByLanguage(item.country_translations).country_name
+      // )
+      this.$router.push(`/${item.country_slug}`)
+      // }
       this.isToggled = false
       this.closeMenu()
     },
