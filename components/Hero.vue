@@ -11,7 +11,7 @@
             height="700px"
           />
           <img class="hero-img" :src="item.jpg" width="1440px" height="700px" />
-          <!-- <div class="hero-img-mask"></div> -->
+          <div class="hero-img-mask"></div>
         </picture>
       </swiper-slide>
     </swiper>
@@ -28,8 +28,16 @@
         "
       >
         <div v-if="isCountry || isPartner" class="bread d-flex mb-16">
-          <div class="bread-item mr-1" @click="router.push('/')">
+          <div class="bread-item mr-1" @click="$router.push('/')">
             {{ $t('home') }} >
+          </div>
+          <div
+            v-if="countryBread && isPartner"
+            class="bread-item"
+            @click="$router.push(`/${countryBread.country_slug}`)"
+          >
+            {{ getByLanguage(countryBread.country_translations).country_name }}
+            >
           </div>
           <div class="bread-item">
             {{
@@ -185,6 +193,10 @@ export default {
       default: null,
     },
     partner: {
+      type: Object,
+      default: null,
+    },
+    countryBread: {
       type: Object,
       default: null,
     },
@@ -388,6 +400,7 @@ export default {
     line-height: 120%;
     color: #aeaeae;
     cursor: pointer;
+    &:hover,
     &:last-child {
       color: #fff;
     }

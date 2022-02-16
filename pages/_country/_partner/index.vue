@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <Hero :partner="partner" />
+    <Hero :partner="partner" :country-bread="countryBread" />
     <Achivements v-if="counters" :counters="counters" />
     <About v-if="partner && translation" :partner="partner" />
     <What
@@ -26,10 +26,19 @@ export default {
     let partner = null
     let partners = []
 
+    let countryBread = null
+
     await $axios
       .$get(`${i18n.locale}/partners/${params.partner}/`)
       .then((res) => {
         partner = res
+      })
+      .catch(() => {})
+
+    await $axios
+      .$get(`${i18n.locale}/countries/${params.country}/`)
+      .then((res) => {
+        countryBread = res
       })
       .catch(() => {})
 
@@ -39,7 +48,7 @@ export default {
         partners = res
       })
       .catch(() => {})
-    return { partner, partners }
+    return { partner, partners, countryBread }
   },
   computed: {
     counters() {
