@@ -211,8 +211,12 @@ export default {
   }),
   computed: {
     countryName() {
-      if (this.countryTranslation?.country_name)
+      if (this.countryTranslation?.country_name) {
         return this.countryTranslation.country_name
+      }
+      if (this.partner) {
+        return this.partner.country.country_slug
+      }
       return ''
     },
   },
