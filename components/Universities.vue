@@ -102,7 +102,7 @@
         </v-select>
       </div>
 
-      <div class="mt-10 partners">
+      <div v-if="test.length === 0" class="mt-10 partners">
         <div
           v-for="(item, index) in test"
           :key="index"
@@ -129,6 +129,9 @@
           </div>
         </div>
       </div>
+      <div class="mt-10 partners">
+        {{ $t('nothing_found') }}
+      </div>
       <div
         v-if="pageSize - test.length < 0"
         class="mx-auto"
@@ -145,6 +148,7 @@
 <i18n>
 {
   "en": {
+    "nothing_found":"There is no educational institutions in this category yet.",
     "title": "Educational institutions",
     "subtitle": "Our partners",
     "subtitle2":"Check out information about educational institutions <br/> and average tuition fees",
@@ -158,6 +162,7 @@
     "more": "See more"
   },
   "ru": {
+    "nothing_found":"В этой категории пока нет учебных заведений.",
     "title": "Учебные заведения ",
     "subtitle": "партнеры",
     "subtitle2":"Ознакомьтесь с информацией об учебных <br /> заведениях и средней стоимостью обучения",
