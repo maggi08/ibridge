@@ -226,7 +226,7 @@ export default {
 
       this.isLoading = true
       this.$axios
-        .get(`${this.$i18n.locale}/partners?search=${value}`)
+        .get(`${this.$i18n.locale}/partners/?search=${value}`)
         .then((res) => {
           this.partneers = res.data
         })
@@ -262,7 +262,6 @@ export default {
     submitSearch(val) {
       const id = this.partners.findIndex((el) => el.pk === val)
       if (id === -1) return
-      console.log(this.partner[id])
       const countrySlug = this.partners[id].country.country_slug
       const partnerSlug = this.partners[id].partner_slug
       this.$router.push(`/${countrySlug}/${partnerSlug}`)
@@ -284,7 +283,7 @@ export default {
 
       this.$axios
         .get(
-          `${this.$i18n.locale}/partners?title=${title}&country_name=${this.countryName}`
+          `${this.$i18n.locale}/partners/?title=${title}&country_name=${this.countryName}`
         )
         .then((res) => {
           this.pageSize = 3
