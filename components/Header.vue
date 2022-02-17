@@ -111,7 +111,7 @@
               {{ $t('programs') }}
             </nuxt-link>
           </li>
-          <li class="mx-4 ml-0 relative">
+          <!-- <li class="mx-4 ml-0 relative">
             <div
               class="d-flex align-center ml-auto"
               @click="isToggled = !isToggled"
@@ -143,7 +143,7 @@
                 {{ getByLanguage(item.country_translations).country_name }}
               </div>
             </div>
-          </li>
+          </li> -->
 
           <li class="mx-4">
             <nuxt-link v-scroll-to="'#services'" to="/">
@@ -428,7 +428,7 @@
                 {{ $t('programs') }}
               </nuxt-link>
             </li>
-            <li class="mb-8">
+            <!-- <li class="mb-8">
               <div
                 class="d-flex align-center ml-auto"
                 @click="mobCountryToggled"
@@ -449,7 +449,7 @@
                   />
                 </svg>
               </div>
-            </li>
+            </li> -->
             <li class="mb-8">
               <nuxt-link
                 v-scroll-to="'#services'"
