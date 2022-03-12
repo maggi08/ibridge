@@ -59,8 +59,8 @@
             </div>
             <div class="content">
               <p class="cart-text grey-color mb-2">{{ $t('phone') }}</p>
-              <a style="color: white" href="https://wa.me/77088882722">
-                <p class="subtitle">+7 (708) 888 27 22</p></a
+              <a style="color: white" href="https://wa.me/77011118764">
+                <p class="subtitle">+7 (701) 111 87 64</p></a
               >
               <a style="color: white" href="https://wa.me/77058888296">
                 <p class="subtitle">+7 (705) 888 82 96</p></a
