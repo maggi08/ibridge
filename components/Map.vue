@@ -135,7 +135,7 @@
   "en": {
     "title": "Have you already chosen your educational program?",
     "subtitle": "You can calculate the cost of your education <br/> according to your chosen program.",
-    "calculate": "Calculate the cost",
+    "calculate": "Send request",
     "contacts":"Contacts",
     "phone":"Phone",
     "address":"Address",
@@ -147,7 +147,7 @@
   "ru": {
     "title": "А вы уже выбрали учебное заведение?",
     "subtitle": "Вы можете посчитать стоимость <br/> обучения по выбранной вами программе. ",
-    "calculate": "Посчитать стоимость",
+    "calculate": "Оставить заявку",
     "contacts":"Контакты",
     "phone":"Телефон",
     "address":"Адрес",

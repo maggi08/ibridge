@@ -19,33 +19,7 @@
           @click="goToCountry(item)"
         >
           <img class="mr-4" :src="item.country_logo" alt="" />
-          <!-- <svg
-            class="mr-4"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M2 5H21.9895V18.9984H2V5Z" fill="white" />
-            <path
-              d="M10.9952 13.3948V18.9984H12.9944V13.3948H21.9896V10.5963H12.9944V5H10.9952V10.5963H2V13.3948H10.9952Z"
-              fill="#CF142B"
-            />
-            <path
-              d="M13.6609 9.53124V5H20.1329L13.6609 9.53124ZM13.6609 14.4671V18.9984H20.1329L13.6609 14.4671ZM10.3285 14.4671V18.9984H3.85653L10.3285 14.4671ZM10.3285 9.53124V5H3.85653L10.3285 9.53124ZM2 6.30125V9.66601H6.8058L2 6.30125ZM21.9895 6.30125V9.66601H17.1837L21.9895 6.30125ZM21.9895 17.6972V14.3324H17.1837L21.9895 17.6972ZM2 17.6972V14.3324H6.8058L2 17.6972Z"
-              fill="#00247D"
-            />
-            <path
-              d="M21.9895 5H20.8793L14.2267 9.66601H15.3369L22 5H21.9895ZM9.76287 14.3321H8.6526L2 18.9981H3.11027L9.77333 14.3321H9.76287ZM7.5512 9.66965H8.6614L2 5V5.7826L7.5512 9.66965ZM16.4349 14.3303H15.3246L21.986 19V18.2174L16.4349 14.3303Z"
-              fill="#CF142B"
-            />
-          </svg> -->
-
-          <!-- {{ item }} -->
           {{ getByLanguage(item.country_translations).country_name }}
-          <!-- {{ getByLanguage(item.country_translations) }} -->
-
           <svg
             class="ml-auto"
             width="24"
@@ -134,9 +108,7 @@ export default {
 .countries {
   display: flex;
   gap: 32px;
-  @media (max-width: 900px) {
-    flex-wrap: wrap;
-  }
+  flex-wrap: wrap;
 }
 .country-item {
   display: flex;
@@ -150,6 +122,13 @@ export default {
   cursor: pointer;
   &-little {
     max-width: 252px;
+    @media (max-width: 580px) {
+      max-width: unset;
+    }
+  }
+
+  @media (max-width: 580px) {
+    max-width: unset;
   }
 }
 </style>
