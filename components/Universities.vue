@@ -102,7 +102,7 @@
         </v-select>
       </div>
 
-      <div v-if="test.length === 0" class="mt-10 partners">
+      <div class="mt-10 partners">
         <div
           v-for="(item, index) in test"
           :key="index"
@@ -129,7 +129,7 @@
           </div>
         </div>
       </div>
-      <div class="mt-10 partners text-center">
+      <div v-if="test.length === 0" class="mt-10 text-center">
         {{ $t('nothing_found') }}
       </div>
       <div
@@ -287,7 +287,9 @@ export default {
         )
         .then((res) => {
           this.pageSize = 3
+          console.log(res)
           this.test = [...res.data].splice(0, this.pageSize)
+          console.log(this.test)
         })
         .catch(() => {})
     },
