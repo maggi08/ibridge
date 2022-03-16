@@ -298,10 +298,10 @@
             <p class="label dark-grey-color">{{ $t('label2') }}*</p>
             <v-text-field
               v-model="form.phone_number"
-              v-mask="'+7 7## ### ## ##'"
+              v-mask="'+7 ### ### ## ##'"
               class="my-input mt-1"
               outlined
-              placeholder="+7 7xx xxx xx xx"
+              placeholder="+7 xxx xxx xx xx"
               :rules="[(v) => !!v || $t('required')]"
             >
             </v-text-field>

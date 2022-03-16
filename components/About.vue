@@ -138,7 +138,7 @@ export default {
   line-height: 140%;
 
   @media (max-width: 600px) {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 .about {

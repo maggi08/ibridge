@@ -1,8 +1,12 @@
 <template>
   <div class="white-bg py-16">
     <v-container class="py-4">
-      <p class="label grey-color text-uppercase">{{ $t('subtitle') }}</p>
-      <h2 class="mt-3 black-color m-w-480">{{ $t('title') }}</h2>
+      <p class="text-center text-sm-left label grey-color text-uppercase">
+        {{ $t('subtitle') }}
+      </p>
+      <h2 class="text-center text-sm-left mt-3 black-color m-w-480">
+        {{ $t('title') }}
+      </h2>
 
       <div class="faculties mt-14">
         <div
@@ -123,7 +127,7 @@ export default {
   height: 120px;
   padding: 0 24px;
   background: #ffffff;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 0px 6px 4px rgb(210 132 13 / 40%);
 
   font-family: Playfair Display;
   font-style: normal;

@@ -129,7 +129,7 @@
           </div>
         </div>
       </div>
-      <div class="mt-10 partners">
+      <div class="mt-10 partners text-center">
         {{ $t('nothing_found') }}
       </div>
       <div
