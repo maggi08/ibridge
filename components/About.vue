@@ -13,7 +13,13 @@
       </div>
       <div class="col-12 col-md-6 pa-0 d-flex flex-column">
         <div v-if="partner" class="media">
-          <iframe :src="partner.about_video_url" title="partner video"></iframe>
+          <iframe
+            height="100%"
+            scrolling="no"
+            width="100%"
+            :src="partner.about_video_url"
+            title="partner video"
+          ></iframe>
         </div>
         <div v-else-if="country" class="media">
           <swiper :options="swiperOption" class="mySwiper">
@@ -150,7 +156,7 @@ export default {
   height: 100%;
   max-width: 544px;
   max-height: 336px;
-
+  overflow: auto;
   iframe {
     width: 100%;
     height: 100%;
