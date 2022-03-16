@@ -150,6 +150,11 @@ export default {
   height: 100%;
   max-width: 544px;
   max-height: 336px;
+
+  iframe {
+    width: 100%;
+    height: 100%;
+  }
 }
 .mySwiper {
   width: 100%;
