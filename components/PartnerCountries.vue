@@ -106,9 +106,23 @@ export default {
 }
 
 .countries {
-  display: flex;
-  gap: 32px;
-  flex-wrap: wrap;
+  // display: flex;
+  // gap: 32px;
+  // flex-wrap: wrap;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 32px;
+
+  @media (max-width: 1250px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 .country-item {
   display: flex;
@@ -120,12 +134,13 @@ export default {
   box-shadow: 0px 8px 40px rgba(0, 0, 0, 0.04);
   padding: 0 24px;
   cursor: pointer;
-  &-little {
-    max-width: 252px;
-    @media (max-width: 580px) {
-      max-width: unset;
-    }
-  }
+
+  // &-little {
+  //   max-width: 252px;
+  //   @media (max-width: 580px) {
+  //     max-width: unset;
+  //   }
+  // }
 
   @media (max-width: 580px) {
     max-width: unset;

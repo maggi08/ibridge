@@ -1,7 +1,7 @@
 <template>
-  <div id="achivements" class="relative">
-    <div class="bg"></div>
-    <img class="bg" src="@/assets/img/bg_pattern.png" alt="" />
+  <div id="achivements" class="relative bg">
+    <!-- <div class="bg"></div>
+    <img class="bg" src="@/assets/img/bg_pattern.png" alt="" /> -->
     <v-container class="pt-16 pb-16">
       <p class="label grey-color text-center text-lg-left text-uppercase">
         {{ $t('label') }}
@@ -173,12 +173,15 @@ export default {
   position: relative;
 }
 .bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 280px;
-  width: 100%;
-  object-fit: cover;
+  // position: absolute;
+  // top: 0;
+  // left: 0;
+  // height: 280px;
+  // width: 100%;
+  // object-fit: cover;
+  background: url('@/assets/img/bg_pattern.png');
+  background-size: cover;
+  background-repeat: repeat-y;
 }
 .achivements {
   &-item {

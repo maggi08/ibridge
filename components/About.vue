@@ -4,8 +4,14 @@
       class="d-flex flex-column-reverse flex-md-row pt-md-4 pb-md-11"
     >
       <div class="col-12 col-md-6 pa-0 pt-16 pt-md-0">
-        <div class="titleee">{{ country ? $t('title1') : $t('title2') }}</div>
-        <div class="text mt-6" v-html="aboutText"></div>
+        <div class="titleee">
+          {{ country ? $t('title1') : $t('title2') }}
+        </div>
+        <div
+          class="text mt-6"
+          style="text-align: justify"
+          v-html="aboutText"
+        ></div>
 
         <button v-if="partner" class="big-btn-orange mt-8" @click="openRequest">
           {{ $t('button') }}
@@ -15,7 +21,6 @@
         <div v-if="partner" class="media">
           <iframe
             height="100%"
-            scrolling="no"
             width="100%"
             :src="partner.about_video_url"
             title="partner video"
@@ -156,7 +161,7 @@ export default {
   height: 100%;
   max-width: 544px;
   max-height: 336px;
-  overflow: auto;
+  // overflow: auto;
   iframe {
     width: 100%;
     height: 100%;
