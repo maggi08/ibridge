@@ -8,7 +8,7 @@
       :partner="partner"
       :translation="translation"
     />
-    <Universities :partners="partners" />
+    <UniversitiesV2 />
     <StudyNew />
     <PartnerCountries />
     <Gallery />

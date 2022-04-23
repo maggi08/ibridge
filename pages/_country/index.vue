@@ -4,15 +4,14 @@
     <Carts />
     <About :country="country" />
     <Services :country="country" :translation="translation" />
-    <Universities
+    <!-- <Universities
       id="universities"
       :partners="partners"
       :country-translation="translation"
-    />
+    /> -->
+    <UniversitiesV2 id="universities" :country-translation="translation" />
     <StudyNew />
     <Map notmain />
-
-    <!-- <pre>{{ country }}</pre> -->
   </div>
 </template>
 
@@ -22,7 +21,7 @@ export default {
   mixins: [lang],
   async asyncData({ $axios, i18n, params }) {
     let country = null
-    let partners = []
+    // let partners = []
     await $axios
       .$get(`${i18n.locale}/countries/${params.country}/`)
       .then((res) => {
@@ -30,14 +29,14 @@ export default {
       })
       .catch(() => {})
 
-    await $axios
-      .$get(`${i18n.locale}/partners/`)
-      .then((res) => {
-        partners = res
-      })
-      .catch(() => {})
+    // await $axios
+    //   .$get(`${i18n.locale}/partners/`)
+    //   .then((res) => {
+    //     partners = res
+    //   })
+    //   .catch(() => {})
 
-    return { country, partners }
+    return { country }
   },
 
   computed: {
@@ -46,9 +45,6 @@ export default {
         return this.getByLanguage(this.country.country_translations)
       return {}
     },
-  },
-  async created() {
-    await this.$axios.$get(`${this.$i18n.locale}/countries/`).then((res) => {})
   },
 }
 </script>
