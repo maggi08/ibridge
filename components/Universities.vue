@@ -287,9 +287,7 @@ export default {
         )
         .then((res) => {
           this.pageSize = 3
-          console.log(res)
           this.test = [...res.data].splice(0, this.pageSize)
-          console.log(this.test)
         })
         .catch(() => {})
     },

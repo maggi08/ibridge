@@ -328,9 +328,7 @@ export default {
     },
     submitSearch(val) {
       const id = this.partners.findIndex((el) => el.pk === val)
-      console.log(id)
       if (id === -1) return
-      console.log(this.partners[id])
       const countrySlug = this.partners[id].country.country_slug
       const partnerSlug = this.partners[id].partner_slug
       this.$router.push(`/${countrySlug}/${partnerSlug}`)
