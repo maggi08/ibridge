@@ -15,6 +15,7 @@ export default {
   mixins: [aos],
   data: () => ({}),
   mounted() {
+    this.$cookies.removeAll()
     const utmQuery = decodeURIComponent(window.location.search.substring(1))
     const utmVariables = utmQuery.split('&')
     let ParameterName
@@ -39,7 +40,6 @@ export default {
       'utm_content',
       'utm_term',
     ]
-
     utmParams.forEach((param) => {
       const pValue = getUTMValue(param)
       if (valueExists(pValue)) {
