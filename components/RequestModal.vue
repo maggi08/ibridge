@@ -282,6 +282,15 @@ export default {
 
       let api = `${this.$i18n.locale}/app/form/`
       if (this.form.comments) api = `${this.$i18n.locale}/app/calculator/`
+
+      this.form.additional = {
+        UTM_SOURCE: this.$cookies.get('utm_source') || '',
+        UTM_MEDIUM: this.$cookies.get('utm_medium') || '',
+        UTM_CAMPAIGN: this.$cookies.get('utm_campaign') || '',
+        UTM_CONTENT: this.$cookies.get('utm_content') || '',
+        UTM_TERM: this.$cookies.get('utm_term') || '',
+      }
+
       await this.$axios
         .$post(api, this.form, { headers })
         .then(() => {
