@@ -112,7 +112,7 @@ export default {
     achivements: [
       {
         title: 'title1',
-        number: 10,
+        number: '#10',
       },
       {
         title: 'title2',
@@ -151,7 +151,7 @@ export default {
       }
     },
     animateValue(obj, start, end, duration) {
-      if (!process.client) return
+      if (!process.client || isNaN(end)) return
 
       let startTimestamp = null
       const step = (timestamp) => {
