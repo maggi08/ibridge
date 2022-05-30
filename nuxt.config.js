@@ -165,11 +165,7 @@ export default {
     compressor: shrinkRay(),
   },
 
-  facebook: {
-    track: 'PageView',
-    pixelId: ['362285389031053'],
-    disabled: false,
-  },
+  
 
   seo: {
     baseUrl: 'https://ibridge.kz/',
