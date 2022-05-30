@@ -62,8 +62,8 @@
               <a style="color: white" href="tel:+77011118764">
                 <p class="subtitle">+7 (701) 111 87 64</p></a
               >
-              <a style="color: white" href="tel:+77058888296">
-                <p class="subtitle">+7 (705) 888 82 96</p></a
+              <a style="color: white" href="tel:+77788889003">
+                <p class="subtitle">+7 (778) 888 90 03</p></a
               >
             </div>
           </div>
