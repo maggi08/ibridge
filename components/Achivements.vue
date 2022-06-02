@@ -112,7 +112,7 @@ export default {
     achivements: [
       {
         title: 'title1',
-        number: '#10',
+        number: '10',
       },
       {
         title: 'title2',
