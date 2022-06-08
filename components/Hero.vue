@@ -10,7 +10,13 @@
             width="1440px"
             height="700px"
           />
-          <img class="hero-img" :src="item.jpg" width="1440px" height="700px" />
+          <img
+            class="hero-img"
+            :src="item.jpg"
+            width="1440px"
+            height="700px"
+            loading="lazy"
+          />
           <div class="hero-img-mask"></div>
         </picture>
       </swiper-slide>

@@ -37,6 +37,7 @@
             src="~assets/img/study.jpg"
             width="360px"
             height="430px"
+            loading="lazy"
           />
         </picture>
       </div>

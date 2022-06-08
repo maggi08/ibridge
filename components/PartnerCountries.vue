@@ -18,7 +18,7 @@
           :class="{ 'country-item-little': countries.length > 3 }"
           @click="goToCountry(item)"
         >
-          <img class="mr-4" :src="item.country_logo" alt="" />
+          <img class="mr-4" :src="item.country_logo" alt="" loading="lazy" />
           {{ getByLanguage(item.country_translations).country_name }}
           <svg
             class="ml-auto"

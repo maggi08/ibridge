@@ -22,6 +22,7 @@
             src="~assets/img/ready-to-study-new.jpg"
             width="704px"
             height="354px"
+            loading="lazy"
           />
         </picture>
       </div>

@@ -18,7 +18,12 @@
                   width="400px"
                   height="320px"
                 />
-                <img :src="item.jpg" width="400px" height="320px" />
+                <img
+                  :src="item.jpg"
+                  width="400px"
+                  height="320px"
+                  loading="lazy"
+                />
               </picture>
               <div class="hover"></div>
             </div>

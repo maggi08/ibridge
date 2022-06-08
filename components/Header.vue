@@ -556,7 +556,7 @@
               class="item"
               @click="goToCountry(item)"
             >
-              <img :src="item.country_logo" alt="" />
+              <img :src="item.country_logo" alt="" loading="lazy" />
               {{ getByLanguage(item.country_translations).country_name }}
             </div>
           </div>

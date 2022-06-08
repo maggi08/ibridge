@@ -113,7 +113,7 @@
           class="partner-item d-flex flex-column"
         >
           <div class="partner-item-img">
-            <img :src="item.partner_image" alt="" />
+            <img :src="item.partner_image" alt="" loading="lazy" />
           </div>
           <div class="pa-6">
             <p class="partner-item-title">

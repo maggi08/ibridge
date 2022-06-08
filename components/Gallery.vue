@@ -25,7 +25,7 @@
               width="352px"
               height="480px"
             />
-            <img :src="item.jpg" width="352px" height="480px" />
+            <img :src="item.jpg" width="352px" height="480px" loading="lazy" />
           </picture>
           <!-- <img v-if="item" class="" :src="item" alt="" /> -->
         </div>

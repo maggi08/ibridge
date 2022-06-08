@@ -45,6 +45,7 @@
                   :src="item.about_image_url"
                   width="1440px"
                   height="700px"
+                  loading="lazy"
                 />
                 <!-- <div class="hero-img-mask"></div> -->
               </picture>
