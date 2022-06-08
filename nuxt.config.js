@@ -64,8 +64,6 @@ export default {
     { src: '~/plugins/v-mask.js', ssr: false },
     { src: '~/plugins/translate', ssr: true },
     { src: '~/plugins/wh', ssr: false },
-    { src: '~/plugins/wh', ssr: false },
-    // { src: '~/plugins/ym.js', ssr: false },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -96,7 +94,6 @@ export default {
     ],
     ['vue-scrollto/nuxt', { duration: 300, offset: -70 }],
     ['@nuxtjs/google-tag-manager', { id: 'GTM-KHP4ZK2' }],
-    '@dukanify/nuxt-multiple-facebook-pixel-module',
     'cookie-universal-nuxt',
   ],
 
@@ -163,12 +160,6 @@ export default {
 
   render: {
     compressor: shrinkRay(),
-  },
-
-  facebook: {
-    track: 'PageView',
-    pixelId: [''],
-    disabled: false,
   },
 
   seo: {
