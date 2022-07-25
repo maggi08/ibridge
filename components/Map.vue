@@ -143,7 +143,7 @@
     "address1":"office 7F, floor 7, Esentai Apt., 77/2 Al-Farabi ave., Almaty",
     "worktime":"Working hours",
     "worktime1":"Mon-Fri: 10:00 - 19:00",
-    "worktime2":"Sat: 10:00 - 15:00"
+    "worktime2":"Sat: 10:00 - 15:00 (by appointment)"
   },
   "ru": {
     "title": "А вы уже выбрали учебное заведение?",
@@ -155,7 +155,7 @@
     "address1":"г. Алматы пр. Аль-Фараби 77/2, Esentai Apartments, офис 7F, эт. 7",
     "worktime":"Режим работы",
     "worktime1":"Пн-Пт: 10:00 - 19:00",
-    "worktime2":"CБ: 10:00 - 15:00"
+    "worktime2":"CБ: 10:00 - 15:00 (по записи)"
   }
 }
 </i18n>
