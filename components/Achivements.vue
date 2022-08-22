@@ -7,6 +7,7 @@
         {{ $t('label') }}
       </p>
       <h2
+        v-if="!partner.is_program"
         class="mt-3 black-color text-center text-lg-left"
         v-html="$t('title')"
       ></h2>
@@ -105,6 +106,10 @@ export default {
       default: () => {
         return []
       },
+    },
+    partner: {
+      type: Object,
+      default: () => {},
     },
   },
   data: () => ({

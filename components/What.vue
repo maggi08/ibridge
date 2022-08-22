@@ -4,7 +4,13 @@
       <p class="text-center text-sm-left label grey-color text-uppercase">
         {{ $t('subtitle') }}
       </p>
-      <h2 class="text-center text-sm-left mt-3 black-color m-w-480">
+      <h2
+        v-if="partner.is_program"
+        class="text-center text-sm-left mt-3 black-color m-w-480"
+      >
+        {{ $t('title2') }}
+      </h2>
+      <h2 v-else class="text-center text-sm-left mt-3 black-color m-w-480">
         {{ $t('title') }}
       </h2>
 
@@ -62,10 +68,12 @@
 {
   "en": {
     "title": "What can I study?",
+    "title2": "Programs",
     "subtitle": "faculties and specializations"
   },
   "ru": {
     "title": "Что я могу изучать?",
+    "title2": "Программы",
     "subtitle": "факультеты и специализации"
   }
 }

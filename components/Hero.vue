@@ -73,10 +73,14 @@
           {{ buttonName }}
         </button>
         <!-- -if="isPartner" -->
-        <button v-else class="big-btn-orange mt-10" @click="openRequest">
+        <button
+          v-if="isPartner"
+          class="big-btn-orange mt-10"
+          @click="openRequest"
+        >
           {{ $t('gotoapplication') }}
         </button>
-        <!-- <div v-else class="search-container mt-10">
+        <div v-else class="search-container mt-10">
           <v-autocomplete
             v-model="model"
             :items="partners"
@@ -150,7 +154,7 @@
             </svg>
             {{ $t('search') }}
           </button>
-        </div> -->
+        </div>
       </div>
     </v-container>
   </div>

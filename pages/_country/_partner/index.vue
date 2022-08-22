@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <Hero :partner="partner" :country-bread="countryBread" />
-    <Achivements v-if="counters" :counters="counters" />
+    <Achivements v-if="counters" :counters="counters" :partner="partner" />
     <About v-if="partner && translation" :partner="partner" />
     <What
       v-if="partner && translation"

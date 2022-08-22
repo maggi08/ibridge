@@ -5,7 +5,13 @@
     >
       <div class="col-12 col-md-6 pa-0 pt-16 pt-md-0">
         <div class="titleee">
-          {{ country ? $t('title1') : $t('title2') }}
+          {{
+            country
+              ? $t('title1')
+              : partner.is_program
+              ? $t('title3')
+              : $t('title2')
+          }}
         </div>
         <div
           class="text mt-6"
@@ -63,11 +69,13 @@
   "en": {
     "title1": "About country",
     "title2": "About university",
+    "title3": "About study place",
     "button": "Send request"
   },
   "ru": {
     "title1": "О стране",
     "title2": "Об университете",
+    "title3": "Об учебном заведении",
     "button": "Оставить заявку"
   }
 }
