@@ -5,7 +5,7 @@
         {{ $t('subtitle') }}
       </p>
       <h2
-        v-if="partner.is_program"
+        v-if="partner && partner.is_program"
         class="text-center text-sm-left mt-3 black-color m-w-480"
       >
         {{ $t('title2') }}

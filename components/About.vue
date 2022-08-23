@@ -8,7 +8,7 @@
           {{
             country
               ? $t('title1')
-              : partner.is_program
+              : partner && partner.is_program
               ? $t('title3')
               : $t('title2')
           }}

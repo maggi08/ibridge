@@ -7,7 +7,7 @@
         {{ $t('label') }}
       </p>
       <h2
-        v-if="!partner.is_program"
+        v-if="partner && !partner.is_program"
         class="mt-3 black-color text-center text-lg-left"
         v-html="$t('title')"
       ></h2>
