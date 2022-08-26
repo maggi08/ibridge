@@ -176,6 +176,7 @@ export default {
   iframe {
     width: 100%;
     height: 100%;
+    min-width: 100%;
 
     @media (max-width: 400px) {
       width: 320px;

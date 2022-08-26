@@ -186,16 +186,27 @@
       </div>
       <div class="">
         <p class="label fw-400 grey-color">
-          Товарищество с ограниченной ответственностью "iBridge"
-          Юредический адрес - город Алматы, Бостандыкский район, Проспект Аль-Фараби, дом 77/2, кв. 53
-          БИН 210940039932
+          Товарищество с ограниченной ответственностью "iBridge" Юредический
+          адрес - город Алматы, Бостандыкский район, Проспект Аль-Фараби, дом
+          77/2, кв. 53 БИН 210940039932
         </p>
       </div>
       <div class="d-flex flex-column flex-md-row mt-6 mt-md-0 align-center">
         <p class="label fw-400 grey-color text-center text-md-left">
           {{ $t('contacts') }}
         </p>
-        <div class="d-flex align-center orange-color mr-1 ml-2 mt-2 mt-md-0">
+        <div
+          class="
+            d-flex
+            align-center
+            justify-center
+            orange-color
+            mr-1
+            ml-2
+            mt-2 mt-md-0
+          "
+          style="width: 220px"
+        >
           <svg
             width="16"
             height="16"
