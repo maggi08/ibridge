@@ -180,7 +180,9 @@ export default {
     min-width: 100%;
 
     @media (max-width: 400px) {
-      width: 320px;
+      width: 1px;
+      min-width: 100%;
+      *width: 100%;
     }
   }
 }
