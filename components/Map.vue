@@ -190,7 +190,6 @@ export default {
     await loadYmap({ ...settings, debug: true }).catch((e) => {
       console.log(e)
     })
-
     try {
       // eslint-disable-next-line no-undef
       this.myMap = new ymaps.Map(

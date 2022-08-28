@@ -19,9 +19,14 @@
       >
         <h2>{{ $t('title') }}</h2>
         <p class="subtitle dark-grey-color mt-6">{{ $t('subtitle') }}</p>
-        <button class="mt-14 mt-sm-8 big-btn-orange" @click="openRequest">
-          {{ $t('request') }}
-        </button>
+        <div class="mt-14 mt-sm-8 d-none d-sm-block">
+          <button class="big-btn-orange" @click="openRequest">
+            {{ $t('request') }}
+          </button>
+        </div>
+        <div class="w-100 mt-14 mt-sm-8 d-block d-sm-none">
+          <Search />
+        </div>
       </div>
       <div class="col-12 col-sm-6 col-lg-7 d-flex justify-end mb-16 mb-sm-0">
         <picture class="image mx-auto mx-sm-0 ml-sm-auto">
@@ -61,12 +66,14 @@
 </i18n>
 
 <script>
+import Search from './Search.vue'
 export default {
   methods: {
     openRequest() {
       this.$root.$emit('openRequest', { source: 'Главная' })
     },
   },
+  components: { Search },
 }
 </script>
 

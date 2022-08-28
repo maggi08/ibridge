@@ -1,7 +1,10 @@
 <template>
   <div class="white-bg py-16">
     <v-container class="py-4">
-      <p class="text-center text-sm-left label grey-color text-uppercase">
+      <p
+        v-if="!(partner && partner.is_program)"
+        class="text-center text-sm-left label grey-color text-uppercase"
+      >
         {{ $t('subtitle') }}
       </p>
       <h2
