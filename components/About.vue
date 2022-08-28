@@ -29,6 +29,7 @@
             height="100%"
             width="100%"
             :src="partner.about_video_url"
+            scrolling="no"
             title="partner video"
           ></iframe>
         </div>
