@@ -193,12 +193,14 @@ export default {
       min-width: 100%;
       max-width: 100%;
       height: 336px;
+      object-fit: cover;
     }
   }
 }
 .mySwiper {
   width: 100%;
   height: 100%;
+  width: 100%;
 }
 img,
 iframe {
