@@ -175,15 +175,24 @@ export default {
   max-width: 544px;
   max-height: 336px;
   // overflow: auto;
+
   iframe {
     width: 100%;
     height: 100%;
     min-width: 100%;
+  }
+  @media (max-width: 400px) {
+    min-width: unset;
+    max-width: unset;
+    max-height: unset;
+    height: 336px;
+    width: 100%;
 
-    @media (max-width: 400px) {
+    iframe {
       width: 100%;
       min-width: 100%;
       max-width: 100%;
+      height: 336px;
     }
   }
 }
