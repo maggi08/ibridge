@@ -638,6 +638,7 @@ export default {
     is_transparent: true,
     form: {},
     countries: [],
+    source: 'Главная',
   }),
   created() {
     this.$axios
@@ -651,7 +652,7 @@ export default {
     this.onScroll()
     window.addEventListener('scroll', this.onScroll)
     this.$root.$on('openRequest', (form = {}) => {
-      this.form.source = form.source
+      this.source = form.source
       if (form.type) {
         this.form.comments = Object.values(form).join(', ')
       }
@@ -682,19 +683,21 @@ export default {
       this.$root.$emit('openPolicy')
     },
     async submitForm() {
-      this.form.source = this.form.source ?? 'Главная'
-      if (
-        this.$route.name === 'Partner-name-id' ||
-        this.$route.name === 'Country-name-id'
-      ) {
-        this.form.source = this.$route.params.name
-      } else if (this.$route.name === 'Events') this.form.source = 'Ивенты'
-      else this.form.source = 'Главная'
+      switch (this.$route.name) {
+        case 'country':
+          this.source = `Страна - ${this.$route.params.country}`
+          break
+        case 'country-partner':
+          this.source = `Партнер - ${this.$route.params.partner}, Страна - ${this.$route.params.country}`
+          break
+        case 'Events':
+          this.source = `Ивенты`
+          break
+        default:
+          this.source = 'Главная'
+      }
+      this.form.source = this.source
 
-      if (this.$route.name === 'Country-id')
-        this.form.source = `country - ${this.$route.params.id}`
-      if (this.$route.name === 'Partner-id')
-        this.form.source = `partner - ${this.$route.params.id}`
       if (!this.isButtonActive) return
       if (!this.$refs.form.validate()) return
       this.isButtonActive = false
