@@ -168,32 +168,34 @@ export default {
   // margin-top: 80px;
   // margin-bottom: 106px;
 }
+img {
+  width: 100%;
+  height: 100%;
+  min-height: 336px;
+  object-fit: cover;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+}
 .media {
   width: 100%;
-  min-width: 100%;
-  height: 100%;
   max-width: 544px;
-  max-height: 336px;
-  // overflow: auto;
+  height: 336px;
 
   iframe {
     width: 100%;
     height: 100%;
     min-width: 100%;
   }
-  @media (max-width: 400px) {
-    min-width: unset;
-    max-width: unset;
-    max-height: unset;
-    height: 336px;
-    width: 100%;
-
+}
+@media (max-width: 400px) {
+  .media {
     iframe {
       width: 100%;
       min-width: 100%;
       max-width: 100%;
-      height: 336px;
-      object-fit: cover;
     }
   }
 }
@@ -201,13 +203,6 @@ export default {
   width: 100%;
   height: 100%;
   width: 100%;
-}
-img,
-iframe {
-  width: 100%;
-  height: 100%;
-  min-height: 336px;
-  object-fit: cover;
 }
 .swiper-pagination {
   position: relative;
