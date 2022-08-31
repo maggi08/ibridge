@@ -145,6 +145,5 @@ export default {
 .search-container {
   width: 100%;
   max-width: 448px;
-  height: 64px;
 }
 </style>

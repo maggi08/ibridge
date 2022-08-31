@@ -101,17 +101,24 @@
             </svg>
           </nuxt-link>
         </div>
-        <p class="ml-6 consulting" v-html="$t('logo_text')"></p>
+        <p
+          class="ml-6 consulting"
+          style="width: 167px"
+          v-html="$t('logo_text')"
+        ></p>
       </div>
 
-      <nav class="d-none d-md-block header-nav ml-auto">
+      <nav
+        class="d-none d-md-block header-nav ml-auto"
+        style="width: 100%; max-width: 515px"
+      >
         <ul class="d-flex align-center justify-space-between">
-          <li class="mx-4 ml-0">
+          <li class="">
             <nuxt-link v-scroll-to="{ el: '#programs', offset: -150 }" to="/">
               {{ $t('programs') }}
             </nuxt-link>
           </li>
-          <li class="mx-4 ml-0 relative">
+          <li class="relative">
             <div
               class="d-flex align-center ml-auto"
               @click="isToggled = !isToggled"
@@ -145,24 +152,24 @@
             </div>
           </li>
 
-          <li class="mx-4">
+          <li class="">
             <nuxt-link v-scroll-to="'#services'" to="/">
               {{ $t('services') }}
             </nuxt-link>
           </li>
-          <li class="mx-4">
+          <li class="">
             <nuxt-link v-scroll-to="'#partners'" to="/">
               {{ $t('partners') }}
             </nuxt-link>
           </li>
-          <li class="mx-4 mr-0">
+          <li class="mr-0">
             <nuxt-link v-scroll-to="'#contacts'" to="/">
               {{ $t('contacts') }}
             </nuxt-link>
           </li>
         </ul>
       </nav>
-      <div class="d-none d-md-flex align-center ml-12">
+      <div class="d-none d-md-flex align-center ml-12" style="">
         <div class="lang">
           <div
             v-if="$i18n.locale == 'ru'"

@@ -18,13 +18,20 @@
         "
       >
         <h2>{{ $t('title') }}</h2>
-        <p class="subtitle dark-grey-color mt-6">{{ $t('subtitle') }}</p>
+        <p class="subtitle d-none d-sm-block dark-grey-color mt-6">
+          {{ $t('subtitle') }}
+        </p>
+        <p class="subtitle d-block d-sm-none dark-grey-color mt-6">
+          {{ $t('subtitle1') }}
+        </p>
         <div class="mt-14 mt-sm-8 d-none d-sm-block">
           <button class="big-btn-orange" @click="openRequest">
             {{ $t('request') }}
           </button>
         </div>
-        <div class="w-100 mt-14 mt-sm-8 d-block d-sm-none">
+        <div
+          class="w-100 d-flex justify-center mt-14 mt-sm-8 d-block d-sm-none"
+        >
           <Search />
         </div>
       </div>
@@ -55,12 +62,14 @@
   "en": {
     "request": "Send request",
     "title": "Ready to study abroad?",
-    "subtitle": "We will help you to find answers to questions concerning education abroad, as well as we guiding through all the stages of admission."
+    "subtitle": "We will help you to find answers to questions concerning education abroad, as well as we guiding through all the stages of admission.",
+    "subtitle1": "Get more detailed instructions about educational institutions or countries of study below in the search engine."
   },
   "ru": {
     "request": "Оставить заявку",
     "title": "Готовы учиться за рубежом ?",
-    "subtitle": "Мы поможем найти ответы на вопросы, касающиеся образования за границей, а так же проведем вас по всем этапам поступления."
+    "subtitle": "Мы поможем найти ответы на вопросы, касающиеся образования за границей, а так же проведем вас по всем этапам поступления.",
+    "subtitle1": "Получите более подробную инструкцию об учебных заведениях или странах обучения ниже в поисковике."
   }
 }
 </i18n>

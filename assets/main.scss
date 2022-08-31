@@ -352,12 +352,23 @@ ul {
 }
 @media (min-width: 768px) {
   .container {
-    max-width: 728px;
+    max-width: 728px !important;
   }
 }
+@media (min-width: 960px) {
+  .container {
+    max-width: 960px !important;
+  }
+}
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px !important;
+  }
+}
+
 @media (min-width: 1240px) {
   .container {
-    max-width: 1120px;
+    max-width: 1120px !important;
   }
 }
 
