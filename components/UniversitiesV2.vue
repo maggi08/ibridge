@@ -213,9 +213,9 @@ export default {
       return this.partners.length
     },
     countryName() {
-      console.log('countryTranslation', this.countryTranslation)
       if (this.countryTranslation?.country_name)
         return this.countryTranslation.country_name
+      if (this.$route.query.countryName) return this.$route.query.countryName
       return this.$route.params.country
     },
   },
@@ -285,7 +285,12 @@ export default {
     goToPartner(item) {
       const countrySlug = item.country.country_slug
       const partnerSlug = item.partner_slug
-      this.$router.push(`/${countrySlug}/${partnerSlug}`)
+      this.$router.push({
+        path: `/${countrySlug}/${partnerSlug}`,
+        query: {
+          countryName: this.countryName,
+        },
+      })
     },
     submitSearch(val) {
       this.pageSize = 3
