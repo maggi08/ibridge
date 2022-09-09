@@ -98,10 +98,6 @@ export default {
         webp: require('@/assets/img/acc/10.webp'),
         jpg: require('@/assets/img/acc/10.jpg'),
       },
-      {
-        webp: require('@/assets/img/acc/11.webp'),
-        jpg: require('@/assets/img/acc/11.jpg'),
-      },
     ],
     swiperOption: {
       effect: 'coverflow',
