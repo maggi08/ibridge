@@ -113,6 +113,7 @@ export default {
       search: '',
       isLoading: false,
       partners: [],
+      countries: [],
     }
   },
   watch: {
@@ -121,18 +122,36 @@ export default {
 
       this.isLoading = true
       this.$axios
-        .get(`${this.$i18n.locale}/partners?search=${value}`)
+        .get(`${this.$i18n.locale}/partners?country=${value}`)
         .then((res) => {
-          this.partners = [...res.data, ...this.partners]
+          this.partners = [...res.data, ...this.countries]
         })
         .catch(() => {})
         .finally(() => (this.isLoading = false))
     },
   },
+  mounted() {
+    this.$axios
+      .get(`${this.$i18n.locale}/countries`)
+      .then((res) => {
+        const formated = res.data.map((item) => {
+          item.pk = `0_${item.pk}`
+          item.partner_name = item.country_translations[0].country_name
+          return item
+        })
+        this.countries = [...formated]
+        this.partners = [...this.partners, ...this.countries]
+      })
+      .catch(() => {})
+  },
   methods: {
     submitSearch(val) {
       const id = this.partners.findIndex((el) => el.pk === val)
       if (id === -1) return
+      if (this.partners[id].country_slug) {
+        this.$router.push(`/${this.partners[id].country_slug}`)
+        return
+      }
       const countrySlug = this.partners[id].country.country_slug
       const partnerSlug = this.partners[id].partner_slug
       this.$router.push(`/${countrySlug}/${partnerSlug}`)
