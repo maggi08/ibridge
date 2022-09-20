@@ -2,9 +2,9 @@
   <div class="search-container">
     <v-autocomplete
       v-model="model"
-      :items="partners"
-      item-text="partner_name"
-      item-value="pk"
+      :items="searchResults"
+      item-text="name"
+      item-value="id"
       :loading="isLoading"
       :search-input.sync="search"
       class="my-input search-input"
@@ -112,49 +112,74 @@ export default {
       model: '',
       search: '',
       isLoading: false,
-      partners: [],
-      countries: [],
+      searchResults: [],
     }
   },
-  watch: {
-    search(value) {
-      if (this.isLoading) return
+  async mounted() {
+    this.isLoading = true
+    const partners = await this.fetchPartners()
+    const countries = await this.fetchCountries()
+    const formatedPartners = partners.map((e) => {
+      let name = 'partner'
+      if (
+        e.partner_translations &&
+        e.partner_translations[0] &&
+        e.partner_translations[0].partner_name
+      ) {
+        name = e.partner_translations[0].location
+          ? `${e.partner_translations[0].partner_name} - ${e.partner_translations[0].location}`
+          : `${e.partner_translations[0].partner_name}`
+      } else if (e.partner_name) {
+        name = `${e.partner_name}`
+      }
+      return {
+        id: `${e.country.pk}_${e.pk}`,
+        type: 'partner',
+        name,
+        country_slug: e.country.country_slug,
+        country_id: e.country.pk,
+        partner_slug: e.partner_slug,
+        partner_id: e.pk,
+      }
+    })
+    const formatedCountries = countries.map((e) => {
+      const name =
+        e.country_translations &&
+        e.country_translations[0] &&
+        e.country_translations[0].country_name
+          ? e.country_translations[0].country_name
+          : 'country'
 
-      this.isLoading = true
-      this.$axios
-        .get(`${this.$i18n.locale}/partners?query=${value}`)
-        .then((res) => {
-          this.partners = [...res.data, ...this.countries]
-        })
-        .catch(() => {})
-        .finally(() => (this.isLoading = false))
-    },
-  },
-  mounted() {
-    this.$axios
-      .get(`${this.$i18n.locale}/countries`)
-      .then((res) => {
-        const formated = res.data.map((item) => {
-          item.pk = `0_${item.pk}`
-          item.partner_name = item.country_translations[0].country_name
-          return item
-        })
-        this.countries = [...formated]
-        this.partners = [...this.partners, ...this.countries]
-      })
-      .catch(() => {})
+      return {
+        id: `${e.pk}_${0}`,
+        type: 'country',
+        name,
+        country_slug: e.country_slug,
+        country_id: e.pk,
+      }
+    })
+    this.searchResults = [...formatedCountries, ...formatedPartners]
+    this.isLoading = false
   },
   methods: {
+    fetchCountries() {
+      return this.$axios
+        .get(`${this.$i18n.locale}/countries`)
+        .then(({ data }) => data)
+    },
+    fetchPartners() {
+      return this.$axios
+        .get(`${this.$i18n.locale}/partners`)
+        .then(({ data }) => data)
+    },
     submitSearch(val) {
-      const id = this.partners.findIndex((el) => el.pk === val)
-      if (id === -1) return
-      if (this.partners[id].country_slug) {
-        this.$router.push(`/${this.partners[id].country_slug}`)
-        return
+      const result = this.searchResults.find((el) => el.id === val)
+      if (!result) return
+      if (result.type === 'country') {
+        this.$router.push(`/${result.country_slug}`)
+      } else {
+        this.$router.push(`/${result.country_slug}/${result.partner_slug}`)
       }
-      const countrySlug = this.partners[id].country.country_slug
-      const partnerSlug = this.partners[id].partner_slug
-      this.$router.push(`/${countrySlug}/${partnerSlug}`)
     },
   },
 }
