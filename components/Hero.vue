@@ -246,6 +246,7 @@ export default {
   methods: {
     arrToString(arr) {
       let res = ''
+      if (!arr && !Array.isArray(arr)) return res
       arr.forEach(
         (el, index) =>
           (res += el.title + (arr.length - 1 === index ? '' : ', '))
