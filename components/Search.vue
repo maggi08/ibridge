@@ -122,7 +122,7 @@ export default {
 
       this.isLoading = true
       this.$axios
-        .get(`${this.$i18n.locale}/partners?country=${value}`)
+        .get(`${this.$i18n.locale}/partners?query=${value}`)
         .then((res) => {
           this.partners = [...res.data, ...this.countries]
         })
