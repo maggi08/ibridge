@@ -140,7 +140,7 @@
     "contacts":"Contacts",
     "phone":"Phone",
     "address":"Address",
-    "address1":"office 7F, floor 7, Esentai Apt., 77/2 Al-Farabi ave., Almaty",
+    "address1":"office 84, floor 8, Koktem BC., 180 Dostyk ave., Almaty",
     "worktime":"Working hours",
     "worktime1":"Mon-Fri: 10:00 - 19:00",
     "worktime2":"Sat: 10:00 - 15:00 (by appointment)"
@@ -152,7 +152,7 @@
     "contacts":"Контакты",
     "phone":"Телефон",
     "address":"Адрес",
-    "address1":"г. Алматы пр. Аль-Фараби 77/2, Esentai Apartments, офис 7F, эт. 7",
+    "address1":"г. Алматы, пр. Достык 180, БЦ "Коктем", офис 84, 8 этаж.",
     "worktime":"Режим работы",
     "worktime1":"Пн-Пт: 10:00 - 19:00",
     "worktime2":"CБ: 10:00 - 15:00 (по записи)"
