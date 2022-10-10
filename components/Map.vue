@@ -222,16 +222,16 @@ export default {
           // iconImageHref: '/location.png',
           iconCaption:
             this.$i18n.locale === 'ru'
-              ? 'г. Алматы пр. Аль-Фараби 77/2, Esentai Apartments, офис 7F, эт. 7'
-              : 'office 7F, floor 7, Esentai Apt., 77/2 Al-Farabi ave., Almaty',
+              ? 'г. Алматы, пр. Достык 180, БЦ "Коктем", офис 84, 8 этаж.'
+              : 'office 84, floor 8, Koktem BC., 180 Dostyk ave., Almaty',
         },
         {
           iconLayout: 'default#image',
           iconImageHref: '/location.svg',
           hintContent:
             this.$i18n.locale === 'ru'
-              ? 'г. Алматы пр. Аль-Фараби 77/2, Esentai Apartments, офис 7F, эт. 7'
-              : 'office 7F, floor 7, Esentai Apt., 77/2 Al-Farabi ave., Almaty',
+              ? 'г. Алматы, пр. Достык 180, БЦ "Коктем", офис 84, 8 этаж.'
+              : 'office 84, floor 8, Koktem BC., 180 Dostyk ave., Almaty',
           draggable: false,
         }
       )
