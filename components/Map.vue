@@ -176,7 +176,8 @@ export default {
     },
   },
   data: () => ({
-    coords: [43.22044, 76.928717],
+    coords: [43.232349, 76.959793],
+
     myMap: null,
     myPlacemark: null,
     zoom: 16,
